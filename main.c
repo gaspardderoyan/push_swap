@@ -129,9 +129,6 @@ int main(int argc, char **argv)
     else if (argc == 2)
         lst_from_str(argv[1], &a);
     ft_putstr_fd("list a:\n", 1);
-    pnf_list(a, 0);
-    reverse(&a);
-    ft_putstr_fd("list a:\n", 1);
-    pnf_list(a, 0);
+    pnf_list(a, 1);
     return (0);
 }
