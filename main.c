@@ -50,6 +50,7 @@ void pnf_list(t_list *lst, int free_flag)
             free(current);
         }
     }
+    printf("\n");
 }
 
 void swap_first(t_list **lst)
@@ -63,7 +64,7 @@ void swap_first(t_list **lst)
     (*lst)->content = temp;
 }
 
-void    swap_first_both(t_list **a, t_list **b, void (f)(t_list**))
+void    f_both(t_list **a, t_list **b, void (f)(t_list**))
 {
     f(a);
     f(b);
@@ -75,10 +76,45 @@ void    push_first(t_list **in, t_list **out)
 
     if (!in || !*in || !(*in)->content)
         return ;
+    
     temp = *in;
     *in = (*in)->next;
     temp->next = NULL;
     ft_lstadd_front(out, temp);
+}
+
+void   rotate(t_list **lst)
+{
+    t_list *temp;
+
+    temp = *lst;
+    *lst = (*lst)->next;
+    temp->next = NULL;
+    ft_lstadd_back(lst, temp);
+}
+
+t_list *get_ntl(t_list *lst)
+{
+    t_list *cursor;
+
+    if (lst == NULL || lst->next == NULL)
+        return (NULL);
+    cursor = lst;
+    while (cursor->next->next != NULL)
+        cursor = cursor->next;
+    return (cursor);
+}
+
+void    reverse(t_list **lst)
+{
+    t_list *next_to_last;
+    t_list *last;
+
+    last = ft_lstlast(*lst);
+    next_to_last = get_ntl(*lst);
+    next_to_last->next = NULL;
+    last->next = *lst;
+    *lst = last;
 }
 
 int main(int argc, char **argv)
@@ -91,27 +127,11 @@ int main(int argc, char **argv)
     if (argc == 1)
         ft_putstr_fd("Error\n", 2);
     else if (argc == 2)
-    {
-        ft_putstr_fd(argv[1], 1);
-        ft_putstr_fd("\n", 1);
         lst_from_str(argv[1], &a);
-    }
-
-    ft_putstr_fd("list a:\n", 1);
-    // pnf_list(a, 0);
-    ft_putstr_fd("\n", 1);
-    // swap_first(&a);
-    // ft_putstr_fd("pushing the first\n", 1);
-    push_first(&a, &b);
-    // ft_putstr_fd("list a:\n", 1);
-    // pnf_list(a, 0);
-    // ft_putstr_fd("list b:\n", 1);
-    // pnf_list(b, 0);
-    swap_first_both(&a, &b, &swap_first);
-    ft_putstr_fd("pushing the first\n", 1);
     ft_putstr_fd("list a:\n", 1);
     pnf_list(a, 0);
-    ft_putstr_fd("list b:\n", 1);
-    pnf_list(b, 0);
+    reverse(&a);
+    ft_putstr_fd("list a:\n", 1);
+    pnf_list(a, 0);
     return (0);
 }
