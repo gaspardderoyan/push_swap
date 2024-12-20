@@ -1,0 +1,170 @@
+
+Input: '123', Base: 10
+ft_strtoll:  Result: 123, Endptr: '(null)', Errno: 0
+strtoll:     Result: 123, Endptr: '', Errno: 0
+[PASS] Match
+
+Input: '123', Base: 16
+ft_strtoll:  Result: 291, Endptr: '(null)', Errno: 0
+strtoll:     Result: 291, Endptr: '', Errno: 0
+[PASS] Match
+
+Input: '-123', Base: 10
+ft_strtoll:  Result: -123, Endptr: '(null)', Errno: 0
+strtoll:     Result: -123, Endptr: '', Errno: 0
+[PASS] Match
+
+Input: '-123', Base: 16
+ft_strtoll:  Result: -291, Endptr: '(null)', Errno: 0
+strtoll:     Result: -291, Endptr: '', Errno: 0
+[PASS] Match
+
+Input: '0', Base: 10
+ft_strtoll:  Result: 0, Endptr: '(null)', Errno: 0
+strtoll:     Result: 0, Endptr: '', Errno: 0
+[PASS] Match
+
+Input: '0', Base: 16
+ft_strtoll:  Result: 0, Endptr: '(null)', Errno: 0
+strtoll:     Result: 0, Endptr: '', Errno: 0
+[PASS] Match
+
+Input: '2147483647', Base: 10
+ft_strtoll:  Result: 2147483647, Endptr: '(null)', Errno: 0
+strtoll:     Result: 2147483647, Endptr: '', Errno: 0
+[PASS] Match
+
+Input: '2147483647', Base: 16
+ft_strtoll:  Result: 142929835591, Endptr: '(null)', Errno: 0
+strtoll:     Result: 142929835591, Endptr: '', Errno: 0
+[PASS] Match
+
+Input: '-2147483648', Base: 10
+ft_strtoll:  Result: -2147483648, Endptr: '(null)', Errno: 0
+strtoll:     Result: -2147483648, Endptr: '', Errno: 0
+[PASS] Match
+
+Input: '-2147483648', Base: 16
+ft_strtoll:  Result: -142929835592, Endptr: '(null)', Errno: 0
+strtoll:     Result: -142929835592, Endptr: '', Errno: 0
+[PASS] Match
+
+Input: '9223372036854775807', Base: 10
+ft_strtoll:  Result: 9223372036854775807, Endptr: '(null)', Errno: 0
+strtoll:     Result: 9223372036854775807, Endptr: '', Errno: 0
+[PASS] Match
+
+Input: '9223372036854775807', Base: 16
+ft_strtoll:  Result: 3707029189907929095, Endptr: '(null)', Errno: 0
+strtoll:     Result: 9223372036854775807, Endptr: '', Errno: 34
+[FAIL] Mismatch detected
+
+Input: '-9223372036854775808', Base: 10
+ft_strtoll:  Result: -9223372036854775808, Endptr: '(null)', Errno: 0
+strtoll:     Result: -9223372036854775808, Endptr: '', Errno: 0
+[PASS] Match
+
+Input: '-9223372036854775808', Base: 16
+ft_strtoll:  Result: -3707029189907929096, Endptr: '(null)', Errno: 0
+strtoll:     Result: -9223372036854775808, Endptr: '', Errno: 34
+[FAIL] Mismatch detected
+
+Input: 'abcd', Base: 10
+ft_strtoll:  Result: 0, Endptr: 'abcd', Errno: 22
+strtoll:     Result: 0, Endptr: 'abcd', Errno: 0
+[FAIL] Mismatch detected
+
+Input: 'abcd', Base: 16
+ft_strtoll:  Result: 43981, Endptr: '(null)', Errno: 0
+strtoll:     Result: 43981, Endptr: '', Errno: 0
+[PASS] Match
+
+Input: '  42', Base: 10
+ft_strtoll:  Result: 42, Endptr: '(null)', Errno: 0
+strtoll:     Result: 42, Endptr: '', Errno: 0
+[PASS] Match
+
+Input: '  42', Base: 16
+ft_strtoll:  Result: 66, Endptr: '(null)', Errno: 0
+strtoll:     Result: 66, Endptr: '', Errno: 0
+[PASS] Match
+
+Input: '42abc', Base: 10
+ft_strtoll:  Result: 42, Endptr: 'abc', Errno: 0
+strtoll:     Result: 42, Endptr: 'abc', Errno: 0
+[PASS] Match
+
+Input: '42abc', Base: 16
+ft_strtoll:  Result: 273084, Endptr: '(null)', Errno: 0
+strtoll:     Result: 273084, Endptr: '', Errno: 0
+[PASS] Match
+
+Input: '', Base: 10
+ft_strtoll:  Result: 0, Endptr: '(null)', Errno: 0
+strtoll:     Result: 0, Endptr: '', Errno: 0
+[PASS] Match
+
+Input: '', Base: 16
+ft_strtoll:  Result: 0, Endptr: '(null)', Errno: 0
+strtoll:     Result: 0, Endptr: '', Errno: 0
+[PASS] Match
+
+Input: ' ', Base: 10
+ft_strtoll:  Result: 0, Endptr: '(null)', Errno: 0
+strtoll:     Result: 0, Endptr: ' ', Errno: 0
+[PASS] Match
+
+Input: ' ', Base: 16
+ft_strtoll:  Result: 0, Endptr: '(null)', Errno: 0
+strtoll:     Result: 0, Endptr: ' ', Errno: 0
+[PASS] Match
+
+Input: '+42', Base: 10
+ft_strtoll:  Result: 42, Endptr: '(null)', Errno: 0
+strtoll:     Result: 42, Endptr: '', Errno: 0
+[PASS] Match
+
+Input: '+42', Base: 16
+ft_strtoll:  Result: 66, Endptr: '(null)', Errno: 0
+strtoll:     Result: 66, Endptr: '', Errno: 0
+[PASS] Match
+
+Input: '-', Base: 10
+ft_strtoll:  Result: 0, Endptr: '(null)', Errno: 0
+strtoll:     Result: 0, Endptr: '-', Errno: 0
+[PASS] Match
+
+Input: '-', Base: 16
+ft_strtoll:  Result: 0, Endptr: '(null)', Errno: 0
+strtoll:     Result: 0, Endptr: '-', Errno: 0
+[PASS] Match
+
+Input: '+', Base: 10
+ft_strtoll:  Result: 0, Endptr: '(null)', Errno: 0
+strtoll:     Result: 0, Endptr: '+', Errno: 0
+[PASS] Match
+
+Input: '+', Base: 16
+ft_strtoll:  Result: 0, Endptr: '(null)', Errno: 0
+strtoll:     Result: 0, Endptr: '+', Errno: 0
+[PASS] Match
+
+Input: '999999999999999999999999', Base: 10
+ft_strtoll:  Result: 2003764205206896639, Endptr: '(null)', Errno: 0
+strtoll:     Result: 9223372036854775807, Endptr: '', Errno: 34
+[FAIL] Mismatch detected
+
+Input: '999999999999999999999999', Base: 16
+ft_strtoll:  Result: -7378697629483820647, Endptr: '(null)', Errno: 0
+strtoll:     Result: 9223372036854775807, Endptr: '', Errno: 34
+[FAIL] Mismatch detected
+
+Input: '-999999999999999999999999', Base: 10
+ft_strtoll:  Result: -2003764205206896639, Endptr: '(null)', Errno: 0
+strtoll:     Result: -9223372036854775808, Endptr: '', Errno: 34
+[FAIL] Mismatch detected
+
+Input: '-999999999999999999999999', Base: 16
+ft_strtoll:  Result: 7378697629483820647, Endptr: '(null)', Errno: 0
+strtoll:     Result: -9223372036854775808, Endptr: '', Errno: 34
+[FAIL] Mismatch detected
