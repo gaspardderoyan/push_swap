@@ -1,5 +1,6 @@
 #include "../libft/inc/libft.h"
 #include <errno.h>
+#include <stdbool.h>
 #include <limits.h>
 
 int ft_isspace(int c)
@@ -8,23 +9,41 @@ int ft_isspace(int c)
 	return ((cc >= 9 && cc <= 13) || cc == 32);
 }
 
-int base_index(char c, int base)
+int base_index(char c, int radix)
 {
-	const char *base_chars = "0123456789abcdefghijklmnopqrstuvwxyz";
+	const char *base = "0123456789abcdefghijklmnopqrstuvwxyz";
 	int index;
 
 	index = 0;
 	c = ft_tolower(c);
-	while (base_chars[index] && index < base)
+	while (base[index] && index < radix)
 	{
-		if (base_chars[index] == c)
+		if (base[index] == c)
 			return index;
 		index++;
 	}
 	return -1;
 }
 
-void skip_lead(const char **nptr, int *sign)
+int handle_overflow(int sign, long long *n, int digit, int radix)
+{
+
+	if (sign == 1 && *n > (LLONG_MAX - digit) / radix)
+	{
+		errno = ERANGE;
+		*n = LLONG_MAX;
+		return (true);
+	}
+	if (sign == -1 && -(*n) < (LLONG_MIN + digit) / radix)
+	{
+		errno = ERANGE;
+		*n = LLONG_MIN;
+		return (true);
+	}
+	return (false);
+}
+
+void skip_lead(const char **nptr, int *sign, int *radix)
 {
 	while (ft_isspace(**nptr))
 		(*nptr)++;
@@ -35,51 +54,53 @@ void skip_lead(const char **nptr, int *sign)
 		(*nptr)++;
 	}
 	else if (**nptr == '+')
+		(*nptr)++;
+	if ((*radix == 0 || *radix == 16) && **nptr == '0'
+		&& (ft_tolower(*(*nptr + 1)) == 'x'))
+		{
+			*nptr += 2;
+			*radix = 16;
+		}
+	else if (*radix == 0 && **nptr == '0')
 	{
 		(*nptr)++;
+		*radix = 8;
 	}
+	else if (*radix == 0)
+		*radix = 10;
+
 }
 
-long long handle_overflow(int sign)
-{
-	errno = ERANGE;
-	if (sign == 1)
-		return LLONG_MAX;
-	else
-		return LLONG_MIN;
-}
 
-long long mini_strtoll(const char *nptr, int base)
+long long mini_strtoll(const char *nptr, char **endptr, int radix)
 {
-	int sign;
-	long long n;
-	int digit;
+	int			sign;
+	int			index;
+	long long	n;
 
+	sign = 1;
 	n = 0;
-	skip_lead(&nptr, &sign);
-	if (!ft_isalnum(*nptr) || base < 2 || base > 36)
+	skip_lead(&nptr, &sign, &radix);
+	if (base_index(*nptr, radix) == -1 || radix < 2 || radix > 36)
 		return (errno = EINVAL, 0);
-	while (*nptr && ft_isalnum(*nptr))
+	while (*nptr && ft_isalnum(*nptr) && (base_index(*nptr, radix) > -1))
 	{
-		digit = base_index(*nptr, base);
-		if (digit == -1)
-			break;
-		if (sign == 1)
-			if (n > (LLONG_MAX - digit) / base)
-				return handle_overflow(sign);
-		if (sign == -1)
-			if (-n < (LLONG_MIN + digit) / base)
-				return handle_overflow(sign);
-		n = n * base + digit;
+		index = base_index(*nptr, radix);
+		if (handle_overflow(sign, &n, index, radix))
+			return (*endptr = (char *)nptr, n);
+		n = n * radix + index;
 		nptr++;
 	}
-	return n * sign;
+	*endptr = (char *)nptr;
+	return (n * sign);
 }
 
 void test_mini_strtoll(const char *str, int base, long long expected)
 {
+	char *endptr;
+	endptr = NULL;
     errno = 0;
-    long long result = mini_strtoll(str, base);
+    long long result = mini_strtoll(str, &endptr, base);
     if (result == expected && ((errno == 0) || (expected == LLONG_MAX && errno == ERANGE) || (expected == LLONG_MIN && errno == ERANGE) || (expected == 0 && errno == EINVAL)))
     {
         printf("PASS: mini_strtoll(\"%s\", %d) = %lld\n", str, base, result);
