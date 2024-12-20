@@ -1,169 +1,132 @@
 #include "../libft/inc/libft.h"
 #include <errno.h>
-#include <string.h>
+#include <limits.h>
 
-int	ft_isspace(int c)
+int ft_isspace(int c)
 {
-	unsigned char	cc;
-
-	cc = (unsigned char)c;
-
-	if ((cc >= 9 && cc <= 13) || cc == 32)
-		return (1);
-	return (0);
+	unsigned char cc = (unsigned char)c;
+	return ((cc >= 9 && cc <= 13) || cc == 32);
 }
 
-// strspn
-int	base_index(char c, int base)
+int base_index(char c, int base)
 {
-	int	i;
-	char		base_chars[37] = "0123456789abcdefghijklmnopqrstuvwxyz";
+	const char *base_chars = "0123456789abcdefghijklmnopqrstuvwxyz";
+	int index;
 
-	i = 0;
-	while (base_chars[i] && i < base)
+	index = 0;
+	c = ft_tolower(c);
+	while (base_chars[index] && index < base)
 	{
-		if (base_chars[i] == ft_tolower(c))
-			return (i);
-		i++;
+		if (base_chars[index] == c)
+			return index;
+		index++;
 	}
-	return (-1);
+	return -1;
 }
 
-int	base_validate(char c, int base)
-{
-	int	i;
-	char		base_chars[37] = "0123456789abcdefghijklmnopqrstuvwxyz";
-
-	i = 0;
-	while (i < base)
-	{
-		if (base_chars[i] == ft_tolower(c))
-			return (1);
-		i++;
-	}
-	return (0);
-}
-
-void	skip_lead(const char **nptr, int *pola)
+void skip_lead(const char **nptr, int *sign)
 {
 	while (ft_isspace(**nptr))
 		(*nptr)++;
+	*sign = 1;
 	if (**nptr == '-')
-		*pola = -1;
-	if (**nptr == '+' || **nptr == '-')
+	{
+		*sign = -1;
 		(*nptr)++;
+	}
+	else if (**nptr == '+')
+	{
+		(*nptr)++;
+	}
 }
 
-long long handle_overflow(char **endptr, const char *nptr, int over)
+long long handle_overflow(int sign)
 {
 	errno = ERANGE;
-	if (endptr)
-		*endptr = (char *)nptr;
-	if (over)
+	if (sign == 1)
 		return LLONG_MAX;
-	return LLONG_MIN;
+	else
+		return LLONG_MIN;
 }
 
-long long	ft_strtoll(const char *nptr, char **endptr, int base)
+long long mini_strtoll(const char *nptr, int base)
 {
-	int			pola;
-	int			i;
-	long long	n;
-	long long	prev_n;
-	const char	*c_nptr = nptr;
+	int sign;
+	long long n;
+	int digit;
 
-	pola = 1;
 	n = 0;
-	if (base < 2 || base > 36)
+	skip_lead(&nptr, &sign);
+	if (!ft_isalnum(*nptr) || base < 2 || base > 36)
 		return (errno = EINVAL, 0);
-	skip_lead(&nptr, &pola);
 	while (*nptr && ft_isalnum(*nptr))
 	{
-		i = base_index(*nptr, base);
-		errno = 0;
-		if (i < 0)
-		{
-			*endptr = (char* )nptr;
-			if (nptr == c_nptr)
-			{
-				errno = EINVAL;
-				return (0);
-			}
+		digit = base_index(*nptr, base);
+		if (digit == -1)
 			break;
-		}
-		prev_n = n;
-		if (pola == 1 && (n < prev_n || (prev_n > 0 && n > LLONG_MAX - i)))
-			return (handle_overflow(endptr, nptr, 1));
-		if (pola == -1 && (n > prev_n || (prev_n < 0 && n < LLONG_MIN + i)))
-			return (handle_overflow(endptr, nptr, 0));
-		n += i;
-		if (base_validate(*(nptr + 1), base))
-			n *= base;
+		if (sign == 1)
+			if (n > (LLONG_MAX - digit) / base)
+				return handle_overflow(sign);
+		if (sign == -1)
+			if (-n < (LLONG_MIN + digit) / base)
+				return handle_overflow(sign);
+		n = n * base + digit;
 		nptr++;
 	}
-	return (n * pola);
+	return n * sign;
 }
 
-
-void test_strtoll(const char *input, int base) {
-    char *endptr_ft = NULL;
-    char *endptr_std = NULL;
-    long result_ft, result_std;
-    int errno_ft = 0, errno_std = 0;
-
-    // Test custom implementation
+void test_mini_strtoll(const char *str, int base, long long expected)
+{
     errno = 0;
-    result_ft = ft_strtoll(input, &endptr_ft, base);
-    errno_ft = errno;
-    // Test standard implementation
-    errno = 0;
-    result_std = strtoll(input, &endptr_std, base);
-    errno_std = errno;
-
-    // Print results
-    printf("\nInput: '%s', Base: %d\n", input, base);
-    printf("ft_strtoll:  Result: %ld, Endptr: '%s', Errno: %d\n",
-           result_ft, endptr_ft ? endptr_ft : "(null)", errno_ft);
-    printf("strtoll:     Result: %ld, Endptr: '%s', Errno: %d\n",
-           result_std, endptr_std ? endptr_std : "(null)", errno_std);
-
-    if (result_ft != result_std || (endptr_ft && strcmp(endptr_ft, endptr_std) != 0) || errno_ft != errno_std) {
-        printf("[FAIL] Mismatch detected\n");
-    } else {
-        printf("[PASS] Match\n");
+    long long result = mini_strtoll(str, base);
+    if (result == expected && ((errno == 0) || (expected == LLONG_MAX && errno == ERANGE) || (expected == LLONG_MIN && errno == ERANGE) || (expected == 0 && errno == EINVAL)))
+    {
+        printf("PASS: mini_strtoll(\"%s\", %d) = %lld\n", str, base, result);
+    }
+    else
+    {
+        printf("FAIL: mini_strtoll(\"%s\", %d) = %lld (Expected: %lld, errno: %d)\n", str, base, result, expected, errno);
     }
 }
 
-int main(void) {
-    // Test cases
-    const char *inputs[] = {
-        "123",            // Simple valid input
-        "-123",           // Negative number
-        "0",              // Zero
-        "2147483647",     // INT_MAX
-        "-2147483648",    // INT_MIN
-        "9223372036854775807", // LONG_MAX
-        "-9223372036854775808", // LONG_MIN
-        "abcd",           // Invalid input
-        "  42",           // Leading whitespace
-        "42abc",          // Trailing invalid characters
-        "",               // Empty string
-        " ",              // String with only whitespace
-        "+42",            // Explicit positive sign
-        "-",              // Lone negative sign
-        "+",              // Lone positive sign
-        "999999999999999999999999", // Out of range
-        "-999999999999999999999999" // Out of range negative
-    };
+int main(void)
+{
+    // Valid conversions
+    test_mini_strtoll("12345", 10, 12345);
+    test_mini_strtoll("-12345", 10, -12345);
+    test_mini_strtoll("7fffffff", 16, 2147483647);
+    test_mini_strtoll("-80000000", 16, -2147483648);
+    test_mini_strtoll("   +42", 10, 42);
+    test_mini_strtoll("101010", 2, 42);
+    test_mini_strtoll("2a", 16, 42);
+    test_mini_strtoll("z", 36, 35);
+    test_mini_strtoll("ZZ", 36, 1295); // 35*36 + 35 = 1295
 
-    int bases[] = {10, 16}; // Decimal, Hexadecimal, Octal, and Auto-detect
+    // Edge cases
+    test_mini_strtoll("", 10, 0); // Invalid input
+    test_mini_strtoll("   ", 10, 0); // Only spaces
+    test_mini_strtoll("+", 10, 0); // Only plus sign
+    test_mini_strtoll("-", 10, 0); // Only minus sign
+    test_mini_strtoll("+-2", 10, 0); // Invalid sign
+    test_mini_strtoll("123abc", 10, 123); // Stops at first non-digit
+    test_mini_strtoll("abc123", 10, 0); // Invalid starting character
 
-    // Run tests
-    for (int i = 0; i < sizeof(inputs) / sizeof(inputs[0]); i++) {
-        for (int j = 0; j < sizeof(bases) / sizeof(bases[0]); j++) {
-            test_strtoll(inputs[i], bases[j]);
-        }
-    }
+    // Invalid bases
+    test_mini_strtoll("123", 1, 0); // Invalid base
+    test_mini_strtoll("123", 37, 0); // Invalid base
+
+    // Overflow cases
+    test_mini_strtoll("9223372036854775807", 10, LLONG_MAX); // Max LLONG
+    test_mini_strtoll("9223372036854775808", 10, LLONG_MAX); // Overflow
+    test_mini_strtoll("-9223372036854775808", 10, LLONG_MIN); // Min LLONG
+    test_mini_strtoll("-9223372036854775809", 10, LLONG_MIN); // Underflow
+
+    // Base-specific edge cases
+    test_mini_strtoll("0", 10, 0);
+    test_mini_strtoll("0000123", 10, 123);
+    test_mini_strtoll("1z", 36, 71); // 1*36 + 35 = 71
+    test_mini_strtoll("G", 16, 0); // Invalid character for base 16
 
     return 0;
 }
