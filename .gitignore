@@ -2,3 +2,4 @@
 a.out
 *.txt
 push_swap
+**/*.o
