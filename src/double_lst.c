@@ -1,4 +1,4 @@
-#include "double_lst.h"
+#include "../inc/double_lst.h"
 
 t_dlist *ft_dlstnew(void *content)
 {
@@ -56,4 +56,19 @@ void	ft_dlstadd_back(t_dlist **lst, t_dlist *new)
             new->prev = last;
         }
 	}
+}
+
+int	ft_dlstsize(t_dlist *lst)
+{
+	int		i;
+	t_dlist	*cursor;
+
+	cursor = lst;
+	i = 0;
+	while (cursor != NULL)
+	{
+		cursor = cursor->next;
+		i++;
+	}
+	return (i);
 }

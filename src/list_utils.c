@@ -1,5 +1,5 @@
-#include "double_lst.h"
-#include "project.h"
+#include "../inc/double_lst.h"
+#include "../inc/project.h"
 
 int	str_isall(char *s, int (*f)(int))
 {
