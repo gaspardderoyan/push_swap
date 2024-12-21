@@ -1,4 +1,4 @@
-#include "project.h"
+#include "../inc/project.h"
 
 void swap_first(t_dlist **lst)
 {
