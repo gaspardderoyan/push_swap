@@ -7,6 +7,7 @@
 typedef struct s_dlist
 {
     void    *content;
+    int     index;
     struct s_dlist  *prev;
     struct s_dlist  *next;
 } t_dlist;

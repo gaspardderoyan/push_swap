@@ -10,6 +10,7 @@ void pnf_list(t_dlist *lst, int free_flag)
 	{
 		if (free_flag != 2)
 		{
+            ft_printf("(%d) --> ", lst->index);
 			if (lst->content != NULL)
 				ft_printf("%d ", *(int *)lst->content);
 			else
@@ -30,14 +31,24 @@ void pnf_list(t_dlist *lst, int free_flag)
 
 // TODO find_smallest
 // return number, set index 
-int find_smallest(t_dlist *lst)
+int find_smallest(t_dlist *lst, int *previous)
 {
     int min;
+    int current;
     min = *(int *)lst->content;
     while (lst)
     {
-        if (min > *(int *)lst->content)
-            min = *(int *)lst->content;
+        current = *(int *)lst->content;
+        if (previous)
+        {
+            if (min > current && current != *previous)
+                min = current;
+        }
+        else
+        {
+            if (min > current)
+                min = current;
+        }
         lst = lst->next;
     }
 
@@ -66,6 +77,37 @@ int find_index(t_dlist *lst, int n)
 
 */
 
+t_dlist *get_lst_min(t_dlist *lst, t_dlist *current_min)
+{
+    t_dlist *min;
+
+    if (current_min)
+        min = current_min;
+    else
+        min = lst;
+    while (lst)
+    {
+        if (*(int *)min->content > *(int *)lst->content)
+            min = lst;
+        lst = lst->next;
+    }
+    return (min);
+}
+
+void index_list(t_dlist **lst, int lst_len)
+{
+    int i;
+    t_dlist *current;
+
+    i = 0;
+    while (i < lst_len)
+    {
+        current = get_lst_min(*lst, current);
+        current->index = i;
+        i++;
+    }
+}
+
 int sort(t_dlist **a, t_dlist **b)
 {
     int min;
@@ -74,7 +116,7 @@ int sort(t_dlist **a, t_dlist **b)
     operations = 0;
     while (ft_dlstsize(*a) != 0)
     {
-        min = find_smallest(*a);
+        min = find_smallest(*a, NULL);
         while (*(int *)(*a)->content != min)
         {
             rotate(a); 
@@ -126,9 +168,11 @@ int main(int argc, char **argv)
     /*min_index = find_index(a, min);*/
     /*ft_printf("\nmin: %i\n", min);*/
     /*ft_printf("\nmin index: %i\n", min_index);*/
+	/*   operations = sort(&a, &b);*/
+	/*ft_putstr_fd("\nlist a:\n", 1);*/
+	/*pnf_list(a, 0);*/
+    index_list(&a, lst_size);
     operations = sort(&a, &b);
-	ft_putstr_fd("\nlist a:\n", 1);
-	pnf_list(a, 0);
     ft_printf("\nOperations: %i\n", operations);
 	return (0);
 }
