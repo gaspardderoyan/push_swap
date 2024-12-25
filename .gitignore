@@ -3,3 +3,5 @@ a.out
 *.txt
 push_swap
 **/*.o
+.cache/
+compile_commands.json
