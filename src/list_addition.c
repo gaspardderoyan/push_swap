@@ -1,6 +1,6 @@
 #include "../libft/inc/libft.h"
-#include "double_lst.h"
-#include "project.h"
+#include "../inc/double_lst.h"
+#include "../inc/project.h"
 
 void    add_nbr_to_lst(t_dlist **lst, int n)
 {

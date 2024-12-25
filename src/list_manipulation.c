@@ -36,6 +36,7 @@ void   rotate(t_dlist **lst)
 
 	temp = *lst;
 	*lst = (*lst)->next;
+    (*lst)->prev = NULL; // New head has no previous node
 	temp->next = NULL;
 	ft_dlstadd_back(lst, temp);
 }

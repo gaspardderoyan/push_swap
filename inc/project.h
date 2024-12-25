@@ -27,6 +27,8 @@ void    reverse(t_dlist **lst);
 int     str_isall(char *s, int (*f)(int));
 void    pnf_list(t_dlist *lst, int free_flag);
 t_dlist *get_ntl(t_dlist *lst);
+t_dlist *get_lst_min(t_dlist *lst, int index_mode);
+void    list_indexing(t_dlist **lst, int lst_len);
 
 #endif
 
