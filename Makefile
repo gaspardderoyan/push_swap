@@ -28,7 +28,7 @@ $(NAME): $(OBJS) $(LIBFT)
 # Compile object files
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c inc/project.h
 	@mkdir -p $(OBJ_DIR)
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -g3 -c $< -o $@
 
 # Build libft
 libft:

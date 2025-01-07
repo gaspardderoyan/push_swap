@@ -1,6 +1,7 @@
 .vscode/
 a.out
 *.txt
+*.md
 push_swap
 **/*.o
 .cache/
