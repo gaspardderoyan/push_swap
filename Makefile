@@ -11,6 +11,7 @@ SRCS = double_lst.c \
 	  list_addition.c \
 	  list_manipulation.c \
 	  list_utils.c \
+	  algo.c \
 	  main.c
 
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
@@ -47,3 +48,5 @@ fclean: clean
 # Rebuild the project
 re: fclean all
 
+test: all
+	./$(NAME) $(ARGS)

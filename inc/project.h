@@ -1,10 +1,6 @@
 #ifndef PROJECT_H
 # define PROJECT_H
 
-# include <stdio.h>
-# include <stdlib.h>
-# include <unistd.h>
-# include <errno.h>
 # include "../libft/inc/libft.h"
 # include "double_lst.h"
 
@@ -29,6 +25,11 @@ void    pnf_list(t_dlist *lst, int free_flag);
 t_dlist *get_ntl(t_dlist *lst);
 t_dlist *get_lst_min(t_dlist *lst, int index_mode);
 void    list_indexing(t_dlist **lst, int lst_len);
+
+// Algorithms
+int	insertion_sort(t_dlist **a, t_dlist **b);
+int	chunk_sort(t_dlist **a, t_dlist **b, int chunks_count);
+int direction_of_first(t_dlist *a, int chunks_count, int chunks_i);
 
 #endif
 
