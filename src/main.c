@@ -54,6 +54,7 @@ int	main(int argc, char **argv)
 	mt.lst_size = ft_dlstsize(a);
 	mt.chunks_i = 0;
 	mt.chunks_count = 5;
+
 	ft_printf("\n\nlst_size: %i\n\n", mt.lst_size);
     list_indexing(&a, mt.lst_size);
 	ft_printf("Before sorting: \n");
@@ -62,11 +63,11 @@ int	main(int argc, char **argv)
 	// int dir = direction_of_first(a, 2, 1);
 	// ft_printf("Dir: %i\n", dir);
 
-	// t_dlist *b = NULL;
-	// int operations = chunk_sort(&a, &b, 11);
-	// ft_printf("After sorting: \n");
-	// pnf_list(a, 0);
-	// ft_printf("Operations: %i\n", operations);
+	t_dlist *b = NULL;
+	int operations = chunk_sort(&a, &b, &mt);
+	ft_printf("After sorting: \n");
+	pnf_list(a, 0);
+	ft_printf("Operations: %i\n", operations);
 
 	// int dir = direction_of_first(a, 2, 0);
 	// ft_printf("Dir: %i\n", dir);

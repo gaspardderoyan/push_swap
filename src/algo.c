@@ -58,32 +58,30 @@ void	update_mt(t_stacks_mt *mt)
 	* return -1 if should start from end
 	* return 0 if should skip to next stack
 */
-int dir_of_first(t_dlist *a, int chunks_count, int chunks_i)
+int dir_of_first(t_dlist *lst, t_stacks_mt *mt)
 {
 	t_dlist *cursor;
 	int	start_i;
 	int	end_i;
-	int	chunk_limit;
 
-	if (!a || !chunks_count || chunks_i + 1 >= chunks_count)
-		return (0);
+	cursor = lst;
 	start_i = 0;
 	end_i = 0;
-	chunk_limit = (chunks_i + 1) * (ft_dlstsize(a) / chunks_count);
-	cursor = a;
 	while (cursor)
 	{
-		if (cursor->index < chunk_limit)
+		if (cursor->index >= mt->lower_limit
+			&& cursor->index <= mt->upper_limit)
 			break ;
 		start_i++;
 		cursor = cursor->next;
 	}
 	if (!cursor)
 		return (0);
-	cursor = ft_dlstlast(a);
+	cursor = ft_dlstlast(lst);
 	while (cursor)
 	{
-		if (cursor->index < chunk_limit)
+		if (cursor->index >= mt->lower_limit
+			&& cursor->index <= mt->upper_limit)
 			break ;
 		end_i++;
 		cursor = cursor->prev;
@@ -94,24 +92,21 @@ int dir_of_first(t_dlist *a, int chunks_count, int chunks_i)
 		return (-1);
 }
 
-int	chunk_sort(t_dlist **a, t_dlist **b, int chunks_count)
+int	chunk_sort(t_dlist **a, t_dlist **b, t_stacks_mt *mt)
 {
 	int	operations;
-	int	chunks_i;
-	int	lst_size;
 
+	update_mt(mt);
 	operations = 0;
-	chunks_i = 0;
-	lst_size = ft_dlstsize(*a);
 	// Push everything to stack b, sorted into chunks
-	while (chunks_i < chunks_count)
+	while (mt->chunks_i < mt->chunks_count)
 	{
 		// Loop for each digit in the stack
-		while (*a && dir_of_first(*a, chunks_count, chunks_i))
+		while (*a && dir_of_first(*a, mt))
 		{
-			if (dir_of_first(*a, chunks_count, chunks_i)	== 1)
+			if (dir_of_first(*a, mt)	== 1)
 			{
-				while (*a && (*a)->index > (lst_size / chunks_count))
+				while (*a && (*a)->index > (mt->lst_size / mt->chunks_count))
 				{
 					rotate(a);
 					operations++;
@@ -119,7 +114,7 @@ int	chunk_sort(t_dlist **a, t_dlist **b, int chunks_count)
 			}
 			else 
 			{
-				while (*a && (*a)->index > (chunks_i + 1) * (lst_size / chunks_count))
+				while (*a && (*a)->index > (mt->chunks_i + 1) * (mt->lst_size / mt->chunks_count))
 				{
 					reverse(a);
 					operations++;
@@ -131,7 +126,7 @@ int	chunk_sort(t_dlist **a, t_dlist **b, int chunks_count)
 				operations++;
 			}
 		}
-		chunks_i++;
+		mt->chunks_i++;
 	}
 	while (*b)
 	{
