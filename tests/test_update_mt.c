@@ -1,3 +1,4 @@
+// tests/test_update_mt.c
 #include "../unity/unity.h"
 #include "../inc/project.h"
 #include <stdio.h>
@@ -11,9 +12,10 @@ static void assert_equals_and_print(int expected_lower, int actual_lower, int ex
 {
 	if ((actual_lower) != (expected_lower) || (actual_upper) != (expected_upper))
 	{
-	printf("%sFAIL: %s%s\n", COLOR_RED, func_name, COLOR_RESET);
-	printf("  lower_limit: Expected = %d, Actual = %d\n", (expected_lower), (actual_lower));
-	printf("  upper_limit: Expected = %d, Actual = %d\n", (expected_upper), (actual_upper));
+		printf("%sFAIL: %s%s\n", COLOR_RED, func_name, COLOR_RESET);
+		printf("  lower_limit: Expected = %d, Actual = %d\n", (expected_lower), (actual_lower));
+		printf("  upper_limit: Expected = %d, Actual = %d\n", (expected_upper), (actual_upper));
+		TEST_FAIL();
 	}
 	else
 		printf("%sPASS: %s%s\n", COLOR_GREEN, func_name, COLOR_RESET);

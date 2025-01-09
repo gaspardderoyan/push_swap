@@ -8,3 +8,5 @@ test_push_swap
 .cache/
 compile_commands.json
 unity/
+tests/*
+!tests/*.c
