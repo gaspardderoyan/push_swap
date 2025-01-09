@@ -3,6 +3,7 @@ a.out
 *.txt
 *.md
 push_swap
+test_push_swap
 **/*.o
 .cache/
 compile_commands.json

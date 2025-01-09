@@ -1,8 +1,26 @@
 #ifndef PROJECT_H
 # define PROJECT_H
 
-# include "../libft/inc/libft.h"
+# include "libft.h"
 # include "double_lst.h"
+
+/**
+ * Represents a chunk within a larger list for multi-chunks sorting.
+ *
+ * @var s_stack_mt::chunks_i The index of the current chunk being processed.
+ * @var s_stack_mt::lower_limit The starting index of the current chunk within the list.
+ * @var s_stack_mt::upper_limit The ending index of the current chunk within the list.
+ * @var s_stack_mt::chunks_count The total number of chunks the list is divided into.
+ * @var s_stack_mt::lst_size The total size of the list being sorted.
+ */
+typedef struct s_stack_mt
+{
+	int	chunks_i;
+	int	lower_limit;
+	int	upper_limit;
+	int	chunks_count;
+	int	lst_size;
+} t_stacks_mt;
 
 // Function Prototypes
 
@@ -27,9 +45,10 @@ t_dlist *get_lst_min(t_dlist *lst, int index_mode);
 void    list_indexing(t_dlist **lst, int lst_len);
 
 // Algorithms
-int	insertion_sort(t_dlist **a, t_dlist **b);
-int	chunk_sort(t_dlist **a, t_dlist **b, int chunks_count);
-int direction_of_first(t_dlist *a, int chunks_count, int chunks_i);
+int		insertion_sort(t_dlist **a, t_dlist **b);
+int		chunk_sort(t_dlist **a, t_dlist **b, int chunks_count);
+int		dir_of_first(t_dlist *a, int chunks_count, int chunks_i);
+void	update_mt(t_stacks_mt *mt);
 
 #endif
 
