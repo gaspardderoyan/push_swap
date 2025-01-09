@@ -1,8 +1,8 @@
 #ifndef PROJECT_H
 # define PROJECT_H
 
-# include "libft.h"
-# include "double_lst.h"
+# include "../libft/inc/libft.h"
+# include "../inc/double_lst.h"
 
 /**
  * Represents a chunk within a larger list for multi-chunks sorting.
