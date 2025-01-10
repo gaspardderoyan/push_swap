@@ -21,8 +21,8 @@ SRCS = double_lst.c \
 MAIN_SRC = main.c
 
 # $(text:pattern=replacement)
-MAIN_OBJ = $(MAIN_SRC:%.c=$(OBJ_DIR)/%.o)
 OBJS = $(SRCS:%.c=$(OBJ_DIR)/%.o)
+MAIN_OBJ = $(MAIN_SRC:%.c=$(OBJ_DIR)/%.o)
 
 NAME = push_swap
 
@@ -31,7 +31,7 @@ TEST_SRCS = test_update_mt.c \
 
 TEST_EXES = $(TEST_SRCS:%.c=$(TEST_DIR)/%)
 
-.PHONY: all clean fclean libft re test
+.PHONY: all clean fclean libft re test test_%
 
 ################################################################################
 # Main Build Targets
@@ -59,6 +59,10 @@ test: $(TEST_EXES)
 		$$t | sed '/^tests/d'; \
 	done
 
+# Pattern rule for individual test targets
+test_%: $(TEST_OBJ_DIR)/test_%.o $(OBJS) $(LIBFT) $(UNITY)
+	@$(CC) $(TEST_CFLAGS) $^ -o $(TEST_DIR)/$*
+	@$(TEST_DIR)/$* | sed '/^tests/d'
 
 # Build test executables
 $(TEST_DIR)/%: $(TEST_OBJ_DIR)/%.o $(OBJS) $(LIBFT) $(UNITY)
