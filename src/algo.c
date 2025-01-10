@@ -26,6 +26,7 @@ int insertion_sort(t_dlist **a, t_dlist **b)
     return (operations);
 }
 
+// TODO maybe make it calculate lst_size?
 /**
  * @brief Updates the lower and upper limits of a chunk based on its index.
  * 

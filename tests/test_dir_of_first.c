@@ -99,6 +99,16 @@ void	test_dir_of_first_mid_down(void)
 	assert_equals_and_print(-1, res, __func__);
 }
 
+void	test_dir_of_first_empty(void)
+{
+	t_dlist *lst = DLIST_FROM_ARR(((int[]){}));
+    t_stacks_mt mt = { .chunks_i = 0, .chunks_count = 5, .lst_size = 0 };
+	update_mt(&mt);
+    list_indexing(&lst, mt.lst_size);
+	int	res = dir_of_first(lst, &mt);
+	assert_equals_and_print(0, res, __func__);
+}
+
 int	main(void)
 {
 	UNITY_BEGIN();
@@ -106,5 +116,6 @@ int	main(void)
 	RUN_TEST(test_dir_of_first_end);
 	RUN_TEST(test_dir_of_first_mid_up);
 	RUN_TEST(test_dir_of_first_mid_down);
+	RUN_TEST(test_dir_of_first_empty);
 	return (UNITY_END());
 }
