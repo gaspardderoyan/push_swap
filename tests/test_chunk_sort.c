@@ -17,48 +17,100 @@ void tearDown(void)
     // clean stuff up here
 }
 
-// TEST SINGLE STRING
-
-void assert_correct_lst(int *expected, t_dlist *actual, int len, const char *func_name)
-{
-	int	i = 0;
-	while (i < len && actual)
-	{
-		if (expected[i] != *(int *)actual->content)
-		{
-			printf("%sFAIL: %s%s\n", COLOR_RED, func_name, COLOR_RESET);
-			printf("Index = %d,  Expected = %d, Actual = %d\n", i, expected[i] , *(int *)actual->content);
-			TEST_FAIL();
-			return ;
-		}
-		i++;
-		actual = actual->next;
-	}
-	printf("%sPASS: %s%s\n", COLOR_GREEN, func_name, COLOR_RESET);
-}
+/* ************************************************************************** */
+/*   SINGLE STRING                                                            */
+/* ************************************************************************** */
 
 void	test_lst_from_str_normal(void)
 {
 	t_dlist	*lst = NULL;
-	char	str[] = "1 2 3 4 5 6 7 8 9 10";
+	char	*str = "1 2 3 4 5 6 7 8 9 10";
 	int		arr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 	int		len = sizeof(arr) / sizeof(arr[0]);
 
 	lst_from_str(str, &lst);
-	assert_correct_lst(arr, lst, len, __func__);
+	int i = 0;
+	while (i < len && lst)
+	{
+		if (arr[i] != *(int *)lst->content)
+		{
+			printf("%sFAIL: %s%s\n", COLOR_RED, __func__, COLOR_RESET);
+			printf("Index = %d,  Expected = %d, Actual = %d\n", i, arr[i] , *(int *)lst->content);
+			TEST_FAIL();
+			return ;
+		}
+		i++;
+		lst = lst->next;
+	}
+	printf("%sPASS: %s%s\n", COLOR_GREEN, __func__, COLOR_RESET);
 }
 
 void	test_lst_from_str_invalid_char(void)
 {
 	t_dlist	*lst = NULL;
-	char	str[] = "1 2 3 4 b";
+	char	*str = "1 2 3 4 b";
 
 	errno = 0;
+	int expected_errno = 1;
 	lst_from_str(str, &lst);
-	if (errno != 1)
+	if (errno != expected_errno)
 	{
 		printf("%sFAIL: %s%s\n", COLOR_RED, __func__, COLOR_RESET);
-		printf("Errno: %d ; Expected: %d\n", errno, 1);
+		printf("Errno: %d ; Expected: %d\n", errno, expected_errno);
+		TEST_FAIL();
+		return ;
+	}
+	printf("%sPASS: %s%s\n", COLOR_GREEN, __func__, COLOR_RESET);
+}
+
+void	test_lst_from_str_consecutive_space(void)
+{
+	t_dlist	*lst = NULL;
+	char	*str = "1 2  3 4 5";
+
+	errno = 0;
+	int expected_errno = 5;
+	lst_from_str(str, &lst);
+	if (errno != expected_errno)
+	{
+		printf("%sFAIL: %s%s\n", COLOR_RED, __func__, COLOR_RESET);
+		printf("Errno: %d ; Expected: %d\n", errno, expected_errno);
+		TEST_FAIL();
+		return ;
+	}
+	printf("%sPASS: %s%s\n", COLOR_GREEN, __func__, COLOR_RESET);
+}
+
+void	test_lst_from_str_start_space(void)
+{
+	t_dlist	*lst = NULL;
+	char	*str = " 1 2 3 4 5";
+
+	errno = 0;
+	int expected_errno = 3;
+	lst_from_str(str, &lst);
+	if (errno != expected_errno)
+	{
+		printf("%sFAIL: %s%s\n", COLOR_RED, __func__, COLOR_RESET);
+		printf("Errno: %d ; Expected: %d\n", errno, expected_errno);
+		TEST_FAIL();
+		return ;
+	}
+	printf("%sPASS: %s%s\n", COLOR_GREEN, __func__, COLOR_RESET);
+}
+
+void	test_lst_from_str_end_space(void)
+{
+	t_dlist	*lst = NULL;
+	char	*str = "1 2 3 4 5 ";
+
+	errno = 0;
+	int expected_errno = 4;
+	lst_from_str(str, &lst);
+	if (errno != expected_errno)
+	{
+		printf("%sFAIL: %s%s\n", COLOR_RED, __func__, COLOR_RESET);
+		printf("Errno: %d ; Expected: %d\n", errno, expected_errno);
 		TEST_FAIL();
 		return ;
 	}
@@ -68,7 +120,7 @@ void	test_lst_from_str_invalid_char(void)
 void	test_lst_from_str_duplicate(void)
 {
 	t_dlist	*lst = NULL;
-	char	str[] = "1 2 3 4 5 5 7 8 9 10"; // two 5
+	char	*str = "1 2 3 4 5 5 7 8 9 10"; // two 5
 	int		expected_len = 5;
 
 	errno = 0;
@@ -87,11 +139,69 @@ void	test_lst_from_str_duplicate(void)
 	}
 }
 
+
+/* ************************************************************************** */
+/*   MULTIPLE STRINGS                                                            */
+/* ************************************************************************** */
+
+void	test_lst_from_strs_normal(void)
+{
+	// TODO why does it work when duplicate number?
+	char	*str[] = {"OOPS", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", NULL};
+	int		arr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+	int		len = 10;
+	t_dlist	*lst = NULL;
+
+	lst_from_strs(11, str, &lst);
+	int i = 0;
+	while (i < len && lst)
+	{
+		if (arr[i] != *(int *)lst->content)
+		{
+			printf("%sFAIL: %s%s\n", COLOR_RED, __func__, COLOR_RESET);
+			printf("Index = %d,  Expected = %d, Actual = %d\n", i, arr[i] , *(int *)lst->content);
+			TEST_FAIL();
+			return ;
+		}
+		i++;
+		lst = lst->next;
+	}
+	printf("%sPASS: %s%s\n", COLOR_GREEN, __func__, COLOR_RESET);
+}
+
+
+void	test_lst_from_strs_invalid_char(void)
+{
+
+	char	*str = "1 2 3 b 5 6 7 8 9 10";
+	char **strs = ft_split(str, ' ');
+	t_dlist	*lst = NULL;
+
+	errno = 0;
+	int expected_errno = 1;
+	lst_from_strs(10, strs, &lst);
+	if (errno != 1)
+	{
+		printf("%sFAIL: %s%s\n", COLOR_RED, __func__, COLOR_RESET);
+		printf("Errno: %d ; Expected: %d\n", errno, 1);
+		TEST_FAIL();
+		return ;
+	}
+	printf("%sPASS: %s%s\n", COLOR_GREEN, __func__, COLOR_RESET);
+}
+
 int	main(void)
 {
 	UNITY_BEGIN();
+	printf("Testing: lst_from_str\n");
 	RUN_TEST(test_lst_from_str_normal);
 	RUN_TEST(test_lst_from_str_invalid_char);
 	RUN_TEST(test_lst_from_str_duplicate);
+	RUN_TEST(test_lst_from_str_consecutive_space);
+	RUN_TEST(test_lst_from_str_start_space);
+	RUN_TEST(test_lst_from_str_end_space);
+	printf("Testing: lst_from_strs\n");
+	RUN_TEST(test_lst_from_strs_normal);
+	RUN_TEST(test_lst_from_strs_invalid_char);
 	UNITY_END();
 }
