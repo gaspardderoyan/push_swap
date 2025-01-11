@@ -28,6 +28,7 @@ NAME = push_swap
 
 TEST_SRCS = test_update_mt.c \
 			test_dir_of_first.c \
+			test_chunk_sort.c \
 			ntest_input.c
 
 TEST_EXES = $(TEST_SRCS:%.c=$(TEST_DIR)/%)
@@ -72,11 +73,11 @@ ntest_%: $(TEST_OBJ_DIR)/ntest_%.o $(OBJS) $(LIBFT)
 
 # Build test executables
 $(TEST_DIR)/test_%: $(TEST_OBJ_DIR)/test_%.o $(OBJS) $(LIBFT) $(UNITY)
-	$(CC) $(TEST_CFLAGS) $^ -o $@
+	$(CC) $(TEST_CFLAGS) $^ -fsanitize=address -o $@
 
 # Build test executables (normal)
 $(TEST_DIR)/ntest_%: $(TEST_OBJ_DIR)/ntest_%.o $(OBJS) $(LIBFT)
-	$(CC) $(TEST_CFLAGS) $^ -o $@
+	$(CC) $(TEST_CFLAGS) $^ -fsanitize=address -o $@
 
 # Compile object file for test sources
 $(TEST_OBJ_DIR)/%.o: $(TEST_DIR)/%.c
