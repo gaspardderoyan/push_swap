@@ -27,7 +27,8 @@ MAIN_OBJ = $(MAIN_SRC:%.c=$(OBJ_DIR)/%.o)
 NAME = push_swap
 
 TEST_SRCS = test_update_mt.c \
-			test_dir_of_first.c
+			test_dir_of_first.c \
+			ntest_input.c
 
 TEST_EXES = $(TEST_SRCS:%.c=$(TEST_DIR)/%)
 
@@ -61,11 +62,20 @@ test: $(TEST_EXES)
 
 # Pattern rule for individual test targets
 test_%: $(TEST_OBJ_DIR)/test_%.o $(OBJS) $(LIBFT) $(UNITY)
-	@$(CC) $(TEST_CFLAGS) $^ -o $(TEST_DIR)/$*
-	@$(TEST_DIR)/$* | sed '/^tests/d'
+	@$(CC) $(TEST_CFLAGS) $^ -o $(TEST_DIR)/test_$*
+	@$(TEST_DIR)/test_$* | sed '/^tests/d'
+
+# Pattern rule for individual test targets
+ntest_%: $(TEST_OBJ_DIR)/ntest_%.o $(OBJS) $(LIBFT)
+	@$(CC) $(TEST_CFLAGS) $^ -o $(TEST_DIR)/ntest_$*
+	@$(TEST_DIR)/ntest_$* | sed '/^tests/d'
 
 # Build test executables
-$(TEST_DIR)/%: $(TEST_OBJ_DIR)/%.o $(OBJS) $(LIBFT) $(UNITY)
+$(TEST_DIR)/test_%: $(TEST_OBJ_DIR)/test_%.o $(OBJS) $(LIBFT) $(UNITY)
+	$(CC) $(TEST_CFLAGS) $^ -o $@
+
+# Build test executables (normal)
+$(TEST_DIR)/ntest_%: $(TEST_OBJ_DIR)/ntest_%.o $(OBJS) $(LIBFT)
 	$(CC) $(TEST_CFLAGS) $^ -o $@
 
 # Compile object file for test sources
@@ -91,6 +101,7 @@ clean:
 	$(MAKE) -C $(LIBFT_DIR) clean
 	rm -rf $(OBJ_DIR)
 
+# TODO clean test executables
 # + executables
 fclean: clean
 	$(MAKE) -C $(LIBFT_DIR) fclean
@@ -99,4 +110,3 @@ fclean: clean
 
 # Rebuild the project
 re: fclean all
-
