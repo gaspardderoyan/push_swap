@@ -1,0 +1,851 @@
+[
+ {
+  "directory": "/Users/gaspardderoyan/CS/42/push_swap",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Inc",
+   "-Ilibft/inc",
+   "-c",
+   "src/main.c",
+   "-o",
+   "obj/main.o"
+  ],
+  "file": "src/main.c"
+ },
+ {
+  "directory": "/Users/gaspardderoyan/CS/42/push_swap",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Inc",
+   "-Ilibft/inc",
+   "-c",
+   "src/double_lst.c",
+   "-o",
+   "obj/double_lst.o"
+  ],
+  "file": "src/double_lst.c"
+ },
+ {
+  "directory": "/Users/gaspardderoyan/CS/42/push_swap",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Inc",
+   "-Ilibft/inc",
+   "-c",
+   "src/list_addition.c",
+   "-o",
+   "obj/list_addition.o"
+  ],
+  "file": "src/list_addition.c"
+ },
+ {
+  "directory": "/Users/gaspardderoyan/CS/42/push_swap",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Inc",
+   "-Ilibft/inc",
+   "-c",
+   "src/list_manipulation.c",
+   "-o",
+   "obj/list_manipulation.o"
+  ],
+  "file": "src/list_manipulation.c"
+ },
+ {
+  "directory": "/Users/gaspardderoyan/CS/42/push_swap",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Inc",
+   "-Ilibft/inc",
+   "-c",
+   "src/list_utils.c",
+   "-o",
+   "obj/list_utils.o"
+  ],
+  "file": "src/list_utils.c"
+ },
+ {
+  "directory": "/Users/gaspardderoyan/CS/42/push_swap",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Inc",
+   "-Ilibft/inc",
+   "-c",
+   "src/algo.c",
+   "-o",
+   "obj/algo.o"
+  ],
+  "file": "src/algo.c"
+ },
+ {
+  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Iinclude",
+   "-c",
+   "src/ft_atoi.c",
+   "-o",
+   "obj/ft_atoi.o"
+  ],
+  "file": "src/ft_atoi.c"
+ },
+ {
+  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Iinclude",
+   "-c",
+   "src/ft_bzero.c",
+   "-o",
+   "obj/ft_bzero.o"
+  ],
+  "file": "src/ft_bzero.c"
+ },
+ {
+  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Iinclude",
+   "-c",
+   "src/ft_calloc.c",
+   "-o",
+   "obj/ft_calloc.o"
+  ],
+  "file": "src/ft_calloc.c"
+ },
+ {
+  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Iinclude",
+   "-c",
+   "src/ft_isalnum.c",
+   "-o",
+   "obj/ft_isalnum.o"
+  ],
+  "file": "src/ft_isalnum.c"
+ },
+ {
+  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Iinclude",
+   "-c",
+   "src/ft_isalpha.c",
+   "-o",
+   "obj/ft_isalpha.o"
+  ],
+  "file": "src/ft_isalpha.c"
+ },
+ {
+  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Iinclude",
+   "-c",
+   "src/ft_isascii.c",
+   "-o",
+   "obj/ft_isascii.o"
+  ],
+  "file": "src/ft_isascii.c"
+ },
+ {
+  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Iinclude",
+   "-c",
+   "src/ft_isdigit.c",
+   "-o",
+   "obj/ft_isdigit.o"
+  ],
+  "file": "src/ft_isdigit.c"
+ },
+ {
+  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Iinclude",
+   "-c",
+   "src/ft_isprint.c",
+   "-o",
+   "obj/ft_isprint.o"
+  ],
+  "file": "src/ft_isprint.c"
+ },
+ {
+  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Iinclude",
+   "-c",
+   "src/ft_itoa.c",
+   "-o",
+   "obj/ft_itoa.o"
+  ],
+  "file": "src/ft_itoa.c"
+ },
+ {
+  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Iinclude",
+   "-c",
+   "src/ft_memchr.c",
+   "-o",
+   "obj/ft_memchr.o"
+  ],
+  "file": "src/ft_memchr.c"
+ },
+ {
+  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Iinclude",
+   "-c",
+   "src/ft_memcmp.c",
+   "-o",
+   "obj/ft_memcmp.o"
+  ],
+  "file": "src/ft_memcmp.c"
+ },
+ {
+  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Iinclude",
+   "-c",
+   "src/ft_memcpy.c",
+   "-o",
+   "obj/ft_memcpy.o"
+  ],
+  "file": "src/ft_memcpy.c"
+ },
+ {
+  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Iinclude",
+   "-c",
+   "src/ft_memmove.c",
+   "-o",
+   "obj/ft_memmove.o"
+  ],
+  "file": "src/ft_memmove.c"
+ },
+ {
+  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Iinclude",
+   "-c",
+   "src/ft_memset.c",
+   "-o",
+   "obj/ft_memset.o"
+  ],
+  "file": "src/ft_memset.c"
+ },
+ {
+  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Iinclude",
+   "-c",
+   "src/ft_putchar_fd.c",
+   "-o",
+   "obj/ft_putchar_fd.o"
+  ],
+  "file": "src/ft_putchar_fd.c"
+ },
+ {
+  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Iinclude",
+   "-c",
+   "src/ft_putendl_fd.c",
+   "-o",
+   "obj/ft_putendl_fd.o"
+  ],
+  "file": "src/ft_putendl_fd.c"
+ },
+ {
+  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Iinclude",
+   "-c",
+   "src/ft_putnbr_fd.c",
+   "-o",
+   "obj/ft_putnbr_fd.o"
+  ],
+  "file": "src/ft_putnbr_fd.c"
+ },
+ {
+  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Iinclude",
+   "-c",
+   "src/ft_putstr_fd.c",
+   "-o",
+   "obj/ft_putstr_fd.o"
+  ],
+  "file": "src/ft_putstr_fd.c"
+ },
+ {
+  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Iinclude",
+   "-c",
+   "src/ft_split.c",
+   "-o",
+   "obj/ft_split.o"
+  ],
+  "file": "src/ft_split.c"
+ },
+ {
+  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Iinclude",
+   "-c",
+   "src/ft_strchr.c",
+   "-o",
+   "obj/ft_strchr.o"
+  ],
+  "file": "src/ft_strchr.c"
+ },
+ {
+  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Iinclude",
+   "-c",
+   "src/ft_strdup.c",
+   "-o",
+   "obj/ft_strdup.o"
+  ],
+  "file": "src/ft_strdup.c"
+ },
+ {
+  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Iinclude",
+   "-c",
+   "src/ft_striteri.c",
+   "-o",
+   "obj/ft_striteri.o"
+  ],
+  "file": "src/ft_striteri.c"
+ },
+ {
+  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Iinclude",
+   "-c",
+   "src/ft_strjoin.c",
+   "-o",
+   "obj/ft_strjoin.o"
+  ],
+  "file": "src/ft_strjoin.c"
+ },
+ {
+  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Iinclude",
+   "-c",
+   "src/ft_strlcat.c",
+   "-o",
+   "obj/ft_strlcat.o"
+  ],
+  "file": "src/ft_strlcat.c"
+ },
+ {
+  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Iinclude",
+   "-c",
+   "src/ft_strlcpy.c",
+   "-o",
+   "obj/ft_strlcpy.o"
+  ],
+  "file": "src/ft_strlcpy.c"
+ },
+ {
+  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Iinclude",
+   "-c",
+   "src/ft_strlen.c",
+   "-o",
+   "obj/ft_strlen.o"
+  ],
+  "file": "src/ft_strlen.c"
+ },
+ {
+  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Iinclude",
+   "-c",
+   "src/ft_strmapi.c",
+   "-o",
+   "obj/ft_strmapi.o"
+  ],
+  "file": "src/ft_strmapi.c"
+ },
+ {
+  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Iinclude",
+   "-c",
+   "src/ft_strncmp.c",
+   "-o",
+   "obj/ft_strncmp.o"
+  ],
+  "file": "src/ft_strncmp.c"
+ },
+ {
+  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Iinclude",
+   "-c",
+   "src/ft_strnstr.c",
+   "-o",
+   "obj/ft_strnstr.o"
+  ],
+  "file": "src/ft_strnstr.c"
+ },
+ {
+  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Iinclude",
+   "-c",
+   "src/ft_strrchr.c",
+   "-o",
+   "obj/ft_strrchr.o"
+  ],
+  "file": "src/ft_strrchr.c"
+ },
+ {
+  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Iinclude",
+   "-c",
+   "src/ft_strtrim.c",
+   "-o",
+   "obj/ft_strtrim.o"
+  ],
+  "file": "src/ft_strtrim.c"
+ },
+ {
+  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Iinclude",
+   "-c",
+   "src/ft_substr.c",
+   "-o",
+   "obj/ft_substr.o"
+  ],
+  "file": "src/ft_substr.c"
+ },
+ {
+  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Iinclude",
+   "-c",
+   "src/ft_tolower.c",
+   "-o",
+   "obj/ft_tolower.o"
+  ],
+  "file": "src/ft_tolower.c"
+ },
+ {
+  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Iinclude",
+   "-c",
+   "src/ft_toupper.c",
+   "-o",
+   "obj/ft_toupper.o"
+  ],
+  "file": "src/ft_toupper.c"
+ },
+ {
+  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Iinclude",
+   "-c",
+   "src/ft_lstnew.c",
+   "-o",
+   "obj/ft_lstnew.o"
+  ],
+  "file": "src/ft_lstnew.c"
+ },
+ {
+  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Iinclude",
+   "-c",
+   "src/ft_lstadd_front.c",
+   "-o",
+   "obj/ft_lstadd_front.o"
+  ],
+  "file": "src/ft_lstadd_front.c"
+ },
+ {
+  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Iinclude",
+   "-c",
+   "src/ft_lstsize.c",
+   "-o",
+   "obj/ft_lstsize.o"
+  ],
+  "file": "src/ft_lstsize.c"
+ },
+ {
+  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Iinclude",
+   "-c",
+   "src/ft_lstlast.c",
+   "-o",
+   "obj/ft_lstlast.o"
+  ],
+  "file": "src/ft_lstlast.c"
+ },
+ {
+  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Iinclude",
+   "-c",
+   "src/ft_lstadd_back.c",
+   "-o",
+   "obj/ft_lstadd_back.o"
+  ],
+  "file": "src/ft_lstadd_back.c"
+ },
+ {
+  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Iinclude",
+   "-c",
+   "src/ft_lstdelone.c",
+   "-o",
+   "obj/ft_lstdelone.o"
+  ],
+  "file": "src/ft_lstdelone.c"
+ },
+ {
+  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Iinclude",
+   "-c",
+   "src/ft_lstclear.c",
+   "-o",
+   "obj/ft_lstclear.o"
+  ],
+  "file": "src/ft_lstclear.c"
+ },
+ {
+  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Iinclude",
+   "-c",
+   "src/ft_lstiter.c",
+   "-o",
+   "obj/ft_lstiter.o"
+  ],
+  "file": "src/ft_lstiter.c"
+ },
+ {
+  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Iinclude",
+   "-c",
+   "src/ft_lstmap.c",
+   "-o",
+   "obj/ft_lstmap.o"
+  ],
+  "file": "src/ft_lstmap.c"
+ },
+ {
+  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Iinclude",
+   "-c",
+   "src/helpers.c",
+   "-o",
+   "obj/helpers.o"
+  ],
+  "file": "src/helpers.c"
+ },
+ {
+  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Iinclude",
+   "-c",
+   "src/types.c",
+   "-o",
+   "obj/types.o"
+  ],
+  "file": "src/types.c"
+ },
+ {
+  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Iinclude",
+   "-c",
+   "src/types_nbr.c",
+   "-o",
+   "obj/types_nbr.o"
+  ],
+  "file": "src/types_nbr.c"
+ },
+ {
+  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Iinclude",
+   "-c",
+   "src/ft_printf.c",
+   "-o",
+   "obj/ft_printf.o"
+  ],
+  "file": "src/ft_printf.c"
+ },
+ {
+  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Iinclude",
+   "-c",
+   "src/ft_strtoll.c",
+   "-o",
+   "obj/ft_strtoll.o"
+  ],
+  "file": "src/ft_strtoll.c"
+ },
+ {
+  "directory": "/Users/gaspardderoyan/CS/42/push_swap",
+  "arguments": [
+   "cc",
+   "-c",
+   "unity/unity.c",
+   "-o",
+   "unity/unity.o"
+  ],
+  "file": "unity/unity.c"
+ },
+ {
+  "directory": "/Users/gaspardderoyan/CS/42/push_swap",
+  "arguments": [
+   "cc",
+   "-c",
+   "tests/test_update_mt.c",
+   "-o",
+   "obj/tests/test_update_mt.o"
+  ],
+  "file": "tests/test_update_mt.c"
+ },
+ {
+  "directory": "/Users/gaspardderoyan/CS/42/push_swap",
+  "arguments": [
+   "cc",
+   "-c",
+   "tests/test_dir_of_first.c",
+   "-o",
+   "obj/tests/test_dir_of_first.o"
+  ],
+  "file": "tests/test_dir_of_first.c"
+ }
+]
