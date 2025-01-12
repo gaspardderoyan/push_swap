@@ -2,3 +2,6 @@
 **/*.
 **/*.out
 obj/
+unity/
+*.md
+*.txt
