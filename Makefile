@@ -28,7 +28,7 @@ NAME = push_swap
 
 TEST_SRCS = test_update_mt.c \
 			test_dir_of_first.c \
-			test_chunk_sort.c \
+			test_inputs.c \
 			ntest_input.c
 
 TEST_EXES = $(TEST_SRCS:%.c=$(TEST_DIR)/%)

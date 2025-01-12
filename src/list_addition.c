@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   list_addition.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gderoyqn <gderoyqn@student.42london.com>   +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/11 18:37:23 by gderoyqn          #+#    #+#             */
+/*   Updated: 2025/01/11 18:37:23 by gderoyqn         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../libft/inc/libft.h"
 #include "../inc/double_lst.h"
 #include "../inc/project.h"
@@ -90,7 +102,6 @@ void    lst_from_str(char *str, t_dlist **lst)
 		while (*str && ft_isdigit(*str))
 			str++;
 		cur_str = ft_substr(start, 0, str - start);
-		errno = 0;
 		cur_num = mini_strtoll(cur_str, 10); 
 		check_for_duplicate(*lst, cur_num);
 		free(cur_str);
@@ -122,3 +133,4 @@ void	lst_from_strs(int argc, char **argv, t_dlist **lst)
 		i++;
 	}
 }
+
