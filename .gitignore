@@ -1,5 +1,5 @@
 .cache/
-**/*.
+**/push_swap
 **/*.out
 obj/
 unity/
