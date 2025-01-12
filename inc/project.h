@@ -3,6 +3,7 @@
 
 # include "../libft/inc/libft.h"
 # include "../inc/double_lst.h"
+# include "../inc/ft_strtoll.h"
 
 /**
  * Represents a chunk within a larger list for multi-chunks sorting.

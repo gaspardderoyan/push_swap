@@ -6,7 +6,7 @@
 /*   By: gderoyqn <gderoyqn@student.42london.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 18:37:23 by gderoyqn          #+#    #+#             */
-/*   Updated: 2025/01/11 18:37:23 by gderoyqn         ###   ########.fr       */
+/*   Updated: 2025/01/12 21:07:52 by gderoyqn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,3 +134,20 @@ void	lst_from_strs(int argc, char **argv, t_dlist **lst)
 	}
 }
 
+/*
+void	lst_from_input(int ac, char **av, t_dlist **lst)
+{
+	char	**strs;
+
+	if (ac == 1)
+	{
+		ft_putstr_fd("Error\n", 2);
+		return ;
+	}
+	else if (ac == 2)
+		strs = ft_split(av[1], ' ');
+	else
+		strs = ++av;
+	lst_from_strs(strs, lst);
+}
+*/

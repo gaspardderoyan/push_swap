@@ -17,6 +17,7 @@ SRCS = double_lst.c \
 	   list_addition.c \
 	   list_manipulation.c \
 	   list_utils.c \
+	   ft_strtoll.c \
 	   algo.c
 MAIN_SRC = main.c
 
@@ -29,7 +30,7 @@ NAME = push_swap
 TEST_SRCS = test_update_mt.c \
 			test_dir_of_first.c \
 			test_inputs.c \
-			ntest_input.c
+			test_ft_strtoll.c
 
 TEST_EXES = $(TEST_SRCS:%.c=$(TEST_DIR)/%)
 
@@ -73,11 +74,11 @@ ntest_%: $(TEST_OBJ_DIR)/ntest_%.o $(OBJS) $(LIBFT)
 
 # Build test executables
 $(TEST_DIR)/test_%: $(TEST_OBJ_DIR)/test_%.o $(OBJS) $(LIBFT) $(UNITY)
-	$(CC) $(TEST_CFLAGS) $^ -fsanitize=address -o $@
+	$(CC) $(TEST_CFLAGS) $^ -o $@
 
 # Build test executables (normal)
 $(TEST_DIR)/ntest_%: $(TEST_OBJ_DIR)/ntest_%.o $(OBJS) $(LIBFT)
-	$(CC) $(TEST_CFLAGS) $^ -fsanitize=address -o $@
+	$(CC) $(TEST_CFLAGS) $^ -o $@
 
 # Compile object file for test sources
 $(TEST_OBJ_DIR)/%.o: $(TEST_DIR)/%.c
@@ -106,8 +107,7 @@ clean:
 # + executables
 fclean: clean
 	$(MAKE) -C $(LIBFT_DIR) fclean
-	rm -f $(NAME)
-
+	rm -f $(NAME) $(TEST_EXES) $(UNITY)
 
 # Rebuild the project
 re: fclean all

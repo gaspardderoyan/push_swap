@@ -1,6 +1,5 @@
 #include "../unity/unity.h"
 #include "../inc/project.h"
-#include <stdio.h>
 
 // ANSI escape codes for colors
 #define COLOR_RED     "\x1b[31m"
@@ -183,12 +182,23 @@ void	test_lst_from_strs_invalid_char(void)
 	if (errno != 1)
 	{
 		printf("%sFAIL: %s%s\n", COLOR_RED, __func__, COLOR_RESET);
-		printf("Errno: %d ; Expected: %d\n", errno, 1);
+		printf("Errno: %d ; Expected: %d\n", errno, expected_errno);
 		TEST_FAIL();
 		return ;
 	}
 	printf("%sPASS: %s%s\n", COLOR_GREEN, __func__, COLOR_RESET);
 }
+
+// void	test_lst_from_strs_int_max(void)
+// {
+// 	char	*str = "1 2 3 2147483647 5 6";
+// 	char	**strs = ft_split(str, ' ');
+// 	t_dlist	*lst = NULL;
+// 	int		arr[] = {1, 2, 3, 2147483647, 5, 6};
+//
+// 	int expected_errno = 0;
+//
+// }
 
 // TODO check for int max, but not more
 

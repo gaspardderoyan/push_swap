@@ -1,6 +1,6 @@
 [
  {
-  "directory": "/Users/gaspardderoyan/CS/42/push_swap",
+  "directory": "/home/gderoyqn/code/push_swap",
   "arguments": [
    "cc",
    "-Wall",
@@ -16,7 +16,7 @@
   "file": "src/main.c"
  },
  {
-  "directory": "/Users/gaspardderoyan/CS/42/push_swap",
+  "directory": "/home/gderoyqn/code/push_swap",
   "arguments": [
    "cc",
    "-Wall",
@@ -32,7 +32,7 @@
   "file": "src/double_lst.c"
  },
  {
-  "directory": "/Users/gaspardderoyan/CS/42/push_swap",
+  "directory": "/home/gderoyqn/code/push_swap",
   "arguments": [
    "cc",
    "-Wall",
@@ -48,7 +48,7 @@
   "file": "src/list_addition.c"
  },
  {
-  "directory": "/Users/gaspardderoyan/CS/42/push_swap",
+  "directory": "/home/gderoyqn/code/push_swap",
   "arguments": [
    "cc",
    "-Wall",
@@ -64,7 +64,7 @@
   "file": "src/list_manipulation.c"
  },
  {
-  "directory": "/Users/gaspardderoyan/CS/42/push_swap",
+  "directory": "/home/gderoyqn/code/push_swap",
   "arguments": [
    "cc",
    "-Wall",
@@ -80,7 +80,7 @@
   "file": "src/list_utils.c"
  },
  {
-  "directory": "/Users/gaspardderoyan/CS/42/push_swap",
+  "directory": "/home/gderoyqn/code/push_swap",
   "arguments": [
    "cc",
    "-Wall",
@@ -96,13 +96,13 @@
   "file": "src/algo.c"
  },
  {
-  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
    "cc",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-Iinclude",
+   "-Iinc",
    "-c",
    "src/ft_atoi.c",
    "-o",
@@ -111,13 +111,13 @@
   "file": "src/ft_atoi.c"
  },
  {
-  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
    "cc",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-Iinclude",
+   "-Iinc",
    "-c",
    "src/ft_bzero.c",
    "-o",
@@ -126,13 +126,13 @@
   "file": "src/ft_bzero.c"
  },
  {
-  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
    "cc",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-Iinclude",
+   "-Iinc",
    "-c",
    "src/ft_calloc.c",
    "-o",
@@ -141,13 +141,13 @@
   "file": "src/ft_calloc.c"
  },
  {
-  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
    "cc",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-Iinclude",
+   "-Iinc",
    "-c",
    "src/ft_isalnum.c",
    "-o",
@@ -156,13 +156,13 @@
   "file": "src/ft_isalnum.c"
  },
  {
-  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
    "cc",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-Iinclude",
+   "-Iinc",
    "-c",
    "src/ft_isalpha.c",
    "-o",
@@ -171,13 +171,13 @@
   "file": "src/ft_isalpha.c"
  },
  {
-  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
    "cc",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-Iinclude",
+   "-Iinc",
    "-c",
    "src/ft_isascii.c",
    "-o",
@@ -186,13 +186,13 @@
   "file": "src/ft_isascii.c"
  },
  {
-  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
    "cc",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-Iinclude",
+   "-Iinc",
    "-c",
    "src/ft_isdigit.c",
    "-o",
@@ -201,13 +201,13 @@
   "file": "src/ft_isdigit.c"
  },
  {
-  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
    "cc",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-Iinclude",
+   "-Iinc",
    "-c",
    "src/ft_isprint.c",
    "-o",
@@ -216,13 +216,13 @@
   "file": "src/ft_isprint.c"
  },
  {
-  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
    "cc",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-Iinclude",
+   "-Iinc",
    "-c",
    "src/ft_itoa.c",
    "-o",
@@ -231,13 +231,13 @@
   "file": "src/ft_itoa.c"
  },
  {
-  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
    "cc",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-Iinclude",
+   "-Iinc",
    "-c",
    "src/ft_memchr.c",
    "-o",
@@ -246,13 +246,13 @@
   "file": "src/ft_memchr.c"
  },
  {
-  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
    "cc",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-Iinclude",
+   "-Iinc",
    "-c",
    "src/ft_memcmp.c",
    "-o",
@@ -261,13 +261,13 @@
   "file": "src/ft_memcmp.c"
  },
  {
-  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
    "cc",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-Iinclude",
+   "-Iinc",
    "-c",
    "src/ft_memcpy.c",
    "-o",
@@ -276,13 +276,13 @@
   "file": "src/ft_memcpy.c"
  },
  {
-  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
    "cc",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-Iinclude",
+   "-Iinc",
    "-c",
    "src/ft_memmove.c",
    "-o",
@@ -291,13 +291,13 @@
   "file": "src/ft_memmove.c"
  },
  {
-  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
    "cc",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-Iinclude",
+   "-Iinc",
    "-c",
    "src/ft_memset.c",
    "-o",
@@ -306,13 +306,13 @@
   "file": "src/ft_memset.c"
  },
  {
-  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
    "cc",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-Iinclude",
+   "-Iinc",
    "-c",
    "src/ft_putchar_fd.c",
    "-o",
@@ -321,13 +321,13 @@
   "file": "src/ft_putchar_fd.c"
  },
  {
-  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
    "cc",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-Iinclude",
+   "-Iinc",
    "-c",
    "src/ft_putendl_fd.c",
    "-o",
@@ -336,13 +336,13 @@
   "file": "src/ft_putendl_fd.c"
  },
  {
-  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
    "cc",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-Iinclude",
+   "-Iinc",
    "-c",
    "src/ft_putnbr_fd.c",
    "-o",
@@ -351,13 +351,13 @@
   "file": "src/ft_putnbr_fd.c"
  },
  {
-  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
    "cc",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-Iinclude",
+   "-Iinc",
    "-c",
    "src/ft_putstr_fd.c",
    "-o",
@@ -366,13 +366,13 @@
   "file": "src/ft_putstr_fd.c"
  },
  {
-  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
    "cc",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-Iinclude",
+   "-Iinc",
    "-c",
    "src/ft_split.c",
    "-o",
@@ -381,13 +381,13 @@
   "file": "src/ft_split.c"
  },
  {
-  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
    "cc",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-Iinclude",
+   "-Iinc",
    "-c",
    "src/ft_strchr.c",
    "-o",
@@ -396,13 +396,13 @@
   "file": "src/ft_strchr.c"
  },
  {
-  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
    "cc",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-Iinclude",
+   "-Iinc",
    "-c",
    "src/ft_strdup.c",
    "-o",
@@ -411,13 +411,13 @@
   "file": "src/ft_strdup.c"
  },
  {
-  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
    "cc",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-Iinclude",
+   "-Iinc",
    "-c",
    "src/ft_striteri.c",
    "-o",
@@ -426,13 +426,13 @@
   "file": "src/ft_striteri.c"
  },
  {
-  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
    "cc",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-Iinclude",
+   "-Iinc",
    "-c",
    "src/ft_strjoin.c",
    "-o",
@@ -441,13 +441,13 @@
   "file": "src/ft_strjoin.c"
  },
  {
-  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
    "cc",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-Iinclude",
+   "-Iinc",
    "-c",
    "src/ft_strlcat.c",
    "-o",
@@ -456,13 +456,13 @@
   "file": "src/ft_strlcat.c"
  },
  {
-  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
    "cc",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-Iinclude",
+   "-Iinc",
    "-c",
    "src/ft_strlcpy.c",
    "-o",
@@ -471,13 +471,13 @@
   "file": "src/ft_strlcpy.c"
  },
  {
-  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
    "cc",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-Iinclude",
+   "-Iinc",
    "-c",
    "src/ft_strlen.c",
    "-o",
@@ -486,13 +486,13 @@
   "file": "src/ft_strlen.c"
  },
  {
-  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
    "cc",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-Iinclude",
+   "-Iinc",
    "-c",
    "src/ft_strmapi.c",
    "-o",
@@ -501,13 +501,13 @@
   "file": "src/ft_strmapi.c"
  },
  {
-  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
    "cc",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-Iinclude",
+   "-Iinc",
    "-c",
    "src/ft_strncmp.c",
    "-o",
@@ -516,13 +516,13 @@
   "file": "src/ft_strncmp.c"
  },
  {
-  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
    "cc",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-Iinclude",
+   "-Iinc",
    "-c",
    "src/ft_strnstr.c",
    "-o",
@@ -531,13 +531,13 @@
   "file": "src/ft_strnstr.c"
  },
  {
-  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
    "cc",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-Iinclude",
+   "-Iinc",
    "-c",
    "src/ft_strrchr.c",
    "-o",
@@ -546,13 +546,13 @@
   "file": "src/ft_strrchr.c"
  },
  {
-  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
    "cc",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-Iinclude",
+   "-Iinc",
    "-c",
    "src/ft_strtrim.c",
    "-o",
@@ -561,13 +561,13 @@
   "file": "src/ft_strtrim.c"
  },
  {
-  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
    "cc",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-Iinclude",
+   "-Iinc",
    "-c",
    "src/ft_substr.c",
    "-o",
@@ -576,13 +576,13 @@
   "file": "src/ft_substr.c"
  },
  {
-  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
    "cc",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-Iinclude",
+   "-Iinc",
    "-c",
    "src/ft_tolower.c",
    "-o",
@@ -591,13 +591,13 @@
   "file": "src/ft_tolower.c"
  },
  {
-  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
    "cc",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-Iinclude",
+   "-Iinc",
    "-c",
    "src/ft_toupper.c",
    "-o",
@@ -606,13 +606,13 @@
   "file": "src/ft_toupper.c"
  },
  {
-  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
    "cc",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-Iinclude",
+   "-Iinc",
    "-c",
    "src/ft_lstnew.c",
    "-o",
@@ -621,13 +621,13 @@
   "file": "src/ft_lstnew.c"
  },
  {
-  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
    "cc",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-Iinclude",
+   "-Iinc",
    "-c",
    "src/ft_lstadd_front.c",
    "-o",
@@ -636,13 +636,13 @@
   "file": "src/ft_lstadd_front.c"
  },
  {
-  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
    "cc",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-Iinclude",
+   "-Iinc",
    "-c",
    "src/ft_lstsize.c",
    "-o",
@@ -651,13 +651,13 @@
   "file": "src/ft_lstsize.c"
  },
  {
-  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
    "cc",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-Iinclude",
+   "-Iinc",
    "-c",
    "src/ft_lstlast.c",
    "-o",
@@ -666,13 +666,13 @@
   "file": "src/ft_lstlast.c"
  },
  {
-  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
    "cc",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-Iinclude",
+   "-Iinc",
    "-c",
    "src/ft_lstadd_back.c",
    "-o",
@@ -681,13 +681,13 @@
   "file": "src/ft_lstadd_back.c"
  },
  {
-  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
    "cc",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-Iinclude",
+   "-Iinc",
    "-c",
    "src/ft_lstdelone.c",
    "-o",
@@ -696,13 +696,13 @@
   "file": "src/ft_lstdelone.c"
  },
  {
-  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
    "cc",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-Iinclude",
+   "-Iinc",
    "-c",
    "src/ft_lstclear.c",
    "-o",
@@ -711,13 +711,13 @@
   "file": "src/ft_lstclear.c"
  },
  {
-  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
    "cc",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-Iinclude",
+   "-Iinc",
    "-c",
    "src/ft_lstiter.c",
    "-o",
@@ -726,13 +726,13 @@
   "file": "src/ft_lstiter.c"
  },
  {
-  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
    "cc",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-Iinclude",
+   "-Iinc",
    "-c",
    "src/ft_lstmap.c",
    "-o",
@@ -741,13 +741,13 @@
   "file": "src/ft_lstmap.c"
  },
  {
-  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
    "cc",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-Iinclude",
+   "-Iinc",
    "-c",
    "src/helpers.c",
    "-o",
@@ -756,13 +756,13 @@
   "file": "src/helpers.c"
  },
  {
-  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
    "cc",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-Iinclude",
+   "-Iinc",
    "-c",
    "src/types.c",
    "-o",
@@ -771,13 +771,13 @@
   "file": "src/types.c"
  },
  {
-  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
    "cc",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-Iinclude",
+   "-Iinc",
    "-c",
    "src/types_nbr.c",
    "-o",
@@ -786,13 +786,13 @@
   "file": "src/types_nbr.c"
  },
  {
-  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
    "cc",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-Iinclude",
+   "-Iinc",
    "-c",
    "src/ft_printf.c",
    "-o",
@@ -801,51 +801,18 @@
   "file": "src/ft_printf.c"
  },
  {
-  "directory": "/Users/gaspardderoyan/CS/42/push_swap/libft",
+  "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
    "cc",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-Iinclude",
+   "-Iinc",
    "-c",
    "src/ft_strtoll.c",
    "-o",
    "obj/ft_strtoll.o"
   ],
   "file": "src/ft_strtoll.c"
- },
- {
-  "directory": "/Users/gaspardderoyan/CS/42/push_swap",
-  "arguments": [
-   "cc",
-   "-c",
-   "unity/unity.c",
-   "-o",
-   "unity/unity.o"
-  ],
-  "file": "unity/unity.c"
- },
- {
-  "directory": "/Users/gaspardderoyan/CS/42/push_swap",
-  "arguments": [
-   "cc",
-   "-c",
-   "tests/test_update_mt.c",
-   "-o",
-   "obj/tests/test_update_mt.o"
-  ],
-  "file": "tests/test_update_mt.c"
- },
- {
-  "directory": "/Users/gaspardderoyan/CS/42/push_swap",
-  "arguments": [
-   "cc",
-   "-c",
-   "tests/test_dir_of_first.c",
-   "-o",
-   "obj/tests/test_dir_of_first.o"
-  ],
-  "file": "tests/test_dir_of_first.c"
  }
 ]
