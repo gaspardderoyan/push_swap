@@ -1,6 +1,18 @@
-CC = cc
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: gderoyqn <gderoyqn@student.42london.com>   +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2025/01/13 18:49:48 by gderoyqn          #+#    #+#              #
+#    Updated: 2025/01/13 19:26:48 by gderoyqn         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+CC = gcc
 CFLAGS = -Wall -Wextra -Werror -Inc -Ilibft/inc
-DEBUGFLAGS =
+DEBUGFLAGS = -g3 -gdwarf-3 -O0 -fsanitize=address -fsanitize=undefined
 
 SRC_DIR = src
 OBJ_DIR = obj
@@ -46,7 +58,7 @@ all: $(NAME)
 
 # Build the main executable
 $(NAME): $(MAIN_OBJ) $(OBJS) $(LIBFT)
-	$(CC) $(CFLAGS) $(MAIN_OBJ) $(OBJS) -o $(NAME) -L$(LIBFT_DIR) -lft 
+	$(CC) $(CFLAGS) $(MAIN_OBJ) $(OBJS) $(DEBUGFLAGS) -o $(NAME) -L$(LIBFT_DIR) -lft 
 
 # Compile the object files for main sources
 # TODO use if statement > -p
@@ -66,8 +78,13 @@ test: $(TEST_EXES)
 
 # Pattern rule for individual test targets
 test_%: $(TEST_OBJ_DIR)/test_%.o $(OBJS) $(LIBFT) $(UNITY)
-	@$(CC) $(TEST_CFLAGS) $^ -o $(TEST_DIR)/test_$*
-	@$(TEST_DIR)/test_$* | sed '/^tests/d'
+	@$(CC) $(TEST_CFLAGS) $^ $(DEBUGFLAGS) -o $(TEST_DIR)/test_$*
+	$(TEST_DIR)/test_$* | sed '/^tests/d'
+
+# Pattern rule for individual test targets (with fsanitize)
+ftest_%: $(TEST_OBJ_DIR)/test_%.o $(OBJS) $(LIBFT) $(UNITY)
+	@$(CC) $(TEST_CFLAGS) $(DEBUGFLAGS) $^ -o $(TEST_DIR)/test_$*
+	$(TEST_DIR)/test_$* | sed '/^tests/d'
 
 # Pattern rule for individual test targets
 ntest_%: $(TEST_OBJ_DIR)/ntest_%.o $(OBJS) $(LIBFT)
@@ -76,7 +93,7 @@ ntest_%: $(TEST_OBJ_DIR)/ntest_%.o $(OBJS) $(LIBFT)
 
 # Build test executables
 $(TEST_DIR)/test_%: $(TEST_OBJ_DIR)/test_%.o $(OBJS) $(LIBFT) $(UNITY)
-	$(CC) $(TEST_CFLAGS) $^ -o $@
+	$(CC) $(TEST_CFLAGS) $(DEBUGFLAGS) $^ -o $@
 
 # Build test executables (normal)
 $(TEST_DIR)/ntest_%: $(TEST_OBJ_DIR)/ntest_%.o $(OBJS) $(LIBFT)
@@ -90,7 +107,7 @@ $(TEST_OBJ_DIR)/%.o: $(TEST_DIR)/%.c
 
 # Compile Unity framework
 $(UNITY): $(UNITY_DIR)/unity.c $(UNITY_DIR)/unity.h $(UNITY_DIR)/unity_internals.h
-	$(CC) $(TEST_CFLAGS) -c $< -o $@
+	$(CC) $(TEST_CFLAGS) $(DEBUGFLAGS) -c $< -o $@
 
 ################################################################################
 # Helper Targets (clean, fclean, re)

@@ -3,7 +3,6 @@
 
 # include "../libft/inc/libft.h"
 # include "../inc/double_lst.h"
-# include "../inc/ft_strtoll.h"
 
 /**
  * Represents a chunk within a larger list for multi-chunks sorting.
@@ -22,6 +21,14 @@ typedef struct s_stack_mt
 	int	chunks_count;
 	int	lst_size;
 } t_stacks_mt;
+
+typedef struct s_strtol_mt
+{
+	int			sign;
+	int			index;
+	int			empty;
+	long long	n;
+} t_strtol_mt;
 
 // Function Prototypes
 
@@ -53,6 +60,8 @@ void	update_mt(t_stacks_mt *mt);
 
 // Other
 char	**ft_split_cs(char const *s, char *cs);
+long long	mini_strtoll(const char *nptr, int radix);
+
 
 #endif
 

@@ -204,6 +204,7 @@ void	test_lst_from_strs_invalid_char(void)
 
 int	main(void)
 {
+	printf("\n\nTEST inputs\n\n");
 	UNITY_BEGIN();
 	printf("Testing: lst_from_str\n");
 	RUN_TEST(test_lst_from_str_normal);

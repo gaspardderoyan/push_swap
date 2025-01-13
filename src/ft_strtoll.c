@@ -6,12 +6,12 @@
 /*   By: gderoyqn <gderoyqn@student.42london.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 23:27:21 by gderoyqn          #+#    #+#             */
-/*   Updated: 2025/01/12 21:06:55 by gderoyqn         ###   ########.fr       */
+/*   Updated: 2025/01/13 19:29:46 by gderoyqn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/project.h"
-#include "../inc/ft_strtoll.h"
+#include "../libft/inc/libft.h"
 
 
 /*
@@ -96,6 +96,7 @@ void	set_strtol_mt(t_strtol_mt *mt, int sign, int empty, long long n)
 {
 	mt->sign = sign;
 	mt->empty = empty;
+	mt->index = 0;
 	mt->n = n;
 }
 /*
@@ -119,17 +120,16 @@ long long	mini_strtoll(const char *nptr, int radix)
 		mt.n = mt.n * radix + mt.index;
 		nptr++;
 	}
-	if (nptr)
-		errno = 10;
+
+	// char **test = NULL;
+	// char *test1 = *test;
+	// if (*test1)
+	// 	printf("this shouldn't print\n");
+
+	// if (nptr)
+	// 	errno = 10;
 	if (mt.empty)
 		return (errno = EINVAL, 0);
 	return (mt.n * mt.sign);
 }
 
-// int main(void)
-// {
-// 	printf("res: %lld\n\n", mini_strtoll("-123", 10));
-// 	printf("res: %lld\n\n", mini_strtoll("823", 10));
-// 	printf("res: %lld\n\n", mini_strtoll("123", 10));
-// 	return (0);
-// }

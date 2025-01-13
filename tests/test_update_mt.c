@@ -90,6 +90,7 @@ void test_update_mt_uneven_chunk_end()
 
 int	main(void)
 {
+	printf("\n\nTEST update_mt\n\n");
 	UNITY_BEGIN();
 	RUN_TEST(test_update_mt_first_chunk);
 	RUN_TEST(test_update_mt_mid_chunk);

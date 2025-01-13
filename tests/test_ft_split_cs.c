@@ -83,6 +83,7 @@ void test_ft_split_cs_multi_spaces(void)
 
 int	main(void)
 {
+	printf("\n\n TEST ft_split_cs\n\n");
 	UNITY_BEGIN();
 	RUN_TEST(test_ft_split_cs_normal);
 	RUN_TEST(test_ft_split_cs_multi_spaces);

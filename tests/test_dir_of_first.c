@@ -111,6 +111,7 @@ void	test_dir_of_first_empty(void)
 
 int	main(void)
 {
+	printf("\n\n TEST dir_of_first\n\n");
 	UNITY_BEGIN();
 	RUN_TEST(test_dir_of_first_start);
 	RUN_TEST(test_dir_of_first_end);
