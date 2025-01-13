@@ -148,6 +148,6 @@ void	lst_from_input(int ac, char **av, t_dlist **lst)
 		strs = ft_split(av[1], ' ');
 	else
 		strs = ++av;
-	lst_from_strs(strs, lst);
+	lst_from_strs(strs, lst, av);
 }
 */

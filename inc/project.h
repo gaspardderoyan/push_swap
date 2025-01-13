@@ -51,5 +51,8 @@ int		chunk_sort(t_dlist **a, t_dlist **b, t_stacks_mt *mt);
 int		dir_of_first(t_dlist *lst, t_stacks_mt *mt);
 void	update_mt(t_stacks_mt *mt);
 
+// Other
+char	**ft_split_cs(char const *s, char *cs);
+
 #endif
 

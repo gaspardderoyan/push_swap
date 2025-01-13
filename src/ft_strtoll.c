@@ -66,7 +66,6 @@ int	handle_overflow(int sign, long long *n, int digit, int radix)
  */
 void	skip_lead(const char **nptr, int *sign, int *radix)
 {
-	errno = 0;
 	while (ft_isspace(**nptr))
 		(*nptr)++;
 	*sign = 1;
@@ -120,6 +119,8 @@ long long	mini_strtoll(const char *nptr, int radix)
 		mt.n = mt.n * radix + mt.index;
 		nptr++;
 	}
+	if (nptr)
+		errno = 10;
 	if (mt.empty)
 		return (errno = EINVAL, 0);
 	return (mt.n * mt.sign);

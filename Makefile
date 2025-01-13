@@ -18,6 +18,7 @@ SRCS = double_lst.c \
 	   list_manipulation.c \
 	   list_utils.c \
 	   ft_strtoll.c \
+	   ft_split_cs.c \
 	   algo.c
 MAIN_SRC = main.c
 
@@ -30,7 +31,8 @@ NAME = push_swap
 TEST_SRCS = test_update_mt.c \
 			test_dir_of_first.c \
 			test_inputs.c \
-			test_ft_strtoll.c
+			test_ft_strtoll.c \
+			test_ft_split_cs.c
 
 TEST_EXES = $(TEST_SRCS:%.c=$(TEST_DIR)/%)
 
