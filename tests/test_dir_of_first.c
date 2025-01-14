@@ -31,7 +31,7 @@ t_dlist *_dlst_from_arr(int *arr, size_t size)
     }
     for (size_t i = 0; i < size; i++)
 	{
-        ft_dlstadd_back(&new, ft_dlstnew(&arr[i]));
+        add_nbr_to_lst(&new, arr[i]);
     }
     return new;
 }

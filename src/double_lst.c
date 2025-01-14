@@ -80,6 +80,8 @@ void	ft_dlstfree(t_dlist *lst)
 	while (lst)
 	{
 		cursor = lst;
+		if (cursor->content)
+			free(cursor->content);
 		free(cursor);
 		lst = lst->next;
 	}

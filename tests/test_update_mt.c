@@ -1,35 +1,24 @@
 // tests/test_update_mt.c
-#include "../unity/unity.h"
 #include "../inc/project.h"
 #include <stdio.h>
 
 // ANSI escape codes for colors
-#define COLOR_RED     "\x1b[31m"
-#define COLOR_GREEN   "\x1b[32m"
-#define COLOR_RESET   "\x1b[0m"
+#define RED     "\x1b[31m"
+#define GREEN   "\x1b[32m"
+#define RESET   "\x1b[0m"
 
 static void assert_equals_and_print(int expected_lower, int actual_lower, int expected_upper, int actual_upper, const char* func_name)
 {
 	if ((actual_lower) != (expected_lower) || (actual_upper) != (expected_upper))
 	{
-		printf("%sFAIL: %s%s\n", COLOR_RED, func_name, COLOR_RESET);
+		printf("%sFAIL: %s%s\n", RED, func_name, RESET);
 		printf("  lower_limit: Expected = %d, Actual = %d\n", (expected_lower), (actual_lower));
 		printf("  upper_limit: Expected = %d, Actual = %d\n", (expected_upper), (actual_upper));
-		TEST_FAIL();
 	}
 	else
-		printf("%sPASS: %s%s\n", COLOR_GREEN, func_name, COLOR_RESET);
+		printf("%sPASS: %s%s\n", GREEN, func_name, RESET);
 }
 
-void setUp(void)
-{
-    // set stuff up here
-}
-
-void tearDown(void)
-{
-    // clean stuff up here
-}
 
 void	test_update_mt_first_chunk(void)
 {
@@ -91,14 +80,13 @@ void test_update_mt_uneven_chunk_end()
 int	main(void)
 {
 	printf("\n\nTEST update_mt\n\n");
-	UNITY_BEGIN();
-	RUN_TEST(test_update_mt_first_chunk);
-	RUN_TEST(test_update_mt_mid_chunk);
-	RUN_TEST(test_update_mt_last_chunk);
-	RUN_TEST(test_update_mt_one_chunk);
-	RUN_TEST(test_update_mt_zero_chunk);
-	RUN_TEST(test_update_mt_zero_lst_size);
-	RUN_TEST(test_update_mt_uneven_chunk_start);
-	RUN_TEST(test_update_mt_uneven_chunk_end);
-	return (UNITY_END());
+	test_update_mt_first_chunk();
+	test_update_mt_mid_chunk();
+	test_update_mt_last_chunk();
+	test_update_mt_one_chunk();
+	test_update_mt_zero_chunk();
+	test_update_mt_zero_lst_size();
+	test_update_mt_uneven_chunk_start();
+	test_update_mt_uneven_chunk_end();
+	return (0);
 }

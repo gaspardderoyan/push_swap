@@ -1,20 +1,9 @@
-#include "../unity/unity.h"
 #include "../inc/project.h"
 
 // ANSI escape codes for colors
-#define COLOR_RED     "\x1b[31m"
-#define COLOR_GREEN   "\x1b[32m"
-#define COLOR_RESET   "\x1b[0m"
-
-void setUp(void)
-{
-    // set stuff up here
-}
-
-void tearDown(void)
-{
-    // clean stuff up here
-}
+#define RED     "\x1b[31m"
+#define GREEN   "\x1b[32m"
+#define RESET   "\x1b[0m"
 
 /* ************************************************************************** */
 /*   SINGLE STRING                                                            */
@@ -28,20 +17,22 @@ void	test_lst_from_str_normal(void)
 	int		len = sizeof(arr) / sizeof(arr[0]);
 
 	lst_from_str(str, &lst);
+	t_dlist *lst_cpy = lst;
 	int i = 0;
 	while (i < len && lst)
 	{
 		if (arr[i] != *(int *)lst->content)
 		{
-			printf("%sFAIL: %s%s\n", COLOR_RED, __func__, COLOR_RESET);
+			printf("%sFAIL: %s%s\n", RED, __func__, RESET);
 			printf("Index = %d,  Expected = %d, Actual = %d\n", i, arr[i] , *(int *)lst->content);
-			TEST_FAIL();
+			ft_dlstfree(lst_cpy);
 			return ;
 		}
 		i++;
 		lst = lst->next;
 	}
-	printf("%sPASS: %s%s\n", COLOR_GREEN, __func__, COLOR_RESET);
+	printf("%sPASS: %s%s\n", GREEN, __func__, RESET);
+	ft_dlstfree(lst_cpy);
 }
 
 void	test_lst_from_str_invalid_char(void)
@@ -52,14 +43,16 @@ void	test_lst_from_str_invalid_char(void)
 	errno = 0;
 	int expected_errno = 1;
 	lst_from_str(str, &lst);
+	t_dlist *lst_cpy = lst;
 	if (errno != expected_errno)
 	{
-		printf("%sFAIL: %s%s\n", COLOR_RED, __func__, COLOR_RESET);
+		printf("%sFAIL: %s%s\n", RED, __func__, RESET);
 		printf("Errno: %d ; Expected: %d\n", errno, expected_errno);
-		TEST_FAIL();
+		ft_dlstfree(lst_cpy);
 		return ;
 	}
-	printf("%sPASS: %s%s\n", COLOR_GREEN, __func__, COLOR_RESET);
+	printf("%sPASS: %s%s\n", GREEN, __func__, RESET);
+	ft_dlstfree(lst_cpy);
 }
 
 void	test_lst_from_str_consecutive_space(void)
@@ -70,14 +63,16 @@ void	test_lst_from_str_consecutive_space(void)
 	errno = 0;
 	int expected_errno = 5;
 	lst_from_str(str, &lst);
+	t_dlist *lst_cpy = lst;
 	if (errno != expected_errno)
 	{
-		printf("%sFAIL: %s%s\n", COLOR_RED, __func__, COLOR_RESET);
+		printf("%sFAIL: %s%s\n", RED, __func__, RESET);
 		printf("Errno: %d ; Expected: %d\n", errno, expected_errno);
-		TEST_FAIL();
+		ft_dlstfree(lst_cpy);
 		return ;
 	}
-	printf("%sPASS: %s%s\n", COLOR_GREEN, __func__, COLOR_RESET);
+	printf("%sPASS: %s%s\n", GREEN, __func__, RESET);
+	ft_dlstfree(lst_cpy);
 }
 
 void	test_lst_from_str_start_space(void)
@@ -88,14 +83,16 @@ void	test_lst_from_str_start_space(void)
 	errno = 0;
 	int expected_errno = 3;
 	lst_from_str(str, &lst);
+	t_dlist *lst_cpy = lst;
 	if (errno != expected_errno)
 	{
-		printf("%sFAIL: %s%s\n", COLOR_RED, __func__, COLOR_RESET);
+		printf("%sFAIL: %s%s\n", RED, __func__, RESET);
 		printf("Errno: %d ; Expected: %d\n", errno, expected_errno);
-		TEST_FAIL();
+		ft_dlstfree(lst_cpy);
 		return ;
 	}
-	printf("%sPASS: %s%s\n", COLOR_GREEN, __func__, COLOR_RESET);
+	printf("%sPASS: %s%s\n", GREEN, __func__, RESET);
+	ft_dlstfree(lst_cpy);
 }
 
 void	test_lst_from_str_end_space(void)
@@ -106,14 +103,16 @@ void	test_lst_from_str_end_space(void)
 	errno = 0;
 	int expected_errno = 4;
 	lst_from_str(str, &lst);
+	t_dlist *lst_cpy = lst;
 	if (errno != expected_errno)
 	{
-		printf("%sFAIL: %s%s\n", COLOR_RED, __func__, COLOR_RESET);
+		printf("%sFAIL: %s%s\n", RED, __func__, RESET);
 		printf("Errno: %d ; Expected: %d\n", errno, expected_errno);
-		TEST_FAIL();
+		ft_dlstfree(lst_cpy);
 		return ;
 	}
-	printf("%sPASS: %s%s\n", COLOR_GREEN, __func__, COLOR_RESET);
+	printf("%sPASS: %s%s\n", GREEN, __func__, RESET);
+	ft_dlstfree(lst_cpy);
 }
 
 void	test_lst_from_str_duplicate(void)
@@ -124,17 +123,19 @@ void	test_lst_from_str_duplicate(void)
 
 	errno = 0;
 	lst_from_str(str, &lst);
+	t_dlist *lst_cpy = lst;
 	int		actual_len = ft_dlstsize(lst);
 	if (actual_len == expected_len && errno == 2)
 	{
-		printf("%sPASS: %s%s\n", COLOR_GREEN, __func__, COLOR_RESET);
+		printf("%sPASS: %s%s\n", GREEN, __func__, RESET);
+		ft_dlstfree(lst_cpy);
 	}
 	else
-	{
-		printf("%sFAIL: %s%s\n", COLOR_RED, __func__, COLOR_RESET);
+{
+		printf("%sFAIL: %s%s\n", RED, __func__, RESET);
 		printf("Expected len: %d ; Actual: %d\n", expected_len, actual_len);
 		printf("Expected errno: %d ; Actual: %d\n", 2, errno);
-		TEST_FAIL();
+		ft_dlstfree(lst_cpy);
 	}
 }
 
@@ -152,20 +153,22 @@ void	test_lst_from_strs_normal(void)
 	t_dlist	*lst = NULL;
 
 	lst_from_strs(11, str, &lst);
+	t_dlist *lst_cpy = lst;
 	int i = 0;
 	while (i < len && lst)
 	{
 		if (arr[i] != *(int *)lst->content)
 		{
-			printf("%sFAIL: %s%s\n", COLOR_RED, __func__, COLOR_RESET);
+			printf("%sFAIL: %s%s\n", RED, __func__, RESET);
 			printf("Index = %d,  Expected = %d, Actual = %d\n", i, arr[i] , *(int *)lst->content);
-			TEST_FAIL();
+			ft_dlstfree(lst_cpy);
 			return ;
 		}
 		i++;
 		lst = lst->next;
 	}
-	printf("%sPASS: %s%s\n", COLOR_GREEN, __func__, COLOR_RESET);
+	printf("%sPASS: %s%s\n", GREEN, __func__, RESET);
+	ft_dlstfree(lst_cpy);
 }
 
 
@@ -179,14 +182,18 @@ void	test_lst_from_strs_invalid_char(void)
 	errno = 0;
 	int expected_errno = 1;
 	lst_from_strs(10, strs, &lst);
+	t_dlist *lst_cpy = lst;
 	if (errno != 1)
 	{
-		printf("%sFAIL: %s%s\n", COLOR_RED, __func__, COLOR_RESET);
+		printf("%sFAIL: %s%s\n", RED, __func__, RESET);
 		printf("Errno: %d ; Expected: %d\n", errno, expected_errno);
-		TEST_FAIL();
+		ft_free_strs(strs);
+		ft_dlstfree(lst_cpy);
 		return ;
 	}
-	printf("%sPASS: %s%s\n", COLOR_GREEN, __func__, COLOR_RESET);
+	printf("%sPASS: %s%s\n", GREEN, __func__, RESET);
+	ft_free_strs(strs);
+	ft_dlstfree(lst_cpy);
 }
 
 // void	test_lst_from_strs_int_max(void)
@@ -205,16 +212,14 @@ void	test_lst_from_strs_invalid_char(void)
 int	main(void)
 {
 	printf("\n\nTEST inputs\n\n");
-	UNITY_BEGIN();
 	printf("Testing: lst_from_str\n");
-	RUN_TEST(test_lst_from_str_normal);
-	RUN_TEST(test_lst_from_str_invalid_char);
-	RUN_TEST(test_lst_from_str_duplicate);
-	RUN_TEST(test_lst_from_str_consecutive_space);
-	RUN_TEST(test_lst_from_str_start_space);
-	RUN_TEST(test_lst_from_str_end_space);
-	printf("Testing: lst_from_strs\n");
-	RUN_TEST(test_lst_from_strs_normal);
-	RUN_TEST(test_lst_from_strs_invalid_char);
-	UNITY_END();
+	test_lst_from_str_normal();
+	test_lst_from_str_invalid_char();
+	test_lst_from_str_duplicate();
+	test_lst_from_str_consecutive_space();
+	test_lst_from_str_start_space();
+	test_lst_from_str_end_space();
+	printf("esting: lst_from_strs\n");
+	test_lst_from_strs_normal();
+	test_lst_from_strs_invalid_char();
 }

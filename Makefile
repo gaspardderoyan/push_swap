@@ -39,9 +39,9 @@ NAME = push_swap
 
 TEST_SRCS = test_dir_of_first.c \
 			test_ft_strtoll.c \
-			test_ft_split_cs.c
-			# test_update_mt.c \
-			# test_inputs.c \
+			test_ft_split_cs.c \
+			test_inputs.c \
+			test_update_mt.c
 
 TEST_EXES = $(TEST_SRCS:%.c=$(TEST_DIR)/%)
 
@@ -70,38 +70,24 @@ $(OBJ_DIR)/%.o : $(SRC_DIR)/%.c
 # Run all test executables and filter out Unity's header output
 test: $(TEST_EXES)
 	@for t in $^; do \
-		$$t | sed '/^tests/d'; \
+		$$t ; \
 	done
 
 # Pattern rule for individual test targets
 test_%: $(TEST_OBJ_DIR)/test_%.o $(OBJS) $(LIBFT)
-	@$(CC) $(TEST_CFLAGS) $^ $(DEBUGFLAGS) -o $(TEST_DIR)/test_$*
-	$(TEST_DIR)/test_$* | sed '/^tests/d'
-
-# Pattern rule for individual test targets (with fsanitize)
-ftest_%: $(TEST_OBJ_DIR)/test_%.o $(OBJS) $(LIBFT)
-	@$(CC) $(TEST_CFLAGS) $(DEBUGFLAGS) $^ -o $(TEST_DIR)/test_$*
-	$(TEST_DIR)/test_$* | sed '/^tests/d'
-
-# Pattern rule for individual test targets
-ntest_%: $(TEST_OBJ_DIR)/ntest_%.o $(OBJS) $(LIBFT)
-	@$(CC) $(TEST_CFLAGS) $^ -o $(TEST_DIR)/ntest_$*
-	@$(TEST_DIR)/ntest_$* | sed '/^tests/d'
+	$(CC) $(TEST_CFLAGS) $(DEBUGFLAGS) $^ -o $(TEST_DIR)/test_$*
+	$(TEST_DIR)/test_$*
 
 # Build test executables
 $(TEST_DIR)/test_%: $(TEST_OBJ_DIR)/test_%.o $(OBJS) $(LIBFT)
 	$(CC) $(TEST_CFLAGS) $(DEBUGFLAGS) $^ -o $@
 
-# Build test executables (normal)
-$(TEST_DIR)/ntest_%: $(TEST_OBJ_DIR)/ntest_%.o $(OBJS) $(LIBFT)
-	$(CC) $(TEST_CFLAGS) $^ -o $@
+.PRECIOUS: $(TEST_OBJ_DIR)/%.o
 
 # Compile object file for test sources
-$(TEST_OBJ_DIR)/%.o: $(TEST_DIR)/%.c
+$(TEST_OBJ_DIR)/test_%.o: $(TEST_DIR)/test_%.c
 	@mkdir -p $(TEST_OBJ_DIR)
 	$(CC) $(TEST_CFLAGS) $(DEBUGFLAGS) -c $< -o $@
-
-
 
 ################################################################################
 # Helper Targets (clean, fclean, re)
