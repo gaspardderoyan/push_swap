@@ -2,7 +2,7 @@
  {
   "directory": "/home/gderoyqn/code/push_swap",
   "arguments": [
-   "cc",
+   "gcc",
    "-Wall",
    "-Wextra",
    "-Werror",
@@ -18,7 +18,7 @@
  {
   "directory": "/home/gderoyqn/code/push_swap",
   "arguments": [
-   "cc",
+   "gcc",
    "-Wall",
    "-Wextra",
    "-Werror",
@@ -34,7 +34,7 @@
  {
   "directory": "/home/gderoyqn/code/push_swap",
   "arguments": [
-   "cc",
+   "gcc",
    "-Wall",
    "-Wextra",
    "-Werror",
@@ -50,7 +50,7 @@
  {
   "directory": "/home/gderoyqn/code/push_swap",
   "arguments": [
-   "cc",
+   "gcc",
    "-Wall",
    "-Wextra",
    "-Werror",
@@ -66,7 +66,7 @@
  {
   "directory": "/home/gderoyqn/code/push_swap",
   "arguments": [
-   "cc",
+   "gcc",
    "-Wall",
    "-Wextra",
    "-Werror",
@@ -82,7 +82,7 @@
  {
   "directory": "/home/gderoyqn/code/push_swap",
   "arguments": [
-   "cc",
+   "gcc",
    "-Wall",
    "-Wextra",
    "-Werror",
@@ -98,7 +98,7 @@
  {
   "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
-   "cc",
+   "gcc",
    "-Wall",
    "-Wextra",
    "-Werror",
@@ -113,7 +113,7 @@
  {
   "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
-   "cc",
+   "gcc",
    "-Wall",
    "-Wextra",
    "-Werror",
@@ -128,7 +128,7 @@
  {
   "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
-   "cc",
+   "gcc",
    "-Wall",
    "-Wextra",
    "-Werror",
@@ -143,7 +143,7 @@
  {
   "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
-   "cc",
+   "gcc",
    "-Wall",
    "-Wextra",
    "-Werror",
@@ -158,7 +158,7 @@
  {
   "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
-   "cc",
+   "gcc",
    "-Wall",
    "-Wextra",
    "-Werror",
@@ -173,7 +173,7 @@
  {
   "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
-   "cc",
+   "gcc",
    "-Wall",
    "-Wextra",
    "-Werror",
@@ -188,7 +188,7 @@
  {
   "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
-   "cc",
+   "gcc",
    "-Wall",
    "-Wextra",
    "-Werror",
@@ -203,7 +203,7 @@
  {
   "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
-   "cc",
+   "gcc",
    "-Wall",
    "-Wextra",
    "-Werror",
@@ -218,7 +218,7 @@
  {
   "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
-   "cc",
+   "gcc",
    "-Wall",
    "-Wextra",
    "-Werror",
@@ -233,7 +233,7 @@
  {
   "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
-   "cc",
+   "gcc",
    "-Wall",
    "-Wextra",
    "-Werror",
@@ -248,7 +248,7 @@
  {
   "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
-   "cc",
+   "gcc",
    "-Wall",
    "-Wextra",
    "-Werror",
@@ -263,7 +263,7 @@
  {
   "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
-   "cc",
+   "gcc",
    "-Wall",
    "-Wextra",
    "-Werror",
@@ -278,7 +278,7 @@
  {
   "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
-   "cc",
+   "gcc",
    "-Wall",
    "-Wextra",
    "-Werror",
@@ -293,7 +293,7 @@
  {
   "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
-   "cc",
+   "gcc",
    "-Wall",
    "-Wextra",
    "-Werror",
@@ -308,7 +308,7 @@
  {
   "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
-   "cc",
+   "gcc",
    "-Wall",
    "-Wextra",
    "-Werror",
@@ -323,7 +323,7 @@
  {
   "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
-   "cc",
+   "gcc",
    "-Wall",
    "-Wextra",
    "-Werror",
@@ -338,7 +338,7 @@
  {
   "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
-   "cc",
+   "gcc",
    "-Wall",
    "-Wextra",
    "-Werror",
@@ -353,7 +353,7 @@
  {
   "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
-   "cc",
+   "gcc",
    "-Wall",
    "-Wextra",
    "-Werror",
@@ -368,7 +368,7 @@
  {
   "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
-   "cc",
+   "gcc",
    "-Wall",
    "-Wextra",
    "-Werror",
@@ -383,7 +383,7 @@
  {
   "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
-   "cc",
+   "gcc",
    "-Wall",
    "-Wextra",
    "-Werror",
@@ -398,7 +398,7 @@
  {
   "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
-   "cc",
+   "gcc",
    "-Wall",
    "-Wextra",
    "-Werror",
@@ -413,7 +413,7 @@
  {
   "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
-   "cc",
+   "gcc",
    "-Wall",
    "-Wextra",
    "-Werror",
@@ -428,7 +428,7 @@
  {
   "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
-   "cc",
+   "gcc",
    "-Wall",
    "-Wextra",
    "-Werror",
@@ -443,7 +443,7 @@
  {
   "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
-   "cc",
+   "gcc",
    "-Wall",
    "-Wextra",
    "-Werror",
@@ -458,7 +458,7 @@
  {
   "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
-   "cc",
+   "gcc",
    "-Wall",
    "-Wextra",
    "-Werror",
@@ -473,7 +473,7 @@
  {
   "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
-   "cc",
+   "gcc",
    "-Wall",
    "-Wextra",
    "-Werror",
@@ -488,7 +488,7 @@
  {
   "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
-   "cc",
+   "gcc",
    "-Wall",
    "-Wextra",
    "-Werror",
@@ -503,7 +503,7 @@
  {
   "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
-   "cc",
+   "gcc",
    "-Wall",
    "-Wextra",
    "-Werror",
@@ -518,7 +518,7 @@
  {
   "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
-   "cc",
+   "gcc",
    "-Wall",
    "-Wextra",
    "-Werror",
@@ -533,7 +533,7 @@
  {
   "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
-   "cc",
+   "gcc",
    "-Wall",
    "-Wextra",
    "-Werror",
@@ -548,7 +548,7 @@
  {
   "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
-   "cc",
+   "gcc",
    "-Wall",
    "-Wextra",
    "-Werror",
@@ -563,7 +563,7 @@
  {
   "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
-   "cc",
+   "gcc",
    "-Wall",
    "-Wextra",
    "-Werror",
@@ -578,7 +578,7 @@
  {
   "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
-   "cc",
+   "gcc",
    "-Wall",
    "-Wextra",
    "-Werror",
@@ -593,7 +593,7 @@
  {
   "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
-   "cc",
+   "gcc",
    "-Wall",
    "-Wextra",
    "-Werror",
@@ -608,7 +608,7 @@
  {
   "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
-   "cc",
+   "gcc",
    "-Wall",
    "-Wextra",
    "-Werror",
@@ -623,7 +623,7 @@
  {
   "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
-   "cc",
+   "gcc",
    "-Wall",
    "-Wextra",
    "-Werror",
@@ -638,7 +638,7 @@
  {
   "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
-   "cc",
+   "gcc",
    "-Wall",
    "-Wextra",
    "-Werror",
@@ -653,7 +653,7 @@
  {
   "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
-   "cc",
+   "gcc",
    "-Wall",
    "-Wextra",
    "-Werror",
@@ -668,7 +668,7 @@
  {
   "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
-   "cc",
+   "gcc",
    "-Wall",
    "-Wextra",
    "-Werror",
@@ -683,7 +683,7 @@
  {
   "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
-   "cc",
+   "gcc",
    "-Wall",
    "-Wextra",
    "-Werror",
@@ -698,7 +698,7 @@
  {
   "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
-   "cc",
+   "gcc",
    "-Wall",
    "-Wextra",
    "-Werror",
@@ -713,7 +713,7 @@
  {
   "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
-   "cc",
+   "gcc",
    "-Wall",
    "-Wextra",
    "-Werror",
@@ -728,7 +728,7 @@
  {
   "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
-   "cc",
+   "gcc",
    "-Wall",
    "-Wextra",
    "-Werror",
@@ -743,7 +743,7 @@
  {
   "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
-   "cc",
+   "gcc",
    "-Wall",
    "-Wextra",
    "-Werror",
@@ -758,7 +758,7 @@
  {
   "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
-   "cc",
+   "gcc",
    "-Wall",
    "-Wextra",
    "-Werror",
@@ -773,7 +773,7 @@
  {
   "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
-   "cc",
+   "gcc",
    "-Wall",
    "-Wextra",
    "-Werror",
@@ -788,7 +788,7 @@
  {
   "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
-   "cc",
+   "gcc",
    "-Wall",
    "-Wextra",
    "-Werror",
@@ -801,18 +801,50 @@
   "file": "src/ft_printf.c"
  },
  {
-  "directory": "/home/gderoyqn/code/push_swap/libft",
+  "directory": "/home/gderoyqn/code/push_swap",
   "arguments": [
-   "cc",
+   "gcc",
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-Iinc",
+   "-Inc",
+   "-Ilibft/inc",
    "-c",
    "src/ft_strtoll.c",
    "-o",
    "obj/ft_strtoll.o"
   ],
   "file": "src/ft_strtoll.c"
+ },
+ {
+  "directory": "/home/gderoyqn/code/push_swap",
+  "arguments": [
+   "gcc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Inc",
+   "-Ilibft/inc",
+   "-c",
+   "src/ft_split_cs.c",
+   "-o",
+   "obj/ft_split_cs.o"
+  ],
+  "file": "src/ft_split_cs.c"
+ },
+ {
+  "directory": "/home/gderoyqn/code/push_swap/libft",
+  "arguments": [
+   "gcc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Iinc",
+   "-c",
+   "src/ft_isspace.c",
+   "-o",
+   "obj/ft_isspace.o"
+  ],
+  "file": "src/ft_isspace.c"
  }
 ]

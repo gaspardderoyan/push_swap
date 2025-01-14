@@ -117,14 +117,11 @@ long long	mini_strtoll(const char *nptr, int radix)
 		mt.index = base_index(*nptr, radix);
 		if (handle_overflow(mt.sign, &mt.n, mt.index, radix))
 			return (mt.n);
-		mt.n = mt.n * radix + mt.index;
+		// TODO put this in handle overflow 
+		if (mt.n < LLONG_MAX / radix)
+			mt.n = mt.n * radix + mt.index;
 		nptr++;
 	}
-
-	// char **test = NULL;
-	// char *test1 = *test;
-	// if (*test1)
-	// 	printf("this shouldn't print\n");
 
 	// if (nptr)
 	// 	errno = 10;

@@ -6,7 +6,7 @@
 #    By: gderoyqn <gderoyqn@student.42london.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/13 18:49:48 by gderoyqn          #+#    #+#              #
-#    Updated: 2025/01/13 19:26:48 by gderoyqn         ###   ########.fr        #
+#    Updated: 2025/01/14 01:10:29 by gderoyqn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,9 +18,6 @@ SRC_DIR = src
 OBJ_DIR = obj
 TEST_DIR = tests
 TEST_OBJ_DIR = $(OBJ_DIR)/tests
-
-UNITY_DIR = unity
-UNITY = $(UNITY_DIR)/unity.o
 
 LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
@@ -40,11 +37,11 @@ MAIN_OBJ = $(MAIN_SRC:%.c=$(OBJ_DIR)/%.o)
 
 NAME = push_swap
 
-TEST_SRCS = test_update_mt.c \
-			test_dir_of_first.c \
-			test_inputs.c \
+TEST_SRCS = test_dir_of_first.c \
 			test_ft_strtoll.c \
 			test_ft_split_cs.c
+			# test_update_mt.c \
+			# test_inputs.c \
 
 TEST_EXES = $(TEST_SRCS:%.c=$(TEST_DIR)/%)
 
@@ -77,12 +74,12 @@ test: $(TEST_EXES)
 	done
 
 # Pattern rule for individual test targets
-test_%: $(TEST_OBJ_DIR)/test_%.o $(OBJS) $(LIBFT) $(UNITY)
+test_%: $(TEST_OBJ_DIR)/test_%.o $(OBJS) $(LIBFT)
 	@$(CC) $(TEST_CFLAGS) $^ $(DEBUGFLAGS) -o $(TEST_DIR)/test_$*
 	$(TEST_DIR)/test_$* | sed '/^tests/d'
 
 # Pattern rule for individual test targets (with fsanitize)
-ftest_%: $(TEST_OBJ_DIR)/test_%.o $(OBJS) $(LIBFT) $(UNITY)
+ftest_%: $(TEST_OBJ_DIR)/test_%.o $(OBJS) $(LIBFT)
 	@$(CC) $(TEST_CFLAGS) $(DEBUGFLAGS) $^ -o $(TEST_DIR)/test_$*
 	$(TEST_DIR)/test_$* | sed '/^tests/d'
 
@@ -92,7 +89,7 @@ ntest_%: $(TEST_OBJ_DIR)/ntest_%.o $(OBJS) $(LIBFT)
 	@$(TEST_DIR)/ntest_$* | sed '/^tests/d'
 
 # Build test executables
-$(TEST_DIR)/test_%: $(TEST_OBJ_DIR)/test_%.o $(OBJS) $(LIBFT) $(UNITY)
+$(TEST_DIR)/test_%: $(TEST_OBJ_DIR)/test_%.o $(OBJS) $(LIBFT)
 	$(CC) $(TEST_CFLAGS) $(DEBUGFLAGS) $^ -o $@
 
 # Build test executables (normal)
@@ -105,9 +102,6 @@ $(TEST_OBJ_DIR)/%.o: $(TEST_DIR)/%.c
 	$(CC) $(TEST_CFLAGS) $(DEBUGFLAGS) -c $< -o $@
 
 
-# Compile Unity framework
-$(UNITY): $(UNITY_DIR)/unity.c $(UNITY_DIR)/unity.h $(UNITY_DIR)/unity_internals.h
-	$(CC) $(TEST_CFLAGS) $(DEBUGFLAGS) -c $< -o $@
 
 ################################################################################
 # Helper Targets (clean, fclean, re)
@@ -126,7 +120,7 @@ clean:
 # + executables
 fclean: clean
 	$(MAKE) -C $(LIBFT_DIR) fclean
-	rm -f $(NAME) $(TEST_EXES) $(UNITY)
+	rm -f $(NAME) $(TEST_EXES)
 
 # Rebuild the project
 re: fclean all

@@ -60,6 +60,7 @@ void	update_mt(t_stacks_mt *mt);
 
 // Other
 char	**ft_split_cs(char const *s, char *cs);
+void	ft_free_strs(char **strs);
 long long	mini_strtoll(const char *nptr, int radix);
 
 

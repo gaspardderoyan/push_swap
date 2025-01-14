@@ -72,3 +72,15 @@ int	ft_dlstsize(t_dlist *lst)
 	}
 	return (i);
 }
+
+void	ft_dlstfree(t_dlist *lst)
+{
+	t_dlist	*cursor;
+
+	while (lst)
+	{
+		cursor = lst;
+		free(cursor);
+		lst = lst->next;
+	}
+}

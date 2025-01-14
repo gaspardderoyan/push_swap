@@ -1,21 +1,9 @@
-#include "../unity/unity.h"
 #include "../inc/project.h"
 
 // ANSI escape codes for colors
-#define COLOR_RED     "\x1b[31m"
-#define COLOR_GREEN   "\x1b[32m"
-#define COLOR_RESET   "\x1b[0m"
-
-void setUp(void)
-{
-    // set stuff up here
-}
-
-void tearDown(void)
-{
-    // clean stuff up here
-}
-
+#define RED     "\x1b[31m"
+#define GREEN   "\x1b[32m"
+#define RESET   "\x1b[0m"
 
 void test_ft_split_cs_normal(void)
 {
@@ -27,26 +15,27 @@ void test_ft_split_cs_normal(void)
 	{
 		if (ft_strlen(expected[i]) != ft_strlen(*actual))
 		{
-			printf("%sFAIL: %s%s\n", COLOR_RED, __func__, COLOR_RESET);
+			printf("%sFAIL: %s%s\n", RED, __func__, RESET);
 			printf("Expected len: %zu ; ", ft_strlen(expected[i]));
 			printf("Actual len: %zu\n", ft_strlen(*actual));
 			printf("Expected str: %s ; ", expected[i]);
 			printf("Actual str: %s\n", *actual);
-			TEST_FAIL();
+			ft_free_strs(actual);
 			return ;
 		}
 		if (ft_strncmp(expected[i], *actual, ft_strlen(expected[i])))
 		{
-			printf("%sFAIL: %s%s\n", COLOR_RED, __func__, COLOR_RESET);
+			printf("%sFAIL: %s%s\n", RED, __func__, RESET);
 			printf("Expected str: %s ; ", expected[i]);
 			printf("Actual str: %s\n", *actual);
-			TEST_FAIL();
+			ft_free_strs(actual);
 			return ;
 		}
 		i++;
 		actual++;
 	}
-	printf("%sPASS: %s%s\n", COLOR_GREEN, __func__, COLOR_RESET);
+	printf("%sPASS: %s%s\n", GREEN, __func__, RESET);
+	// ft_free_strs(actual);
 }
 
 void test_ft_split_cs_multi_spaces(void)
@@ -59,33 +48,33 @@ void test_ft_split_cs_multi_spaces(void)
 	{
 		if (ft_strlen(expected[i]) != ft_strlen(*actual))
 		{
-			printf("%sFAIL: %s%s\n", COLOR_RED, __func__, COLOR_RESET);
+			printf("%sFAIL: %s%s\n", RED, __func__, RESET);
 			printf("Expected len: %zu ; ", ft_strlen(expected[i]));
 			printf("Actual len: %zu\n", ft_strlen(*actual));
 			printf("Expected str: %s ; ", expected[i]);
 			printf("Actual str: %s\n", *actual);
-			TEST_FAIL();
+			ft_free_strs(actual);
 			return ;
 		}
 		if (ft_strncmp(expected[i], *actual, ft_strlen(expected[i])))
 		{
-			printf("%sFAIL: %s%s\n", COLOR_RED, __func__, COLOR_RESET);
+			printf("%sFAIL: %s%s\n", RED, __func__, RESET);
 			printf("Expected str: %s ; ", expected[i]);
 			printf("Actual str: %s\n", *actual);
-			TEST_FAIL();
+			ft_free_strs(actual);
 			return ;
 		}
 		i++;
 		actual++;
 	}
-	printf("%sPASS: %s%s\n", COLOR_GREEN, __func__, COLOR_RESET);
+	// ft_free_strs(actual);
+	printf("%sPASS: %s%s\n", GREEN, __func__, RESET);
 }
 
 int	main(void)
 {
 	printf("\n\n TEST ft_split_cs\n\n");
-	UNITY_BEGIN();
-	RUN_TEST(test_ft_split_cs_normal);
-	RUN_TEST(test_ft_split_cs_multi_spaces);
-	return (UNITY_END());
+	test_ft_split_cs_normal();
+	test_ft_split_cs_multi_spaces();
+	return (0);
 }

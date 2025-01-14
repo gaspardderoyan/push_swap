@@ -1,25 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   test_dir_of_first.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gderoyqn <gderoyqn@student.42london.com>   +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/14 00:50:42 by gderoyqn          #+#    #+#             */
+/*   Updated: 2025/01/14 00:56:03 by gderoyqn         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 // tests/test_dir_of_first.c
-#include "../unity/unity.h"
 #include "../inc/project.h"
-#include <stdio.h>
 
 // ANSI escape codes for colors
-#define COLOR_RED     "\x1b[31m"
-#define COLOR_GREEN   "\x1b[32m"
-#define COLOR_RESET   "\x1b[0m"
+#define RED     "\x1b[31m"
+#define GREEN   "\x1b[32m"
+#define RESET   "\x1b[0m"
 
 // Macro to calculate the size of the array and call the function
 #define DLIST_FROM_ARR(arr) _dlst_from_arr(arr, sizeof(arr) / sizeof((arr)[0]))
-
-void setUp(void)
-{
-    // set stuff up here
-}
-
-void tearDown(void)
-{
-    // clean stuff up here
-}
 
 // Modified function to create a doubly linked list from an array
 t_dlist *_dlst_from_arr(int *arr, size_t size)
@@ -51,12 +51,12 @@ void	assert_equals_and_print(int expected, int actual, const char *func_name)
 {
 	if (expected != actual)
 	{
-		printf("%sFAIL: %s%s\n", COLOR_RED, func_name, COLOR_RESET);
+		printf("%sFAIL: %s%s\n", RED, func_name, RESET);
 		printf("  Expected = %d, Actual = %d\n", expected, actual);
-		TEST_FAIL();
+		return ;
 	}
 	else
-		printf("%sPASS: %s%s\n", COLOR_GREEN, func_name, COLOR_RESET);
+		printf("%sPASS: %s%s\n", GREEN, func_name, RESET);
 }
 
 void	test_dir_of_first_start(void)
@@ -67,6 +67,7 @@ void	test_dir_of_first_start(void)
     list_indexing(&lst, mt.lst_size);
 	int	res = dir_of_first(lst, &mt);
 	assert_equals_and_print(1, res, __func__);
+	ft_dlstfree(lst);
 }
 
 void	test_dir_of_first_end(void)
@@ -77,6 +78,7 @@ void	test_dir_of_first_end(void)
     list_indexing(&lst, mt.lst_size);
 	int	res = dir_of_first(lst, &mt);
 	assert_equals_and_print(-1, res, __func__);
+	ft_dlstfree(lst);
 }
 
 void	test_dir_of_first_mid_up(void)
@@ -87,6 +89,7 @@ void	test_dir_of_first_mid_up(void)
     list_indexing(&lst, mt.lst_size);
 	int	res = dir_of_first(lst, &mt);
 	assert_equals_and_print(1, res, __func__);
+	ft_dlstfree(lst);
 }
 
 void	test_dir_of_first_mid_down(void)
@@ -97,6 +100,7 @@ void	test_dir_of_first_mid_down(void)
     list_indexing(&lst, mt.lst_size);
 	int	res = dir_of_first(lst, &mt);
 	assert_equals_and_print(-1, res, __func__);
+	ft_dlstfree(lst);
 }
 
 void	test_dir_of_first_empty(void)
@@ -107,16 +111,15 @@ void	test_dir_of_first_empty(void)
     list_indexing(&lst, mt.lst_size);
 	int	res = dir_of_first(lst, &mt);
 	assert_equals_and_print(0, res, __func__);
+	ft_dlstfree(lst);
 }
 
 int	main(void)
 {
-	printf("\n\n TEST dir_of_first\n\n");
-	UNITY_BEGIN();
-	RUN_TEST(test_dir_of_first_start);
-	RUN_TEST(test_dir_of_first_end);
-	RUN_TEST(test_dir_of_first_mid_up);
-	RUN_TEST(test_dir_of_first_mid_down);
-	RUN_TEST(test_dir_of_first_empty);
-	return (UNITY_END());
+	test_dir_of_first_start();
+	test_dir_of_first_end();
+	test_dir_of_first_mid_up();
+	test_dir_of_first_mid_down();
+	test_dir_of_first_empty();
+	return (0);
 }
