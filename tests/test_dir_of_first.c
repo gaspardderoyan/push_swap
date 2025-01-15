@@ -17,6 +17,7 @@
 #define RED     "\x1b[31m"
 #define GREEN   "\x1b[32m"
 #define RESET   "\x1b[0m"
+#define BOLD "\033[1m"
 
 // Macro to calculate the size of the array and call the function
 #define DLIST_FROM_ARR(arr) _dlst_from_arr(arr, sizeof(arr) / sizeof((arr)[0]))
@@ -116,6 +117,7 @@ void	test_dir_of_first_empty(void)
 
 int	main(void)
 {
+    printf(BOLD "\nDIR_OF_FIRST\n" RESET);
 	test_dir_of_first_start();
 	test_dir_of_first_end();
 	test_dir_of_first_mid_up();

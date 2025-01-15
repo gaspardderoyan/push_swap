@@ -4,6 +4,7 @@
 #define RED     "\x1b[31m"
 #define GREEN   "\x1b[32m"
 #define RESET   "\x1b[0m"
+#define BOLD "\033[1m"
 
 void test_ft_split_cs_normal(void)
 {
@@ -75,7 +76,7 @@ void test_ft_split_cs_multi_spaces(void)
 
 int	main(void)
 {
-	printf("\n\n TEST ft_split_cs\n\n");
+    printf(BOLD "\nFT_SPLIT_CS\n" RESET);
 	test_ft_split_cs_normal();
 	test_ft_split_cs_multi_spaces();
 	return (0);

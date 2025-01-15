@@ -6,6 +6,7 @@
 #define RED     "\x1b[31m"
 #define GREEN   "\x1b[32m"
 #define RESET   "\x1b[0m"
+#define BOLD "\033[1m"
 
 static void assert_equals_and_print(int expected_lower, int actual_lower, int expected_upper, int actual_upper, const char* func_name)
 {
@@ -79,7 +80,7 @@ void test_update_mt_uneven_chunk_end()
 
 int	main(void)
 {
-	printf("\n\nTEST update_mt\n\n");
+    printf(BOLD "\nUPDATE_MT\n" RESET);
 	test_update_mt_first_chunk();
 	test_update_mt_mid_chunk();
 	test_update_mt_last_chunk();

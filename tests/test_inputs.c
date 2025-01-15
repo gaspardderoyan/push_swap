@@ -4,6 +4,7 @@
 #define RED     "\x1b[31m"
 #define GREEN   "\x1b[32m"
 #define RESET   "\x1b[0m"
+#define BOLD "\033[1m"
 
 /* ************************************************************************** */
 /*   SINGLE STRING                                                            */
@@ -211,15 +212,15 @@ void	test_lst_from_strs_invalid_char(void)
 
 int	main(void)
 {
-	printf("\n\nTEST inputs\n\n");
-	printf("Testing: lst_from_str\n");
+    printf(BOLD "\nINPUTS\n" RESET);
+    printf(BOLD "lst_from_str\n" RESET);
 	test_lst_from_str_normal();
 	test_lst_from_str_invalid_char();
 	test_lst_from_str_duplicate();
 	test_lst_from_str_consecutive_space();
 	test_lst_from_str_start_space();
 	test_lst_from_str_end_space();
-	printf("esting: lst_from_strs\n");
+    printf(BOLD "lst_from_strs\n" RESET);
 	test_lst_from_strs_normal();
 	test_lst_from_strs_invalid_char();
 }

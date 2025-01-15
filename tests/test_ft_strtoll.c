@@ -10,15 +10,13 @@ void test_strtoll(const char *input, int base, long long expected, int expected_
     int original_errno = errno;
 
     errno = 0;
-    printf("Testing input: \"%s\", base: %d\n", input, base);
 
     result = mini_strtoll(input, base);
 
     if (result == expected && errno == expected_errno) {
-        printf(GREEN "  Passed: " RESET "Result = %lld, errno = %d\n", result, errno);
+        printf(GREEN "  Passed: " RESET "Input = %s, Result = %lld, Base = %d, errno = %d\n", input, result, base, errno);
     } else {
-        printf(RED "  Failed: " RESET);
-        printf("Input: \"%s\", Base: %d\n", input, base);
+        printf(RED "\n  Failed: " RESET);
         printf("  Expected Result = %lld, Actual Result = %lld\n", expected, result);
         printf("  Expected errno = %d, Actual errno = %d\n", expected_errno, errno);
     }
@@ -26,7 +24,7 @@ void test_strtoll(const char *input, int base, long long expected, int expected_
 }
 
 int main(void) {
-    printf(BOLD "\nSTRTOLL\n" RESET);
+    printf(BOLD "\nFT_STRTOLL\n" RESET);
 
     printf(BOLD "Basic decimal conversion:\n" RESET);
     test_strtoll("12345", 10, 12345, 0);

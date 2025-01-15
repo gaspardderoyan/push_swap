@@ -118,7 +118,7 @@ long long	mini_strtoll(const char *nptr, int radix)
 		if (handle_overflow(mt.sign, &mt.n, mt.index, radix))
 			return (mt.n);
 		// TODO put this in handle overflow 
-		if (mt.n < LLONG_MAX / radix)
+		if (mt.n <= LLONG_MAX / radix)
 			mt.n = mt.n * radix + mt.index;
 		nptr++;
 	}
