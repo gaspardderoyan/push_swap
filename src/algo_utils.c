@@ -84,7 +84,7 @@ int dir_of_first(t_dlist *lst, t_stacks_mt *mt)
  * 
  * @param mt A pointer to a `t_stacks_mt` structure representing the chunk to be updated.
  */
-void	update_mt(t_stacks_mt *mt)
+void	update_stacks_mt(t_stacks_mt *mt)
 {
 	int	chunk_size;
 
