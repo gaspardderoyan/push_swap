@@ -12,131 +12,157 @@
 
 void	test_lst_from_str_normal(void)
 {
-	t_dlist	*lst = NULL;
+	t_mst	mst;
 	char	*str = "1 2 3 4 5 6 7 8 9 10";
 	int		arr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 	int		len = sizeof(arr) / sizeof(arr[0]);
 
-	lst_from_str(str, &lst);
-	t_dlist *lst_cpy = lst;
+	mst.a = NULL;
+	mst.b = NULL;
+	mst.mt = NULL;
+	char **strs = ft_split_cs(str, "\t\n\v\f\r ");
+	lst_from_str(strs, &mst);
+	t_dlist *lst_cpy = mst.a;
 	int i = 0;
-	while (i < len && lst)
+	while (i < len && mst.a)
 	{
-		if (arr[i] != *(int *)lst->content)
+		if (arr[i] != *(int *)mst.a->content)
 		{
 			printf("%sFAIL: %s%s\n", RED, __func__, RESET);
-			printf("Index = %d,  Expected = %d, Actual = %d\n", i, arr[i] , *(int *)lst->content);
+			printf("Index = %d,  Expected = %d, Actual = %d\n", i, arr[i] , *(int *)mst.a->content);
+			ft_free_strs(strs);
 			ft_dlstfree(lst_cpy);
 			return ;
 		}
 		i++;
-		lst = lst->next;
+		mst.a = mst.a->next;
 	}
 	printf("%sPASS: %s%s\n", GREEN, __func__, RESET);
+	ft_free_strs(strs);
 	ft_dlstfree(lst_cpy);
 }
 
 void	test_lst_from_str_invalid_char(void)
 {
-	t_dlist	*lst = NULL;
+	t_mst	mst;
+	mst.a = NULL;
 	char	*str = "1 2 3 4 b";
 
 	errno = 0;
-	int expected_errno = 1;
-	lst_from_str(str, &lst);
-	t_dlist *lst_cpy = lst;
+	int expected_errno = 22;
+	char **strs = ft_split_cs(str, "\t\n\v\f\r ");
+	lst_from_str(strs, &mst);
+	t_dlist *lst_cpy = mst.a;
 	if (errno != expected_errno)
 	{
 		printf("%sFAIL: %s%s\n", RED, __func__, RESET);
 		printf("Errno: %d ; Expected: %d\n", errno, expected_errno);
 		ft_dlstfree(lst_cpy);
+		ft_free_strs(strs);
 		return ;
 	}
 	printf("%sPASS: %s%s\n", GREEN, __func__, RESET);
 	ft_dlstfree(lst_cpy);
+	ft_free_strs(strs);
 }
 
 void	test_lst_from_str_consecutive_space(void)
 {
-	t_dlist	*lst = NULL;
+	t_mst	mst;
+	mst.a = NULL;
 	char	*str = "1 2  3 4 5";
 
 	errno = 0;
-	int expected_errno = 5;
-	lst_from_str(str, &lst);
-	t_dlist *lst_cpy = lst;
+	int expected_errno = 0;
+	char **strs = ft_split_cs(str, "\t\n\v\f\r ");
+	lst_from_str(strs, &mst);
+	t_dlist *lst_cpy = mst.a;
 	if (errno != expected_errno)
 	{
 		printf("%sFAIL: %s%s\n", RED, __func__, RESET);
 		printf("Errno: %d ; Expected: %d\n", errno, expected_errno);
 		ft_dlstfree(lst_cpy);
+		ft_free_strs(strs);
 		return ;
 	}
 	printf("%sPASS: %s%s\n", GREEN, __func__, RESET);
+	ft_free_strs(strs);
 	ft_dlstfree(lst_cpy);
 }
 
 void	test_lst_from_str_start_space(void)
 {
-	t_dlist	*lst = NULL;
+	t_mst	mst;
+	mst.a = NULL;
 	char	*str = " 1 2 3 4 5";
 
 	errno = 0;
-	int expected_errno = 3;
-	lst_from_str(str, &lst);
-	t_dlist *lst_cpy = lst;
+	int expected_errno = 0;
+	char **strs = ft_split_cs(str, "\t\n\v\f\r ");
+	lst_from_str(strs, &mst);
+	t_dlist *lst_cpy = mst.a;
 	if (errno != expected_errno)
 	{
 		printf("%sFAIL: %s%s\n", RED, __func__, RESET);
 		printf("Errno: %d ; Expected: %d\n", errno, expected_errno);
 		ft_dlstfree(lst_cpy);
+		ft_free_strs(strs);
 		return ;
 	}
 	printf("%sPASS: %s%s\n", GREEN, __func__, RESET);
 	ft_dlstfree(lst_cpy);
+	ft_free_strs(strs);
 }
 
 void	test_lst_from_str_end_space(void)
 {
-	t_dlist	*lst = NULL;
+	t_mst	mst;
+	mst.a = NULL;
 	char	*str = "1 2 3 4 5 ";
 
 	errno = 0;
-	int expected_errno = 4;
-	lst_from_str(str, &lst);
-	t_dlist *lst_cpy = lst;
+	int expected_errno = 0;
+	char **strs = ft_split_cs(str, "\t\n\v\f\r ");
+	lst_from_str(strs, &mst);
+	t_dlist *lst_cpy = mst.a;
 	if (errno != expected_errno)
 	{
 		printf("%sFAIL: %s%s\n", RED, __func__, RESET);
 		printf("Errno: %d ; Expected: %d\n", errno, expected_errno);
 		ft_dlstfree(lst_cpy);
+		ft_free_strs(strs);
 		return ;
 	}
 	printf("%sPASS: %s%s\n", GREEN, __func__, RESET);
 	ft_dlstfree(lst_cpy);
+	ft_free_strs(strs);
 }
 
 void	test_lst_from_str_duplicate(void)
 {
-	t_dlist	*lst = NULL;
 	char	*str = "1 2 3 4 5 5 7 8 9 10"; // two 5
 	int		expected_len = 5;
 
 	errno = 0;
-	lst_from_str(str, &lst);
-	t_dlist *lst_cpy = lst;
-	int		actual_len = ft_dlstsize(lst);
+	t_mst	mst;
+	mst.a = NULL;
+	char **strs = ft_split_cs(str, "\t\n\v\f\r ");
+	lst_from_str(strs, &mst);
+	t_dlist *lst_cpy = mst.a;
+	int		actual_len = ft_dlstsize(mst.a);
 	if (actual_len == expected_len && errno == 2)
 	{
 		printf("%sPASS: %s%s\n", GREEN, __func__, RESET);
 		ft_dlstfree(lst_cpy);
+		ft_free_strs(strs);
 	}
 	else
-{
+	{
 		printf("%sFAIL: %s%s\n", RED, __func__, RESET);
 		printf("Expected len: %d ; Actual: %d\n", expected_len, actual_len);
 		printf("Expected errno: %d ; Actual: %d\n", 2, errno);
 		ft_dlstfree(lst_cpy);
+		ft_free_strs(strs);
 	}
 }
 
@@ -151,22 +177,23 @@ void	test_lst_from_strs_normal(void)
 	char	*str[] = {"OOPS", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", NULL};
 	int		arr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 	int		len = 10;
-	t_dlist	*lst = NULL;
-
-	lst_from_strs(11, str, &lst);
-	t_dlist *lst_cpy = lst;
+	t_mst	mst;
+	mst.a = NULL;
+	
+	lst_from_strs(11, str, &mst);
+	t_dlist *lst_cpy = mst.a;
 	int i = 0;
-	while (i < len && lst)
+	while (i < len && mst.a)
 	{
-		if (arr[i] != *(int *)lst->content)
+		if (arr[i] != *(int *)mst.a->content)
 		{
 			printf("%sFAIL: %s%s\n", RED, __func__, RESET);
-			printf("Index = %d,  Expected = %d, Actual = %d\n", i, arr[i] , *(int *)lst->content);
+			printf("Index = %d,  Expected = %d, Actual = %d\n", i, arr[i] , *(int *)mst.a->content);
 			ft_dlstfree(lst_cpy);
 			return ;
 		}
 		i++;
-		lst = lst->next;
+		mst.a = mst.a->next;
 	}
 	printf("%sPASS: %s%s\n", GREEN, __func__, RESET);
 	ft_dlstfree(lst_cpy);
@@ -178,13 +205,14 @@ void	test_lst_from_strs_invalid_char(void)
 
 	char	*str = "1 2 3 b 5 6 7 8 9 10";
 	char	**strs = ft_split(str, ' ');
-	t_dlist	*lst = NULL;
 
+	t_mst	mst;
+	mst.a = NULL;
 	errno = 0;
-	int expected_errno = 1;
-	lst_from_strs(10, strs, &lst);
-	t_dlist *lst_cpy = lst;
-	if (errno != 1)
+	int expected_errno = 22;
+	lst_from_strs(10, strs, &mst);
+	t_dlist *lst_cpy = mst.a;
+	if (errno != expected_errno)
 	{
 		printf("%sFAIL: %s%s\n", RED, __func__, RESET);
 		printf("Errno: %d ; Expected: %d\n", errno, expected_errno);

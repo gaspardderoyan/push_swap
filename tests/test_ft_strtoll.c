@@ -54,7 +54,7 @@ int main(void) {
     test_strtoll("Z", 36, 35, 0);
 
     printf(BOLD "Bases with trailing unaccepted characters:\n" RESET);
-    test_strtoll("0108abcde", 8, 8, 0);
+    test_strtoll("0108abcde", 8, 8, 10);
 
     printf(BOLD "Invalid input:\n" RESET);
     test_strtoll("abc", 10, 0, EINVAL);

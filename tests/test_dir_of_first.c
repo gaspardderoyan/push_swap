@@ -6,7 +6,7 @@
 /*   By: gderoyqn <gderoyqn@student.42london.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 00:50:42 by gderoyqn          #+#    #+#             */
-/*   Updated: 2025/01/14 00:56:03 by gderoyqn         ###   ########.fr       */
+/*   Updated: 2025/01/18 19:26:33 by gderoyqn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,10 +63,12 @@ void	assert_equals_and_print(int expected, int actual, const char *func_name)
 void	test_dir_of_first_start(void)
 {
 	t_dlist *lst = DLIST_FROM_ARR(((int[]){1, 2, 3, 4, 5, 6}));
-    t_stacks_mt mt = { .chunks_i = 0, .chunks_count = 2, .lst_size = 6 };
-	update_mt(&mt);
-    list_indexing(&lst, mt.lst_size);
-	int	res = dir_of_first(lst, &mt);
+	t_mst mst;
+	mst.a = lst;
+	mst.b = NULL;
+	mst.mt = NULL;
+    list_indexing(&mst, 5);
+	int	res = dir_of_first(lst, mst.mt);
 	assert_equals_and_print(1, res, __func__);
 	ft_dlstfree(lst);
 }
@@ -74,10 +76,10 @@ void	test_dir_of_first_start(void)
 void	test_dir_of_first_end(void)
 {
 	t_dlist *lst = DLIST_FROM_ARR(((int[]){6, 5, 4, 3, 2, 1}));
-    t_stacks_mt mt = { .chunks_i = 0, .chunks_count = 2, .lst_size = 6 };
-	update_mt(&mt);
-    list_indexing(&lst, mt.lst_size);
-	int	res = dir_of_first(lst, &mt);
+	t_mst mst;
+	mst.a = lst;
+    list_indexing(&mst, 5);
+	int	res = dir_of_first(lst, mst.mt);
 	assert_equals_and_print(-1, res, __func__);
 	ft_dlstfree(lst);
 }
@@ -85,10 +87,10 @@ void	test_dir_of_first_end(void)
 void	test_dir_of_first_mid_up(void)
 {
 	t_dlist *lst = DLIST_FROM_ARR(((int[]){1, 2, 3, 4, 5, 6}));
-    t_stacks_mt mt = { .chunks_i = 2, .chunks_count = 6, .lst_size = 6 };
-	update_mt(&mt);
-    list_indexing(&lst, mt.lst_size);
-	int	res = dir_of_first(lst, &mt);
+	t_mst mst;
+	mst.a = lst;
+    list_indexing(&mst, 5);
+	int	res = dir_of_first(lst, mst.mt);
 	assert_equals_and_print(1, res, __func__);
 	ft_dlstfree(lst);
 }
@@ -96,10 +98,10 @@ void	test_dir_of_first_mid_up(void)
 void	test_dir_of_first_mid_down(void)
 {
 	t_dlist *lst = DLIST_FROM_ARR(((int[]){1, 2, 3, 4, 5, 6}));
-    t_stacks_mt mt = { .chunks_i = 3, .chunks_count = 6, .lst_size = 6 };
-	update_mt(&mt);
-    list_indexing(&lst, mt.lst_size);
-	int	res = dir_of_first(lst, &mt);
+	t_mst mst;
+	mst.a = lst;
+    list_indexing(&mst, 5);
+	int	res = dir_of_first(lst, mst.mt);
 	assert_equals_and_print(-1, res, __func__);
 	ft_dlstfree(lst);
 }
@@ -107,10 +109,10 @@ void	test_dir_of_first_mid_down(void)
 void	test_dir_of_first_empty(void)
 {
 	t_dlist *lst = DLIST_FROM_ARR(((int[]){}));
-    t_stacks_mt mt = { .chunks_i = 0, .chunks_count = 5, .lst_size = 0 };
-	update_mt(&mt);
-    list_indexing(&lst, mt.lst_size);
-	int	res = dir_of_first(lst, &mt);
+	t_mst mst;
+	mst.a = lst;
+    list_indexing(&mst, 5);
+	int	res = dir_of_first(lst, mst.mt);
 	assert_equals_and_print(0, res, __func__);
 	ft_dlstfree(lst);
 }

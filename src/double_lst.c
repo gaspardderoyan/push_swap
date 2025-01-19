@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   double_lst.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gderoyqn <gderoyqn@student.42london.com>   +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/18 19:19:04 by gderoyqn          #+#    #+#             */
+/*   Updated: 2025/01/18 19:28:45 by gderoyqn         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../inc/double_lst.h"
 
 t_dlist *ft_dlstnew(void *content)
@@ -75,14 +87,15 @@ int	ft_dlstsize(t_dlist *lst)
 
 void	ft_dlstfree(t_dlist *lst)
 {
-	t_dlist	*cursor;
+	t_dlist	*next;
 
 	while (lst)
 	{
-		cursor = lst;
-		if (cursor->content)
-			free(cursor->content);
-		free(cursor);
-		lst = lst->next;
+		next = lst->next;
+		if (lst->content)
+			free(lst->content);
+		free(lst);
+		lst = next;
 	}
 }
+

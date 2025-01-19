@@ -6,13 +6,13 @@
 #    By: gderoyqn <gderoyqn@student.42london.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/13 18:49:48 by gderoyqn          #+#    #+#              #
-#    Updated: 2025/01/14 01:10:29 by gderoyqn         ###   ########.fr        #
+#    Updated: 2025/01/18 18:22:53 by gderoyqn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC = gcc
-CFLAGS = -Wall -Wextra -Werror -Inc -Ilibft/inc
-DEBUGFLAGS = -g3 -gdwarf-3 -O0 -fsanitize=address -fsanitize=undefined
+CC = cc
+CFLAGS = -Wall -Wextra -Werror -O3 -Inc -Ilibft/inc
+DEBUGFLAGS = -g3 -fsanitize=address -fsanitize=undefined -fsanitize=alignment
 
 SRC_DIR = src
 OBJ_DIR = obj
@@ -61,7 +61,7 @@ $(NAME): $(MAIN_OBJ) $(OBJS) $(LIBFT)
 # TODO use if statement > -p
 $(OBJ_DIR)/%.o : $(SRC_DIR)/%.c
 	@mkdir -p $(OBJ_DIR) # @ so not printed
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) $(DEBUGFLAGS) -c $< -o $@
 
 ################################################################################
 # Test Build Targets
@@ -75,19 +75,19 @@ test: $(TEST_EXES)
 
 # Pattern rule for individual test targets
 test_%: $(TEST_OBJ_DIR)/test_%.o $(OBJS) $(LIBFT)
-	$(CC) $(TEST_CFLAGS) $(DEBUGFLAGS) $^ -o $(TEST_DIR)/test_$*
+	$(CC) $(CFLAGS) $(DEBUGFLAGS) $^ -o $(TEST_DIR)/test_$*
 	$(TEST_DIR)/test_$*
 
 # Build test executables
 $(TEST_DIR)/test_%: $(TEST_OBJ_DIR)/test_%.o $(OBJS) $(LIBFT)
-	$(CC) $(TEST_CFLAGS) $(DEBUGFLAGS) $^ -o $@
+	$(CC) $(CFLAGS) $(DEBUGFLAGS) $^ -o $@
 
 .PRECIOUS: $(TEST_OBJ_DIR)/%.o
 
 # Compile object file for test sources
 $(TEST_OBJ_DIR)/test_%.o: $(TEST_DIR)/test_%.c
 	@mkdir -p $(TEST_OBJ_DIR)
-	$(CC) $(TEST_CFLAGS) $(DEBUGFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) $(DEBUGFLAGS) -c $< -o $@
 
 ################################################################################
 # Helper Targets (clean, fclean, re)

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split_cs.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gderoyqn <gderoyqn@student.42london.com>   +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/18 20:47:33 by gderoyqn          #+#    #+#             */
+/*   Updated: 2025/01/18 20:51:04 by gderoyqn         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../inc/project.h"
 
 static int	ft_count_subs_cs(char const *s, char *cs)
@@ -33,7 +45,7 @@ char	**ft_split_cs(char const *s, char *cs)
 
 	if (!s)
 		return (NULL);
-	arr = (char **)malloc(sizeof(char *) * (ft_count_subs_cs(s, cs) + 1));
+	arr = malloc(sizeof(char *) * (ft_count_subs_cs(s, cs) + 1));
 	if (!arr)
 		return (NULL);
 	i = 0;
@@ -57,9 +69,12 @@ void	ft_free_strs(char **strs)
 	int	i;
 
 	i = 0;
+	if (!strs)
+		return ;
 	while (strs[i])
 	{
 		free(strs[i]);
+		strs[i] = NULL;
 		i++;
 	}
 	free(strs);

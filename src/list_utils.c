@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   list_utils.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gderoyqn <gderoyqn@student.42london.com>   +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/18 17:17:59 by gderoyqn          #+#    #+#             */
+/*   Updated: 2025/01/18 18:25:58 by gderoyqn         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../inc/double_lst.h"
 #include "../inc/project.h"
 
@@ -45,22 +57,26 @@ t_dlist *get_lst_min(t_dlist *lst, int index_mode)
     return min;
 }
 
-void list_indexing(t_dlist **lst, int lst_len)
+void    list_indexing(t_mst *mst, int chunks_count)
 {
     int i;
     t_dlist *min_node;
     t_dlist *temp;
 
-    temp = *lst;
+	mst->mt = malloc(sizeof(t_stacks_mt));
+	mst->mt->chunks_i = 0;
+	mst->mt->chunks_count = chunks_count;
+	mst->mt->lst_size = ft_dlstsize(mst->a);
+    temp = mst->a;
     while (temp)
     {
         temp->index = -1;
         temp = temp->next;
     }
     i = 0;
-    while (i < lst_len)
+    while (i < mst->mt->lst_size)
     {
-        min_node = get_lst_min(*lst, true);
+        min_node = get_lst_min(mst->a, true);
         min_node->index = i;
         i++;
     }

@@ -6,7 +6,7 @@
 /*   By: gderoyqn <gderoyqn@student.42london.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 23:27:21 by gderoyqn          #+#    #+#             */
-/*   Updated: 2025/01/13 19:29:46 by gderoyqn         ###   ########.fr       */
+/*   Updated: 2025/01/18 22:21:46 by gderoyqn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,8 +123,8 @@ long long	mini_strtoll(const char *nptr, int radix)
 		nptr++;
 	}
 
-	// if (nptr)
-	// 	errno = 10;
+	if (*nptr)
+		errno = 10;
 	if (mt.empty)
 		return (errno = EINVAL, 0);
 	return (mt.n * mt.sign);
