@@ -26,7 +26,7 @@ typedef struct s_mst
 {
 	t_dlist *a;	
 	t_dlist *b;
-	t_stacks_mt *mt;
+	t_stacks_mt mt;
 } t_mst ;
 
 typedef struct s_strtol_mt
@@ -34,7 +34,7 @@ typedef struct s_strtol_mt
 	int			sign;
 	int			index;
 	int			empty;
-	long long	n;
+	unsigned long long	n;
 } t_strtol_mt;
 
 // Function Prototypes

@@ -36,15 +36,15 @@ int	base_index(char c, int radix)
 	return (-1);
 }
 
-int	handle_overflow(int sign, long long *n, int digit, int radix)
+int	handle_overflow(int sign, unsigned long long *n, int digit, int radix)
 {
-	if (sign == 1 && *n > (LLONG_MAX - digit) / radix)
+	if (sign == 1 && (long long)*n > (LLONG_MAX - digit) / radix)
 	{
 		errno = ERANGE;
 		*n = LLONG_MAX;
 		return (true);
 	}
-	if (sign == -1 && -(*n) < (LLONG_MIN + digit) / radix)
+	if (sign == -1 && (long long)-(*n) < (LLONG_MIN + digit) / radix)
 	{
 		errno = ERANGE;
 		*n = LLONG_MIN;
@@ -117,9 +117,7 @@ long long	mini_strtoll(const char *nptr, int radix)
 		mt.index = base_index(*nptr, radix);
 		if (handle_overflow(mt.sign, &mt.n, mt.index, radix))
 			return (mt.n);
-		// TODO put this in handle overflow 
-		if (mt.n <= LLONG_MAX / radix)
-			mt.n = mt.n * radix + mt.index;
+		mt.n = mt.n * radix + mt.index;
 		nptr++;
 	}
 
@@ -127,6 +125,6 @@ long long	mini_strtoll(const char *nptr, int radix)
 		errno = 10;
 	if (mt.empty)
 		return (errno = EINVAL, 0);
-	return (mt.n * mt.sign);
+	return ((long long)(mt.n * mt.sign));
 }
 

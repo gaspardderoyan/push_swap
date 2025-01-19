@@ -23,12 +23,13 @@ LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
 SRCS = double_lst.c \
-	   list_addition.c \
-	   list_manipulation.c \
+	   inputs.c \
+	   operations.c \
 	   list_utils.c \
 	   ft_strtoll.c \
 	   ft_split_cs.c \
-	   algo.c
+	   algo.c \
+	   algo_utils.c
 MAIN_SRC = main.c
 
 # $(text:pattern=replacement)

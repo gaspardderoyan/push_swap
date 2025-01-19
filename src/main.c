@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gderoyqn <gderoyqn@student.42london.com>   +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/19 01:30:48 by gderoyqn          #+#    #+#             */
+/*   Updated: 2025/01/19 01:30:51 by gderoyqn         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../inc/project.h"
 
 /*
@@ -6,9 +18,10 @@
  * 1 --> print + free
  * 2 --> free
  */
-void pnf_list(t_dlist *lst, int free_flag)
+void	pnf_list(t_dlist *lst, int free_flag)
 {
-	t_dlist *current;
+	t_dlist	*current;
+
 	while (lst != NULL)
 	{
 		if (free_flag != 2) // 2 means no printing
@@ -36,17 +49,15 @@ int	main(int ac, char **av)
 
 	mst.a = NULL;
 	mst.b = NULL;
-	mst.mt = NULL;
 	errno = 0;
 	if (ac == 1)
 		return (ft_putstr_fd("Error\n", 2), 0);
 	lst_from_input(ac, av, &mst);
 	if (errno)
-		return (printf("Errno: %d\n", errno), ft_putstr_fd("Error\n", 2), 0);
+		return (printf("Errno: %d\n", errno), ft_dlstfree(mst.a), ft_putstr_fd("Error\n", 2), 0);
 	list_indexing(&mst, 5); // 2nd argument is chunks count
     pnf_list(mst.a, 0);
 	ft_dlstfree(mst.a);
-	free(mst.mt);
 	// choose_algo(&mst);
 	// sort_list(&mst);
 	// print_instructions(&mst);

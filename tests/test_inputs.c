@@ -19,7 +19,6 @@ void	test_lst_from_str_normal(void)
 
 	mst.a = NULL;
 	mst.b = NULL;
-	mst.mt = NULL;
 	char **strs = ft_split_cs(str, "\t\n\v\f\r ");
 	lst_from_str(strs, &mst);
 	t_dlist *lst_cpy = mst.a;

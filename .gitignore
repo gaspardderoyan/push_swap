@@ -2,6 +2,6 @@
 **/push_swap
 **/*.out
 obj/
-unity/
 *.md
 *.txt
+*.py
