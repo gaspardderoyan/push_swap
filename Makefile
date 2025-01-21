@@ -6,7 +6,7 @@
 #    By: gderoyqn <gderoyqn@student.42london.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/13 18:49:48 by gderoyqn          #+#    #+#              #
-#    Updated: 2025/01/20 21:39:49 by gderoyqn         ###   ########.fr        #
+#    Updated: 2025/01/21 22:15:47 by gderoyqn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,8 @@ SRCS = inputs.c \
 	   utils.c \
 	   algo.c \
 	   algo_utils.c \
-	   chunk_sort.c
+	   chunk_sort.c \
+	   delete.c
 MAIN_SRC = main.c
 
 # $(text:pattern=replacement)
@@ -41,7 +42,10 @@ TEST_SRCS = test_dir_of_first.c \
 			test_ft_split_cs.c \
 			test_inputs.c \
 			test_update_mt.c \
-			test_operations.c
+			test_operations.c \
+			test_insertion_sort.c \
+			test_chunk_sort.c \
+			test_dlstsize.c
 
 TEST_EXES = $(TEST_SRCS:%.c=$(TEST_DIR)/%)
 

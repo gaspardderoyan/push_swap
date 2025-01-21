@@ -6,7 +6,7 @@
 /*   By: gderoyqn <gderoyqn@student.42london.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 00:19:07 by gderoyqn          #+#    #+#             */
-/*   Updated: 2025/01/21 00:19:09 by gderoyqn         ###   ########.fr       */
+/*   Updated: 2025/01/21 22:23:15 by gderoyqn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ void    push_first(t_dlist **in, t_dlist **out, int *ops)
 	temp = *in;
 	*in = (*in)->next;
 	temp->next = NULL;
+	temp->prev = NULL;
 	ft_dlstadd_front(out, temp);
 	if (ops)
 		(*ops)++;
@@ -72,9 +73,12 @@ void    reverse(t_dlist **lst, int *ops)
 		return ;
 	last = ft_dlstlast(*lst);
 	next_to_last = last->prev;
+	// printf("ntl: %d\n", *(int *)next_to_last->content);
 	next_to_last->next = NULL;
 	last->next = *lst;
-	*lst = last;
+	(*lst)->prev = last;
+	*lst = last; // change head
+	(*lst)->prev = NULL;
 	if (ops)
 		(*ops)++;
 }

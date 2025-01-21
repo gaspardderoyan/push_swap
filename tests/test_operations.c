@@ -6,11 +6,12 @@
 /*   By: gderoyqn <gderoyqn@student.42london.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 21:33:11 by gderoyqn          #+#    #+#             */
-/*   Updated: 2025/01/20 22:59:29 by gderoyqn         ###   ########.fr       */
+/*   Updated: 2025/01/21 23:15:36 by gderoyqn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/project.h"
+#include "libft.h"
 
 // ANSI escape codes for colors
 #define RED     "\x1b[31m"

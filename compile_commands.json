@@ -6,7 +6,6 @@
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-O3",
    "-Inc",
    "-Ilibft/inc",
    "-g3",
@@ -27,49 +26,6 @@
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-O3",
-   "-Inc",
-   "-Ilibft/inc",
-   "-g3",
-   "-fsanitize=address",
-   "-fsanitize=undefined",
-   "-fsanitize=alignment",
-   "-c",
-   "src/double_lst.c",
-   "-o",
-   "obj/double_lst.o"
-  ],
-  "file": "src/double_lst.c"
- },
- {
-  "directory": "/home/gderoyqn/code/push_swap",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Wextra",
-   "-Werror",
-   "-O3",
-   "-Inc",
-   "-Ilibft/inc",
-   "-g3",
-   "-fsanitize=address",
-   "-fsanitize=undefined",
-   "-fsanitize=alignment",
-   "-c",
-   "src/list_utils.c",
-   "-o",
-   "obj/list_utils.o"
-  ],
-  "file": "src/list_utils.c"
- },
- {
-  "directory": "/home/gderoyqn/code/push_swap",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Wextra",
-   "-Werror",
-   "-O3",
    "-Inc",
    "-Ilibft/inc",
    "-g3",
@@ -1024,48 +980,6 @@
   "file": "src/ft_printf.c"
  },
  {
-  "directory": "/home/gderoyqn/code/push_swap",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Wextra",
-   "-Werror",
-   "-O3",
-   "-Inc",
-   "-Ilibft/inc",
-   "-g3",
-   "-fsanitize=address",
-   "-fsanitize=undefined",
-   "-fsanitize=alignment",
-   "-c",
-   "src/ft_strtoll.c",
-   "-o",
-   "obj/ft_strtoll.o"
-  ],
-  "file": "src/ft_strtoll.c"
- },
- {
-  "directory": "/home/gderoyqn/code/push_swap",
-  "arguments": [
-   "cc",
-   "-Wall",
-   "-Wextra",
-   "-Werror",
-   "-O3",
-   "-Inc",
-   "-Ilibft/inc",
-   "-g3",
-   "-fsanitize=address",
-   "-fsanitize=undefined",
-   "-fsanitize=alignment",
-   "-c",
-   "src/ft_split_cs.c",
-   "-o",
-   "obj/ft_split_cs.o"
-  ],
-  "file": "src/ft_split_cs.c"
- },
- {
   "directory": "/home/gderoyqn/code/push_swap/libft",
   "arguments": [
    "gcc",
@@ -1092,7 +1006,6 @@
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-O3",
    "-Inc",
    "-Ilibft/inc",
    "-g3",
@@ -1113,7 +1026,6 @@
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-O3",
    "-Inc",
    "-Ilibft/inc",
    "-g3",
@@ -1134,7 +1046,6 @@
    "-Wall",
    "-Wextra",
    "-Werror",
-   "-O3",
    "-Inc",
    "-Ilibft/inc",
    "-g3",
@@ -1147,5 +1058,265 @@
    "obj/algo_utils.o"
   ],
   "file": "src/algo_utils.c"
+ },
+ {
+  "directory": "/home/gderoyqn/code/push_swap",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Inc",
+   "-Ilibft/inc",
+   "-g3",
+   "-fsanitize=address",
+   "-fsanitize=undefined",
+   "-fsanitize=alignment",
+   "-c",
+   "src/utils.c",
+   "-o",
+   "obj/utils.o"
+  ],
+  "file": "src/utils.c"
+ },
+ {
+  "directory": "/home/gderoyqn/code/push_swap",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Inc",
+   "-Ilibft/inc",
+   "-g3",
+   "-fsanitize=address",
+   "-fsanitize=undefined",
+   "-fsanitize=alignment",
+   "-c",
+   "src/chunk_sort.c",
+   "-o",
+   "obj/chunk_sort.o"
+  ],
+  "file": "src/chunk_sort.c"
+ },
+ {
+  "directory": "/home/gderoyqn/code/push_swap/libft",
+  "arguments": [
+   "gcc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Iinc",
+   "-g3",
+   "-gdwarf-3",
+   "-O0",
+   "-fsanitize=address",
+   "-fsanitize=undefined",
+   "-c",
+   "src/ft_dlst.c",
+   "-o",
+   "obj/ft_dlst.o"
+  ],
+  "file": "src/ft_dlst.c"
+ },
+ {
+  "directory": "/home/gderoyqn/code/push_swap/libft",
+  "arguments": [
+   "gcc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Iinc",
+   "-g3",
+   "-gdwarf-3",
+   "-O0",
+   "-fsanitize=address",
+   "-fsanitize=undefined",
+   "-c",
+   "src/ft_dlst_2.c",
+   "-o",
+   "obj/ft_dlst_2.o"
+  ],
+  "file": "src/ft_dlst_2.c"
+ },
+ {
+  "directory": "/home/gderoyqn/code/push_swap/libft",
+  "arguments": [
+   "gcc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Iinc",
+   "-g3",
+   "-gdwarf-3",
+   "-O0",
+   "-fsanitize=address",
+   "-fsanitize=undefined",
+   "-c",
+   "src/ft_strtoll.c",
+   "-o",
+   "obj/ft_strtoll.o"
+  ],
+  "file": "src/ft_strtoll.c"
+ },
+ {
+  "directory": "/home/gderoyqn/code/push_swap/libft",
+  "arguments": [
+   "gcc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Iinc",
+   "-g3",
+   "-gdwarf-3",
+   "-O0",
+   "-fsanitize=address",
+   "-fsanitize=undefined",
+   "-c",
+   "src/ft_free_strs.c",
+   "-o",
+   "obj/ft_free_strs.o"
+  ],
+  "file": "src/ft_free_strs.c"
+ },
+ {
+  "directory": "/home/gderoyqn/code/push_swap/libft",
+  "arguments": [
+   "gcc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Iinc",
+   "-g3",
+   "-gdwarf-3",
+   "-O0",
+   "-fsanitize=address",
+   "-fsanitize=undefined",
+   "-c",
+   "src/ft_split_cs.c",
+   "-o",
+   "obj/ft_split_cs.o"
+  ],
+  "file": "src/ft_split_cs.c"
+ },
+ {
+  "directory": "/home/gderoyqn/code/push_swap",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Inc",
+   "-Ilibft/inc",
+   "-g3",
+   "-fsanitize=address",
+   "-fsanitize=undefined",
+   "-fsanitize=alignment",
+   "-c",
+   "tests/test_dir_of_first.c",
+   "-o",
+   "obj/tests/test_dir_of_first.o"
+  ],
+  "file": "tests/test_dir_of_first.c"
+ },
+ {
+  "directory": "/home/gderoyqn/code/push_swap",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Inc",
+   "-Ilibft/inc",
+   "-g3",
+   "-fsanitize=address",
+   "-fsanitize=undefined",
+   "-fsanitize=alignment",
+   "-c",
+   "tests/test_ft_strtoll.c",
+   "-o",
+   "obj/tests/test_ft_strtoll.o"
+  ],
+  "file": "tests/test_ft_strtoll.c"
+ },
+ {
+  "directory": "/home/gderoyqn/code/push_swap",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Inc",
+   "-Ilibft/inc",
+   "-g3",
+   "-fsanitize=address",
+   "-fsanitize=undefined",
+   "-fsanitize=alignment",
+   "-c",
+   "tests/test_ft_split_cs.c",
+   "-o",
+   "obj/tests/test_ft_split_cs.o"
+  ],
+  "file": "tests/test_ft_split_cs.c"
+ },
+ {
+  "directory": "/home/gderoyqn/code/push_swap",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Inc",
+   "-Ilibft/inc",
+   "-g3",
+   "-fsanitize=address",
+   "-fsanitize=undefined",
+   "-fsanitize=alignment",
+   "-c",
+   "tests/test_inputs.c",
+   "-o",
+   "obj/tests/test_inputs.o"
+  ],
+  "file": "tests/test_inputs.c"
+ },
+ {
+  "directory": "/home/gderoyqn/code/push_swap",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Inc",
+   "-Ilibft/inc",
+   "-g3",
+   "-fsanitize=address",
+   "-fsanitize=undefined",
+   "-fsanitize=alignment",
+   "-c",
+   "tests/test_update_mt.c",
+   "-o",
+   "obj/tests/test_update_mt.o"
+  ],
+  "file": "tests/test_update_mt.c"
+ },
+ {
+  "directory": "/home/gderoyqn/code/push_swap",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Inc",
+   "-Ilibft/inc",
+   "-g3",
+   "-fsanitize=address",
+   "-fsanitize=undefined",
+   "-fsanitize=alignment",
+   "-c",
+   "tests/test_operations.c",
+   "-o",
+   "obj/tests/test_operations.o"
+  ],
+  "file": "tests/test_operations.c"
  }
 ]

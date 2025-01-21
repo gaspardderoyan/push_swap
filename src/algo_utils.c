@@ -6,7 +6,7 @@
 /*   By: gderoyqn <gderoyqn@student.42london.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 00:18:22 by gderoyqn          #+#    #+#             */
-/*   Updated: 2025/01/21 00:18:25 by gderoyqn         ###   ########.fr       */
+/*   Updated: 2025/01/21 22:40:28 by gderoyqn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,26 @@ void    list_indexing(t_mst *mst, int chunks_count)
 }
 
 
-int	i_of_first_last(t_dlist *lst, t_stacks_mt *mt, int first)
+/**
+ * Gets the position in the dlist of the 1st item within the current stack
+ * 
+ * Either from the start or the end
+ *
+ * @param lst	pointer to the dlist
+ * @param mt	pointer to the stack metadata (for the chunks' lower/upper limit)
+ * @param first	boolean, true if we want first (ie. from start), false if last
+ *
+ * @return position of the item in the dlist
+ *		-1 if item not found or invalid input
+ */
+int	i_of_first_last(t_dlist *lst, t_stacks_mt *mt, bool first)
 {
 	t_dlist *cursor;
 	int	i;
 
 	i = 0;
+	if (!lst || !mt)
+		return (-1);
 	if (first)
 		cursor = lst;
 	else 
@@ -62,10 +76,11 @@ int	i_of_first_last(t_dlist *lst, t_stacks_mt *mt, int first)
 }
 
 /*
-	* return 1 if should start from start
-	* return -1 if should start from end
-	* return 0 if should skip to next stack
-*/
+ * Returns best direction to know if rotate/reverse is best
+ * return 1 if should start from start
+ * return -1 if should start from end
+ * return 0 if should skip to next stack
+ */
 int dir_of_first(t_dlist *lst, t_stacks_mt *mt)
 {
 	int	start_i;

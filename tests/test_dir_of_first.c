@@ -117,7 +117,7 @@ void	test_dir_of_first_empty(void)
     list_indexing(&mst, 5);
 	update_stacks_mt(&mst.mt);
 	int	res = dir_of_first(lst, &mst.mt);
-	assert_equals_and_print(0, res, __func__);
+	assert_equals_and_print(-1, res, __func__);
 	ft_dlstfree(lst);
 }
 
