@@ -6,13 +6,11 @@
 /*   By: gderoyqn <gderoyqn@student.42london.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 23:27:21 by gderoyqn          #+#    #+#             */
-/*   Updated: 2025/01/18 22:21:46 by gderoyqn         ###   ########.fr       */
+/*   Updated: 2025/01/21 02:53:54 by gderoyqn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/project.h"
-#include "../libft/inc/libft.h"
-
+#include "../inc/libft.h"
 
 /*
  * Returns the position of the given character in the given base
@@ -20,7 +18,7 @@
  * @param	c		the current character
  * @param	radix	the radix of the base (ie. 10 for deci)
  */
-int	base_index(char c, int radix)
+static int	base_index(char c, int radix)
 {
 	const char	*base = "0123456789abcdefghijklmnopqrstuvwxyz";
 	int			index;
@@ -36,7 +34,7 @@ int	base_index(char c, int radix)
 	return (-1);
 }
 
-int	handle_overflow(int sign, unsigned long long *n, int digit, int radix)
+static int	is_ovflow(int sign, unsigned long long *n, int digit, int radix)
 {
 	if (sign == 1 && (long long)*n > (LLONG_MAX - digit) / radix)
 	{
@@ -64,7 +62,7 @@ int	handle_overflow(int sign, unsigned long long *n, int digit, int radix)
  * @param	sign	pointer to an int, to set the sign of nbr
  * @param	radix	pointer to an int, ie. 10 for decimal 
  */
-void	skip_lead(const char **nptr, int *sign, int *radix)
+static void	skip_lead(const char **nptr, int *sign, int *radix)
 {
 	while (ft_isspace(**nptr))
 		(*nptr)++;
@@ -91,21 +89,21 @@ void	skip_lead(const char **nptr, int *sign, int *radix)
 		*radix = 10;
 }
 
-
-void	set_strtol_mt(t_strtol_mt *mt, int sign, int empty, long long n)
+static void	set_strtol_mt(t_strtol_mt *mt, int sign, int empty, long long n)
 {
 	mt->sign = sign;
 	mt->empty = empty;
 	mt->index = 0;
 	mt->n = n;
 }
+
 /*
  * 
  * If radix is out of range, sets errno & returns 0
  */
 long long	mini_strtoll(const char *nptr, int radix)
 {
-	t_strtol_mt mt;
+	t_strtol_mt	mt;
 
 	set_strtol_mt(&mt, 1, 1, 0);
 	skip_lead(&nptr, &mt.sign, &radix);
@@ -115,16 +113,14 @@ long long	mini_strtoll(const char *nptr, int radix)
 	{
 		mt.empty = 0;
 		mt.index = base_index(*nptr, radix);
-		if (handle_overflow(mt.sign, &mt.n, mt.index, radix))
+		if (is_ovflow(mt.sign, &mt.n, mt.index, radix))
 			return (mt.n);
 		mt.n = mt.n * radix + mt.index;
 		nptr++;
 	}
-
 	if (*nptr)
 		errno = 10;
 	if (mt.empty)
 		return (errno = EINVAL, 0);
 	return ((long long)(mt.n * mt.sign));
 }
-

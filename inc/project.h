@@ -2,7 +2,6 @@
 # define PROJECT_H
 
 # include "../libft/inc/libft.h"
-# include "../inc/double_lst.h"
 
 /**
  * Represents a chunk within a larger list for multi-chunks sorting.
@@ -30,13 +29,6 @@ typedef struct s_mst
 	int	ops;
 } t_mst ;
 
-typedef struct s_strtol_mt
-{
-	int			sign;
-	int			index;
-	int			empty;
-	unsigned long long	n;
-} t_strtol_mt;
 
 // Function Prototypes
 
@@ -68,11 +60,6 @@ int		insertion_sort(t_dlist **a, t_dlist **b);
 void	chunk_sort(t_dlist **a, t_dlist **b, t_stacks_mt *mt, int *ops);
 int		dir_of_first(t_dlist *lst, t_stacks_mt *mt);
 void	update_stacks_mt(t_stacks_mt *mt);
-
-// Other
-char	**ft_split_cs(char const *s, char *cs);
-void	ft_free_strs(char **strs);
-long long	mini_strtoll(const char *nptr, int radix);
 
 
 #endif

@@ -22,12 +22,9 @@ TEST_OBJ_DIR = $(OBJ_DIR)/tests
 LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
-SRCS = double_lst.c \
-	   inputs.c \
+SRCS = inputs.c \
 	   operations.c \
-	   list_utils.c \
-	   ft_strtoll.c \
-	   ft_split_cs.c \
+	   utils.c \
 	   algo.c \
 	   algo_utils.c \
 	   chunk_sort.c

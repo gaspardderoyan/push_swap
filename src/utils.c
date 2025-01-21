@@ -43,23 +43,3 @@ t_dlist *get_lst_min(t_dlist *lst, int index_mode)
     }
     return min;
 }
-
-
-t_dlist *get_lst_max(t_dlist *lst)
-{
-    t_dlist *max;
-    int current_val;
-
-    max = NULL;
-    while (lst)
-    {
-		if (max == NULL || (*(int *)lst->content > current_val))
-		{
-			max = lst;
-			current_val = *(int *)lst->content;
-		}
-        lst = lst->next;
-    }
-    return max;
-}
-

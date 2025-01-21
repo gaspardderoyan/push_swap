@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   double_lst.c                                       :+:      :+:    :+:   */
+/*   ft_dlst.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gderoyqn <gderoyqn@student.42london.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 19:19:04 by gderoyqn          #+#    #+#             */
-/*   Updated: 2025/01/18 19:28:45 by gderoyqn         ###   ########.fr       */
+/*   Updated: 2025/01/21 02:59:24 by gderoyqn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/double_lst.h"
+#include "../inc/libft.h"
 
-t_dlist *ft_dlstnew(void *content)
+t_dlist	*ft_dlstnew(void *content)
 {
 	t_dlist	*head;
 
@@ -25,18 +25,18 @@ t_dlist *ft_dlstnew(void *content)
 	return (head);
 }
 
-void    ft_dlstadd_front(t_dlist **lst, t_dlist *new)
+void	ft_dlstadd_front(t_dlist **lst, t_dlist *new)
 {
-    if (!new)
-        return ;
-    if (!*lst)
-        *lst = new;
-    else
-    {
-        new->next = *lst;
-        (*lst)->prev = new;
-        *lst = new;
-    }
+	if (!new)
+		return ;
+	if (!*lst)
+		*lst = new;
+	else
+	{
+		new->next = *lst;
+		(*lst)->prev = new;
+		*lst = new;
+	}
 }
 
 t_dlist	*ft_dlstlast(t_dlist *lst)
@@ -63,10 +63,10 @@ void	ft_dlstadd_back(t_dlist **lst, t_dlist *new)
 	{
 		last = ft_dlstlast(*lst);
 		if (last)
-        {
+		{
 			last->next = new;
-            new->prev = last;
-        }
+			new->prev = last;
+		}
 	}
 }
 
@@ -84,18 +84,3 @@ int	ft_dlstsize(t_dlist *lst)
 	}
 	return (i);
 }
-
-void	ft_dlstfree(t_dlist *lst)
-{
-	t_dlist	*next;
-
-	while (lst)
-	{
-		next = lst->next;
-		if (lst->content)
-			free(lst->content);
-		free(lst);
-		lst = next;
-	}
-}
-

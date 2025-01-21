@@ -1,20 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isspace.c                                       :+:      :+:    :+:   */
+/*   ft_dlst_2.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gderoyqn <gderoyqn@student.42london.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/21 02:51:18 by gderoyqn          #+#    #+#             */
-/*   Updated: 2025/01/21 02:51:36 by gderoyqn         ###   ########.fr       */
+/*   Created: 2025/01/21 03:00:03 by gderoyqn          #+#    #+#             */
+/*   Updated: 2025/01/21 03:00:52 by gderoyqn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/libft.h"
 
-int	ft_isspace(int c)
+void	ft_dlstfree(t_dlist *lst)
 {
-	const unsigned char	cc = (unsigned char)c;
+	t_dlist	*next;
 
-	return ((cc >= 9 && cc <= 13) || cc == 32);
+	while (lst)
+	{
+		next = lst->next;
+		if (lst->content)
+			free(lst->content);
+		free(lst);
+		lst = next;
+	}
+}
+
+t_dlist	*get_lst_max(t_dlist *lst)
+{
+	t_dlist	*max;
+	int		current_val;
+
+	max = NULL;
+	while (lst)
+	{
+		if (max == NULL || (*(int *)lst->content > current_val))
+		{
+			max = lst;
+			current_val = *(int *)lst->content;
+		}
+		lst = lst->next;
+	}
+	return (max);
 }

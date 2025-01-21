@@ -6,11 +6,11 @@
 /*   By: gderoyqn <gderoyqn@student.42london.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 20:47:33 by gderoyqn          #+#    #+#             */
-/*   Updated: 2025/01/18 20:51:04 by gderoyqn         ###   ########.fr       */
+/*   Updated: 2025/01/21 02:54:30 by gderoyqn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/project.h"
+#include "../inc/libft.h"
 
 static int	ft_count_subs_cs(char const *s, char *cs)
 {
@@ -35,7 +35,6 @@ static int	ft_count_subs_cs(char const *s, char *cs)
 	}
 	return (count);
 }
-
 
 char	**ft_split_cs(char const *s, char *cs)
 {
@@ -62,20 +61,4 @@ char	**ft_split_cs(char const *s, char *cs)
 	}
 	arr[i] = NULL;
 	return (arr);
-}
-
-void	ft_free_strs(char **strs)
-{
-	int	i;
-
-	i = 0;
-	if (!strs)
-		return ;
-	while (strs[i])
-	{
-		free(strs[i]);
-		strs[i] = NULL;
-		i++;
-	}
-	free(strs);
 }

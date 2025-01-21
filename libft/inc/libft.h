@@ -6,7 +6,7 @@
 /*   By: gderoyqn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 15:30:39 by gderoyqn          #+#    #+#             */
-/*   Updated: 2024/12/04 13:00:12 by gderoyqn         ###   ########.fr       */
+/*   Updated: 2025/01/21 03:06:45 by gderoyqn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,13 @@
 # include <errno.h>
 # include <stdbool.h>
 
-
-
 typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
 }	t_list;
 
-// PART 1
+/* PART 1 */
 
 int			ft_isalpha(int c);
 int			ft_isdigit(int c);
@@ -56,7 +54,7 @@ int			ft_atoi(const char *nptr);
 void		*ft_calloc(size_t nmemb, size_t size);
 char		*ft_strdup(const char *s);
 
-// PART 2
+/* PART 2 */
 
 char		*ft_substr(char const *s, unsigned int start, size_t len);
 char		*ft_strjoin(char const *s1, char const *s2);
@@ -70,7 +68,7 @@ void		ft_putstr_fd(char *s, int fd);
 void		ft_putendl_fd(char *s, int fd);
 void		ft_putnbr_fd(int n, int fd);
 
-// BONUS
+/* BONUS */
 
 t_list		*ft_lstnew(void *content);
 void		ft_lstadd_front(t_list **lst, t_list *new);
@@ -82,7 +80,7 @@ void		ft_lstclear(t_list **lst, void (*del)(void *));
 void		ft_lstiter(t_list *lst, void (*f)(void *));
 t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
-// FT_PRINTF
+/* FT_PRINTF */
 
 void		p_char(va_list *ptr, int *ccount);
 void		p_str(va_list *ptr, int *ccount);
@@ -93,11 +91,41 @@ char		*ft_itoa_base(unsigned long long n, char *base);
 void		p_ubase(va_list *ptr, int *ccount, char *base);
 void		p_ptr(va_list *ptr, int *ccount);
 void		p_int(va_list *ptr, int *ccount);
-int		    ft_printf(const char *str, ...);
+int			ft_printf(const char *str, ...);
 
-// NEW
+/* NEW */
 int			ft_isspace(int c);
+void		ft_free_strs(char **strs);
 
+/* DLST */
+typedef struct s_dlist
+{
+	void			*content;
+	int				index;
+	struct s_dlist	*prev;
+	struct s_dlist	*next;
+}	t_dlist;
 
+t_dlist		*ft_dlstnew(void *content);
+void		ft_dlstadd_front(t_dlist **lst, t_dlist *new);
+t_dlist		*ft_dlstlast(t_dlist *lst);
+void		ft_dlstadd_back(t_dlist **lst, t_dlist *new);
+int			ft_dlstsize(t_dlist *lst);
+void		ft_dlstfree(t_dlist *lst);
+t_dlist		*get_lst_max(t_dlist *lst);
+
+/* FT_SPLIT_CS */
+char		**ft_split_cs(char const *s, char *cs);
+
+/* MINI_STRTOLL */
+typedef struct s_strtol_mt
+{
+	int					sign;
+	int					index;
+	int					empty;
+	unsigned long long	n;
+}	t_strtol_mt;
+
+long long	mini_strtoll(const char *nptr, int radix);
 
 #endif
