@@ -6,7 +6,7 @@
 /*   By: gderoyqn <gderoyqn@student.42london.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 01:30:48 by gderoyqn          #+#    #+#             */
-/*   Updated: 2025/01/19 01:30:51 by gderoyqn         ###   ########.fr       */
+/*   Updated: 2025/01/20 16:43:01 by gderoyqn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,17 +49,20 @@ int	main(int ac, char **av)
 
 	mst.a = NULL;
 	mst.b = NULL;
+	mst.ops = 0;
 	errno = 0;
 	if (ac == 1)
 		return (ft_putstr_fd("Error\n", 2), 0);
 	lst_from_input(ac, av, &mst);
 	if (errno)
 		return (ft_printf("Errno: %d\n", errno), ft_dlstfree(mst.a), ft_putstr_fd("Error\n", 2), 0);
-	list_indexing(&mst, 5); // 2nd argument is chunks count
+	list_indexing(&mst, 2); // 2nd argument is chunks count
 	ft_printf("Before sorting:\n");
     pnf_list(mst.a, 0);
 	ft_printf("\nAfer sorting:\n");
-	chunk_sort(&mst.a, &mst.b, &mst.mt);
+	chunk_sort(&mst.a, &mst.b, &mst.mt, &mst.ops);
+    pnf_list(mst.a, 0);
+	ft_printf("Operations: %d\n", mst.ops);
 	ft_dlstfree(mst.a);
 	ft_dlstfree(mst.b);
 	// choose_algo(&mst);

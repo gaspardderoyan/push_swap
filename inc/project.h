@@ -27,6 +27,7 @@ typedef struct s_mst
 	t_dlist *a;	
 	t_dlist *b;
 	t_stacks_mt mt;
+	int	ops;
 } t_mst ;
 
 typedef struct s_strtol_mt
@@ -49,22 +50,22 @@ void    check_for_duplicate(t_dlist *lst, int n);
 void lst_from_input(int ac, char **av, t_mst *mst);
 
 // Manipulation Functions
-void    swap_first(t_dlist **lst);
-void    f_both(t_dlist **a, t_dlist **b, void (f)(t_dlist**));
-void    push_first(t_dlist **in, t_dlist **out);
-void    rotate(t_dlist **lst);
-void    reverse(t_dlist **lst);
+void    swap_first(t_dlist **lst, int *ops);
+void    f_both(t_dlist **a, t_dlist **b, void (f)(t_dlist**), int *ops);
+void    push_first(t_dlist **in, t_dlist **out, int *ops);
+void    rotate(t_dlist **lst, int *ops);
+void    reverse(t_dlist **lst, int *ops);
 
 // Utility Functions
 int     str_isall(char *s, int (*f)(int));
 void    pnf_list(t_dlist *lst, int free_flag);
-t_dlist *get_ntl(t_dlist *lst);
 t_dlist *get_lst_min(t_dlist *lst, int index_mode);
+t_dlist	*get_lst_max(t_dlist *lst);
 void    list_indexing(t_mst *mst, int chunks_count);
 
 // Algorithms
 int		insertion_sort(t_dlist **a, t_dlist **b);
-int		chunk_sort(t_dlist **a, t_dlist **b, t_stacks_mt *mt);
+void	chunk_sort(t_dlist **a, t_dlist **b, t_stacks_mt *mt, int *ops);
 int		dir_of_first(t_dlist *lst, t_stacks_mt *mt);
 void	update_stacks_mt(t_stacks_mt *mt);
 

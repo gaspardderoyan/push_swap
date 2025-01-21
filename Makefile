@@ -6,12 +6,12 @@
 #    By: gderoyqn <gderoyqn@student.42london.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/13 18:49:48 by gderoyqn          #+#    #+#              #
-#    Updated: 2025/01/18 18:22:53 by gderoyqn         ###   ########.fr        #
+#    Updated: 2025/01/20 21:39:49 by gderoyqn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -O3 -Inc -Ilibft/inc
+CFLAGS = -Wall -Wextra -Werror -Inc -Ilibft/inc
 DEBUGFLAGS = -g3 -fsanitize=address -fsanitize=undefined -fsanitize=alignment
 
 SRC_DIR = src
@@ -29,7 +29,8 @@ SRCS = double_lst.c \
 	   ft_strtoll.c \
 	   ft_split_cs.c \
 	   algo.c \
-	   algo_utils.c
+	   algo_utils.c \
+	   chunk_sort.c
 MAIN_SRC = main.c
 
 # $(text:pattern=replacement)
@@ -42,7 +43,8 @@ TEST_SRCS = test_dir_of_first.c \
 			test_ft_strtoll.c \
 			test_ft_split_cs.c \
 			test_inputs.c \
-			test_update_mt.c
+			test_update_mt.c \
+			test_operations.c
 
 TEST_EXES = $(TEST_SRCS:%.c=$(TEST_DIR)/%)
 

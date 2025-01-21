@@ -6,7 +6,7 @@
 /*   By: gderoyqn <gderoyqn@student.42london.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 00:50:42 by gderoyqn          #+#    #+#             */
-/*   Updated: 2025/01/18 19:26:33 by gderoyqn         ###   ########.fr       */
+/*   Updated: 2025/01/20 19:47:58 by gderoyqn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,10 +63,10 @@ void	assert_equals_and_print(int expected, int actual, const char *func_name)
 void	test_dir_of_first_start(void)
 {
 	t_mst mst;
-	mst.a = DLIST_FROM_ARR(((int[]){1, 2, 3, 4, 5, 6}));	mst.b = NULL;
+	mst.a = DLIST_FROM_ARR(((int[]){1, 2, 3, 4, 5, 6}));
 	mst.b = NULL;
     list_indexing(&mst, 5);
-	update_mt(&mst.mt);
+	update_stacks_mt(&mst.mt);
 	int	res = dir_of_first(mst.a, &mst.mt);
 	assert_equals_and_print(1, res, __func__);
 	ft_dlstfree(mst.a);
@@ -78,7 +78,7 @@ void	test_dir_of_first_end(void)
 	mst.a = DLIST_FROM_ARR(((int[]){6, 5, 4, 3, 2, 1}));	mst.b = NULL;
 	mst.b = NULL;
     list_indexing(&mst, 5);
-	update_mt(&mst.mt);
+	update_stacks_mt(&mst.mt);
 	int	res = dir_of_first(mst.a, &mst.mt);
 	assert_equals_and_print(-1, res, __func__);
 	ft_dlstfree(mst.a);
@@ -90,7 +90,7 @@ void	test_dir_of_first_mid_up(void)
 	mst.a = DLIST_FROM_ARR(((int[]){6, 2, 1, 3, 5, 4}));;
 	mst.b = NULL;
     list_indexing(&mst, 5);
-	update_mt(&mst.mt);
+	update_stacks_mt(&mst.mt);
 	int	res = dir_of_first(mst.a, &mst.mt);
 	assert_equals_and_print(1, res, __func__);
 	ft_dlstfree(mst.a);
@@ -102,7 +102,7 @@ void	test_dir_of_first_mid_down(void)
 	mst.a = DLIST_FROM_ARR(((int[]){6, 2, 3, 1, 5, 4}));;
 	mst.b = NULL;
     list_indexing(&mst, 6);
-	update_mt(&mst.mt);
+	update_stacks_mt(&mst.mt);
 	int	res = dir_of_first(mst.a, &mst.mt);
 	assert_equals_and_print(-1, res, __func__);
 	ft_dlstfree(mst.a);
@@ -115,7 +115,7 @@ void	test_dir_of_first_empty(void)
 	mst.a = lst;
 	mst.b = NULL;
     list_indexing(&mst, 5);
-	update_mt(&mst.mt);
+	update_stacks_mt(&mst.mt);
 	int	res = dir_of_first(lst, &mst.mt);
 	assert_equals_and_print(0, res, __func__);
 	ft_dlstfree(lst);
