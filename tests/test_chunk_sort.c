@@ -35,9 +35,10 @@ static t_dlist *dlst_from_str(char *str)
 	return (lst);
 }
 
-
 int	main(void)
 {
+    printf(BOLD "\nINPUTS\n" RESET);
+    printf(BOLD "lst_from_str\n" RESET);
 	t_mst mst;
 
 	mst.a = dlst_from_str("1 2 3 8 9 4 5 6 7 0");
@@ -46,7 +47,7 @@ int	main(void)
 	list_indexing(&mst, 2); // 2nd argument is chunks count
 	pnf_list(mst.a, 0);
 	ft_printf("\n");
-	sort_in_chunks(&mst.a, &mst.b, &mst.mt, &mst.ops);	
+	chunk_sort(&mst.a, &mst.b, &mst.mt, &mst.ops);	
 	pnf_list(mst.b, 0);
 	ft_dlstfree(mst.b);
 }

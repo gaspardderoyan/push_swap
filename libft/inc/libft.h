@@ -113,6 +113,8 @@ void		ft_dlstadd_back(t_dlist **lst, t_dlist *new);
 int			ft_dlstsize(t_dlist *lst);
 void		ft_dlstfree(t_dlist *lst);
 t_dlist		*get_lst_max(t_dlist *lst);
+int			dlst_node_i(t_dlist *lst, t_dlist *node);
+int			dlst_node_dir(t_dlist *lst, t_dlist *node);
 
 /* FT_SPLIT_CS */
 char		**ft_split_cs(char const *s, char *cs);

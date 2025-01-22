@@ -43,3 +43,43 @@ t_dlist	*get_lst_max(t_dlist *lst)
 	}
 	return (max);
 }
+
+/*
+ * Finds the position of a node within a list
+ *
+ * Returns -1 if didn't find it
+ * (ie. if lst has been traversed completely)
+ */
+int	dlst_node_i(t_dlist *lst, t_dlist *node)
+{
+	int	i;
+
+	i = 0;
+	while (lst && node)
+	{
+		if (lst == node)
+			return (i);
+		lst = lst->next;
+		i++;
+	}
+	return (-1);
+}
+
+/*
+ * Finds shortest path to given node in a list
+ *
+ * 1 -> from start
+ *
+ * 0 -> from end
+ *
+ * -1 -> node not found
+ */
+int	dlst_node_dir(t_dlist *lst, t_dlist *node)
+{
+	int	i;
+
+	i = dlst_node_i(lst, node);
+	if (i == -1)
+		return (-1);
+	return (i <= ft_dlstsize(lst) / 2);
+}

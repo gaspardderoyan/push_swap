@@ -55,12 +55,11 @@ t_dlist	*get_lst_max(t_dlist *lst);
 void    list_indexing(t_mst *mst, int chunks_count);
 
 // Algorithms
-void	insertion_sort(t_dlist **a, t_dlist **b, int *ops);
-void	dir_insertion_sort(t_dlist **a, t_dlist **b, int *ops);
+void	iterative_min_sort(t_dlist **a, t_dlist **b, int *ops);
+void	dir_iterative_min_sort(t_dlist **a, t_dlist **b, int *ops);
 void	chunk_sort(t_dlist **a, t_dlist **b, t_stacks_mt *mt, int *ops);
 int		dir_of_first(t_dlist *lst, t_stacks_mt *mt);
 void	update_stacks_mt(t_stacks_mt *mt);
-void	sort_in_chunks(t_dlist **a, t_dlist **b, t_stacks_mt *mt, int *ops);
 int		get_min_dir(t_dlist *lst);
 
 // to delete

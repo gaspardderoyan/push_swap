@@ -25,7 +25,7 @@ LIBFT = $(LIBFT_DIR)/libft.a
 SRCS = inputs.c \
 	   operations.c \
 	   utils.c \
-	   algo.c \
+	   iterative_min_sort.c \
 	   algo_utils.c \
 	   chunk_sort.c \
 	   delete.c
@@ -43,8 +43,7 @@ TEST_SRCS = test_dir_of_first.c \
 			test_inputs.c \
 			test_update_mt.c \
 			test_operations.c \
-			test_insertion_sort.c \
-			test_chunk_sort.c \
+			test_iterative_min_sort.c \
 			test_dlstsize.c
 
 TEST_EXES = $(TEST_SRCS:%.c=$(TEST_DIR)/%)
