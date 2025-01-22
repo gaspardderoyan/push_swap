@@ -51,6 +51,8 @@ void    lst_from_str(char **str, t_mst *mst)
 	{
 		cur_num = mini_strtoll(*cpy, 10);
 		check_for_duplicate(mst->a, cur_num);
+		if (cur_num < INT_MIN || cur_num > INT_MAX)
+			errno = ERANGE;
 		if (errno)
 			return ;
 		add_nbr_to_lst(&mst->a, cur_num);
