@@ -42,8 +42,8 @@ TEST_SRCS = test_dir_of_first.c \
 			test_ft_split_cs.c \
 			test_update_mt.c \
 			test_operations.c \
-			test_iterative_min_sort.c
-			# test_inputs.c \
+			test_iterative_min_sort.c \
+			test_inputs.c
 
 TEST_EXES = $(TEST_SRCS:%.c=$(TEST_DIR)/%)
 

@@ -96,6 +96,7 @@ int			ft_printf(const char *str, ...);
 /* NEW */
 int			ft_isspace(int c);
 void		ft_free_strs(char **strs);
+size_t		ft_count_strs(char **strs);
 
 /* DLST */
 typedef struct s_dlist

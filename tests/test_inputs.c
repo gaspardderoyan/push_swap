@@ -1,4 +1,5 @@
 #include "../inc/project.h"
+#include <string.h>
 
 // ANSI escape codes for colors
 #define RED     "\x1b[31m"
@@ -9,6 +10,8 @@
 /* ************************************************************************** */
 /*   SINGLE STRING                                                            */
 /* ************************************************************************** */
+
+
 
 void	test_lst_from_str_normal(void)
 {
@@ -177,7 +180,7 @@ void	test_lst_from_strs_normal(void)
 	int		len = 10;
 	t_mst	mst;
 	mst.a = NULL;
-	
+
 	lst_from_strs(11, str, &mst);
 	t_dlist *lst_cpy = mst.a;
 	int i = 0;
@@ -223,16 +226,18 @@ void	test_lst_from_strs_invalid_char(void)
 	ft_dlstfree(lst_cpy);
 }
 
-// void	test_lst_from_strs_int_max(void)
-// {
-// 	char	*str = "1 2 3 2147483647 5 6";
-// 	char	**strs = ft_split(str, ' ');
-// 	t_dlist	*lst = NULL;
-// 	int		arr[] = {1, 2, 3, 2147483647, 5, 6};
-//
-// 	int expected_errno = 0;
-//
-// }
+/*
+void	test_lst_from_strs_int_max(void)
+{
+	char	*str = "1 2 3 2147483647 5 6";
+	char	**strs = ft_split(str, ' ');
+	t_dlist	*lst = NULL;
+	int		arr[] = {1, 2, 3, 2147483647, 5, 6};
+
+	int expected_errno = 0;
+
+}
+*/
 
 // TODO check for int max, but not more
 
@@ -246,7 +251,7 @@ int	main(void)
 	test_lst_from_str_consecutive_space();
 	test_lst_from_str_start_space();
 	test_lst_from_str_end_space();
-    printf(BOLD "lst_from_strs\n" RESET);
+	printf(BOLD "lst_from_strs\n" RESET);
 	test_lst_from_strs_normal();
 	test_lst_from_strs_invalid_char();
 }

@@ -35,11 +35,9 @@ typedef struct s_mst
 // Addition Functions
 void    add_nbr_to_lst(t_dlist **lst, int n);
 void    lst_from_str(char **str, t_mst *mst);
-// void    lst_from_str(char *str, t_dlist **lst);
 void	lst_from_strs(int argc, char **argv, t_mst *mst);
-// void    lst_from_strs(int argc, char **argv, t_dlist **lst);
 void    check_for_duplicate(t_dlist *lst, int n);
-void lst_from_input(int ac, char **av, t_mst *mst);
+void	lst_from_input(int ac, char **av, t_mst *mst);
 
 // Manipulation Functions
 void    swap_first(t_dlist **lst, int *ops);

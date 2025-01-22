@@ -6,3 +6,4 @@ obj/
 *.txt
 *.py
 .vscode/
+**/*.a

@@ -40,12 +40,10 @@ void	check_for_duplicate(t_dlist *lst, int n)
 }
 
 
-/*
 void    lst_from_str(char **str, t_mst *mst)
 {
 	long long	cur_num;
 	char		**cpy;
-
 	cpy = str;
 	if (errno)
 		return ;
@@ -59,12 +57,10 @@ void    lst_from_str(char **str, t_mst *mst)
 		(cpy)++;
 	}
 }
-
 void	lst_from_strs(int argc, char **argv, t_mst *mst)
 {
 	int			i;
 	long long	cur_num;
-
 	i = 1;
 	while (i < argc)
 	{
@@ -76,11 +72,9 @@ void	lst_from_strs(int argc, char **argv, t_mst *mst)
 		i++;
 	}
 }
-
 void lst_from_input(int ac, char **av, t_mst *mst)
 {
 	char **strs;
-
 	if (ac == 2)
 	{
 		strs = ft_split_cs(av[1], "\t\n\v\f\r ");
@@ -89,43 +83,4 @@ void lst_from_input(int ac, char **av, t_mst *mst)
 	}
 	else if (ac > 2)
 		lst_from_strs(ac, av, mst);
-}
-*/
-
-static size_t	count_strs(char **strs)
-{
-	size_t	i;
-
-	i = 0;
-	while (strs && strs[i])
-		i++;
-	return (i);
-}
-
-void lst_from_input(int ac, char **av, t_mst *mst)
-{
-	char		**strs;
-	int			i;
-	long long	cur_num;
-
-	i = 1;
-	strs = NULL;
-	if (ac == 2)
-	{
-		strs = ft_split_cs(av[1], "\t\n\v\f\r ");
-		av = strs;
-		ac = count_strs(strs);
-		i = 0;
-	}
-	while (i < ac)
-	{
-		cur_num = mini_strtoll(av[i], 10);
-		check_for_duplicate(mst->a, cur_num);
-		if (errno)
-			return ;
-		add_nbr_to_lst(&mst->a, cur_num);
-		i++;
-	}
-	if (strs)
-		ft_free_strs(strs);
 }
