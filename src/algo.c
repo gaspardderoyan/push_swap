@@ -25,6 +25,7 @@ void insertion_sort(t_dlist **a, t_dlist **b, int *ops)
         push_first(b, a, ops);
 }
 
+// TODO use a function pointer as 2nd arg, to choose if lst_min or max
 int	get_min_dir(t_dlist *lst)
 {
 	int		len;
@@ -42,6 +43,46 @@ int	get_min_dir(t_dlist *lst)
 		lst = lst->next;
 	}
 	return (i <= len / 2);
+}
+
+/*
+ * Finds the position of a node within a list
+ *
+ * Returns -1 if didn't find it
+ * (ie. if lst has been traversed completely)
+ */
+int	dlst_node_i(t_dlist *lst, t_dlist *node)
+{
+	int	i;
+
+	i = 0;
+	while (lst)
+	{
+		if (lst == node)
+			return (i);
+		lst = lst->next;
+		i++;
+	}
+	return (-1);
+}
+
+/*
+ * Finds shortest path to given node in a list
+ *
+ * 1 -> from start
+ *
+ * 0 -> from end
+ *
+ * -1 -> node not found
+ */
+int	dlst_node_dir(t_dlist *lst, t_dlist *node)
+{
+	int	i;
+
+	i = dlst_node_i(lst, node);
+	if (i == -1)
+		return (-1);
+	return (i <= ft_dlstsize(lst) / 2);
 }
 
 void	dir_insertion_sort(t_dlist **a, t_dlist **b, int *ops)

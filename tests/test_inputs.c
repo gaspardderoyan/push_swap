@@ -172,7 +172,6 @@ void	test_lst_from_str_duplicate(void)
 
 void	test_lst_from_strs_normal(void)
 {
-	// TODO why does it work when duplicate number?
 	char	*str[] = {"OOPS", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", NULL};
 	int		arr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 	int		len = 10;
