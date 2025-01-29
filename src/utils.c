@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list_utils.c                                       :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gderoyqn <gderoyqn@student.42london.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 17:17:59 by gderoyqn          #+#    #+#             */
-/*   Updated: 2025/01/20 19:22:19 by gderoyqn         ###   ########.fr       */
+/*   Updated: 2025/01/29 20:10:08 by gderoyqn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/project.h"
 
-int	str_isall(char *s, int (*f)(int))
-{
-	while (*s)
-	{
-		if (f(*s) == 0)
-			return (0);
-		s++;
-	}
-	return (1);
-}
-
+/**
+* Takes dlist as input, finds the min of the content nodes, returns the node
+*
+* If index_mode is set to true, it finds the minimum ONLY OUT OF the
+* values which index's are not already set (ie. is currently -1)
+*
+* ie. if the index_mode is false OR the current index is -1, it processes the
+* current node.
+*
+* However, if the index is already set (not -1) AND index_mode is true,
+* it skips the value, ie. it will find the next min value to index.
+*/
 t_dlist *get_lst_min(t_dlist *lst, int index_mode)
 {
     t_dlist *min;
@@ -41,5 +42,5 @@ t_dlist *get_lst_min(t_dlist *lst, int index_mode)
         }
         lst = lst->next;
     }
-    return min;
+    return (min);
 }

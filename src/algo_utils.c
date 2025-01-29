@@ -12,14 +12,20 @@
 
 #include "../inc/project.h"
 
-void    list_indexing(t_mst *mst, int chunks_count)
+/**
+ * Takes in a master structure, and updates the metadata for the list.
+ *
+ * 1: sets the lst_size
+ * 
+ * 2: sets every index to -1, then iteratively sets the minimum to i++
+ */
+void    list_indexing(t_mst *mst)
 {
     int i;
     t_dlist *min_node;
     t_dlist *temp;
 
 	mst->mt.chunks_i = 0;
-	mst->mt.chunks_count = chunks_count;
 	mst->mt.lst_size = ft_dlstsize(mst->a);
     temp = mst->a;
     while (temp)
@@ -42,8 +48,8 @@ void    list_indexing(t_mst *mst, int chunks_count)
  * 
  * Either from the start or the end
  *
- * @param lst	pointer to the dlist
- * @param mt	pointer to the stack metadata (for the chunks' lower/upper limit)
+ * @param lst pointer to the dlist
+ * @param mt pointer to the stack metadata (for the chunks' lower/upper limit)
  * @param first	boolean, true if we want first (ie. from start), false if last
  *
  * @return position of the item in the dlist
@@ -76,10 +82,14 @@ int	i_of_first_last(t_dlist *lst, t_stacks_mt *mt, bool first)
 }
 
 /*
+ * Takes in a dlist and it's metadata
  * Returns best direction to know if rotate/reverse is best
- * return 1 if should start from start
- * return -1 if should start from end
- * return 0 if should skip to next stack
+ *
+ * 1 if should start from start
+ *
+ * -1 if should start from end
+ *
+ * 0 if should skip to next stack
  */
 int dir_of_first(t_dlist *lst, t_stacks_mt *mt)
 {
@@ -99,7 +109,7 @@ int dir_of_first(t_dlist *lst, t_stacks_mt *mt)
 }
 
 /**
- * @brief Updates the lower and upper limits of a chunk based on its index.
+ * Updates the lower and upper limits of a chunk based on its index.
  * 
  * This function calculates the `lower_limit` and `upper_limit` for a specific
  * chunk within a list, given the chunk's index (`chunks_i`), the total number
@@ -107,9 +117,10 @@ int dir_of_first(t_dlist *lst, t_stacks_mt *mt)
  * 
  * It divides the list into equal-sized chunks and determines the starting and
  * ending indices for the specified chunk. The last chunk may be smaller than
- * the others if the list size is not perfectly divisible by the number of chunks.
+ * the others if the list size is not
+ * perfectly divisible by the number of chunks.
  * 
- * @param mt A pointer to a `t_stacks_mt` structure representing the chunk to be updated.
+ * @param mt struct with the stacks' metadata
  */
 void	update_stacks_mt(t_stacks_mt *mt)
 {

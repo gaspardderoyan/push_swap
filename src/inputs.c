@@ -11,8 +11,10 @@
 /* ************************************************************************** */
 
 #include "../inc/project.h"
-#include "libft.h"
 
+/**
+* Takes a dlist and a int, mallocs an int ptr, then add it to back of dlist
+*/
 void    add_nbr_to_lst(t_dlist **lst, int n)
 {
 	int *new;
@@ -23,6 +25,11 @@ void    add_nbr_to_lst(t_dlist **lst, int n)
 	ft_dlstadd_back(lst, ft_dlstnew(new));
 }
 
+/**
+* Takes a dlist and a int, and check if the int is already in the dlist
+*
+* If it is, sets errno = 2
+*/
 void	check_for_duplicate(t_dlist *lst, int n)
 {
 	while (lst)
@@ -40,6 +47,14 @@ void	check_for_duplicate(t_dlist *lst, int n)
 }
 
 
+/**
+ * Takes in the string arr (ie. the split single arg),
+ * as well as the mst (master) structure.
+ *
+ * For each string, use strtoll, then check for error/duplicates
+ *
+ * Else, adds the number to the list
+*/
 void    lst_from_str(char **str, t_mst *mst)
 {
 	long long	cur_num;
@@ -59,6 +74,14 @@ void    lst_from_str(char **str, t_mst *mst)
 		(cpy)++;
 	}
 }
+
+/**
+ * Takes in ac & av,  as well as the mst (master) structure.
+ *
+ * For each arg, use strtoll, then check for error/duplicates
+ *
+ * Else, adds the number to the list
+*/
 void	lst_from_strs(int argc, char **argv, t_mst *mst)
 {
 	int			i;
@@ -68,12 +91,24 @@ void	lst_from_strs(int argc, char **argv, t_mst *mst)
 	{
 		cur_num = mini_strtoll(argv[i], 10);
 		check_for_duplicate(mst->a, cur_num);
+		if (cur_num < INT_MIN || cur_num > INT_MAX)
+			errno = ERANGE;
 		if (errno)
 			return ;
 		add_nbr_to_lst(&mst->a, cur_num);
 		i++;
 	}
 }
+
+/**
+ * Takes in ac & av,  as well as the mst (master) structure.
+ *
+ * Creates a doubly linked list from the user input.
+ *
+ * If ac == 2, uses split_cs then lst_from_str.
+ *
+ * Else, use lst_from_strs.
+*/
 void lst_from_input(int ac, char **av, t_mst *mst)
 {
 	char **strs;

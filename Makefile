@@ -28,7 +28,7 @@ SRCS = inputs.c \
 	   iterative_min_sort.c \
 	   algo_utils.c \
 	   chunk_sort.c \
-	   delete.c
+	   to_delete.c
 MAIN_SRC = main.c
 
 # $(text:pattern=replacement)

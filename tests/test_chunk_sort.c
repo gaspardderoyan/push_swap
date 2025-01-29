@@ -44,7 +44,8 @@ int	main(void)
 	mst.a = dlst_from_str("1 2 3 8 9 4 5 6 7 0");
 	mst.b = NULL;
 	mst.ops = 0;
-	list_indexing(&mst, 2); // 2nd argument is chunks count
+	list_indexing(&mst); 
+	mst.mt.chunks_count = 2;
 	pnf_list(mst.a, 0);
 	ft_printf("\n");
 	chunk_sort(&mst.a, &mst.b, &mst.mt, &mst.ops);	

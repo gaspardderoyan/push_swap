@@ -25,8 +25,9 @@ int	main(int ac, char **av)
 		return (ft_putstr_fd("Error\n", 2), 0);
 	lst_from_input(ac, av, &mst);
 	if (errno)
-		return (ft_printf("Errno: %d\n", errno), ft_dlstfree(mst.a), ft_putstr_fd("Error\n", 2), 0);
-	list_indexing(&mst, 5); // 2nd argument is chunks count
+		return (ft_dlstfree(mst.a), ft_putstr_fd("Error\n", 2), 0);
+	list_indexing(&mst);
+	mst.mt.chunks_count = 5;
 	ft_printf("Before sorting:\n");
     pnf_list(mst.a, 0);
 	ft_printf("\nAfer sorting:\n");

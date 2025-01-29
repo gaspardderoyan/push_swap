@@ -6,7 +6,7 @@
 /*   By: gderoyqn <gderoyqn@student.42london.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 00:19:07 by gderoyqn          #+#    #+#             */
-/*   Updated: 2025/01/21 22:23:15 by gderoyqn         ###   ########.fr       */
+/*   Updated: 2025/01/29 20:27:09 by gderoyqn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void   rotate(t_dlist **lst, int *ops)
 		return ;
 	temp = *lst;
 	*lst = (*lst)->next;
-    (*lst)->prev = NULL; // New head has no previous node
+    (*lst)->prev = NULL;
 	temp->next = NULL;
 	ft_dlstadd_back(lst, temp);
 	if (ops)
@@ -73,11 +73,10 @@ void    reverse(t_dlist **lst, int *ops)
 		return ;
 	last = ft_dlstlast(*lst);
 	next_to_last = last->prev;
-	// printf("ntl: %d\n", *(int *)next_to_last->content);
 	next_to_last->next = NULL;
 	last->next = *lst;
 	(*lst)->prev = last;
-	*lst = last; // change head
+	*lst = last;
 	(*lst)->prev = NULL;
 	if (ops)
 		(*ops)++;
