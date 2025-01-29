@@ -6,7 +6,7 @@
 /*   By: gderoyqn <gderoyqn@student.42london.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 01:30:48 by gderoyqn          #+#    #+#             */
-/*   Updated: 2025/01/21 22:46:02 by gderoyqn         ###   ########.fr       */
+/*   Updated: 2025/01/29 22:52:39 by gderoyqn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	main(int ac, char **av)
 	ft_printf("Before sorting:\n");
     pnf_list(mst.a, 0);
 	ft_printf("\nAfer sorting:\n");
-	chunk_sort(&mst.a, &mst.b, &mst.mt, &mst.ops);
+	chunk_sort(&mst);
     pnf_list(mst.a, 0);
 	ft_printf("Operations: %d\n", mst.ops);
 	ft_dlstfree(mst.a);

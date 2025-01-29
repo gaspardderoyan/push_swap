@@ -6,7 +6,7 @@
 /*   By: gderoyqn <gderoyqn@student.42london.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 00:18:32 by gderoyqn          #+#    #+#             */
-/*   Updated: 2025/01/21 23:41:40 by gderoyqn         ###   ########.fr       */
+/*   Updated: 2025/01/29 22:40:07 by gderoyqn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,56 +14,54 @@
 #include "libft.h"
 
 
-static void	sort_in_chunks(t_dlist **a, t_dlist **b, t_stacks_mt *mt, int *ops)
+static void	sort_in_chunks(t_mst *mst)
 {
-	while (mt->chunks_i < mt->chunks_count)
+	while (mst->mt.chunks_i < mst->mt.chunks_count)
 	{
-		update_stacks_mt(mt);
-		while (*a && dir_of_first(*a, mt))
+		update_stacks_mt(&mst->mt);
+		while (mst->a && dir_of_first(mst->a, &mst->mt))
 		{
-			if (dir_of_first(*a, mt) == 1)
+			if (dir_of_first(mst->a, &mst->mt) == 1)
 			{
-				while (*a && ((*a)->index < mt->lower_limit ||
-					(*a)->index > mt->upper_limit))
-						rotate(a, ops);
+				while (mst->a && ((mst->a)->index < mst->mt.lower_limit ||
+					(mst->a)->index > mst->mt.upper_limit))
+						rotate(&mst->a, &mst->l_ops, "ra");
 			}
 			else 
 			{
-				while (*a && ((*a)->index < mt->lower_limit ||
-					(*a)->index > mt->upper_limit))
-						reverse(a, ops);
+				while (mst->a && ((mst->a)->index < mst->mt.lower_limit ||
+					(mst->a)->index > mst->mt.upper_limit))
+						reverse(&mst->a, &mst->l_ops, "rra");
 			}
-			if (*a)
-				push_first(a, b, ops);
+			if (mst->a)
+				push_first(&mst->a, &mst->b, &mst->l_ops, "pb");
 		}
-		mt->chunks_i++;
+		mst->mt.chunks_i++;
 	}
 }
 
-static void	push_max(t_dlist **a, t_dlist **b, int *ops)
+static void	push_max(t_mst *mst)
 {
-	while (*b)
+	while (mst->b)
 	{
-		if (dlst_node_dir(*b, get_lst_max(*b)))
+		if (dlst_node_dir(mst->b, get_lst_max(mst->b)))
 		{
-			while (*b != get_lst_max(*b))
-				rotate(b, ops);
-			push_first(b, a, ops);
+			while (mst->b != get_lst_max(mst->b))
+				rotate(&mst->b, &mst->l_ops, "rb");
+			push_first(&mst->b, &mst->a, &mst->l_ops, "pa");
 		}
 		else
 		{
-			while (*b != get_lst_max(*b))
-				reverse(b, ops);
-			push_first(b, a, ops);
+			while (mst->b != get_lst_max(mst->b))
+				reverse(&mst->b, &mst->l_ops, "rrb");
+			push_first(&mst->b, &mst->a, &mst->l_ops, "pa");
 
 		}
 	}
 }
 
-	
-
-void	chunk_sort(t_dlist **a, t_dlist **b, t_stacks_mt *mt, int *ops)
+void	chunk_sort(t_mst *mst)
 {
-	sort_in_chunks(a, b, mt, ops);
-	push_max(a, b, ops);
+	sort_in_chunks(mst);
+	push_max(mst);
 }

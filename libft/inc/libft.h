@@ -6,7 +6,7 @@
 /*   By: gderoyqn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 15:30:39 by gderoyqn          #+#    #+#             */
-/*   Updated: 2025/01/21 03:06:45 by gderoyqn         ###   ########.fr       */
+/*   Updated: 2025/01/29 23:05:46 by gderoyqn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,7 @@ int			ft_printf(const char *str, ...);
 int			ft_isspace(int c);
 void		ft_free_strs(char **strs);
 size_t		ft_count_strs(char **strs);
+char		*strdup_safe(const char *s);
 
 /* DLST */
 typedef struct s_dlist

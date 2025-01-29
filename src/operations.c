@@ -6,13 +6,13 @@
 /*   By: gderoyqn <gderoyqn@student.42london.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 00:19:07 by gderoyqn          #+#    #+#             */
-/*   Updated: 2025/01/29 20:27:09 by gderoyqn         ###   ########.fr       */
+/*   Updated: 2025/01/29 23:08:52 by gderoyqn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/project.h"
 
-void swap_first(t_dlist **lst, int *ops)
+void swap_first(t_dlist **lst, t_dlist **l_ops, char *op_name)
 {
 	void *temp;
 
@@ -21,19 +21,17 @@ void swap_first(t_dlist **lst, int *ops)
 	temp = (*lst)->next->content;
 	(*lst)->next->content = (*lst)->content;
 	(*lst)->content = temp;
-	if (ops)
-		(*ops)++;
+	ft_dlstadd_back(l_ops, ft_dlstnew(strdup_safe(op_name)));
 }
 
-void    f_both(t_dlist **a, t_dlist **b, void (f)(t_dlist**), int *ops)
+void    f_both(t_mst *mst, void (f)(t_dlist**), char *op_name)
 {
-	f(a);
-	f(b);
-	if (ops)
-		*ops += 2;
+	f(&mst->a);
+	f(&mst->b);
+	ft_dlstadd_back(&mst->l_ops, ft_dlstnew(strdup_safe(op_name)));
 }
 
-void    push_first(t_dlist **in, t_dlist **out, int *ops)
+void    push_first(t_dlist **in, t_dlist **out, t_dlist **l_ops, char *op_name)
 {
 	t_dlist *temp;
 
@@ -45,11 +43,10 @@ void    push_first(t_dlist **in, t_dlist **out, int *ops)
 	temp->next = NULL;
 	temp->prev = NULL;
 	ft_dlstadd_front(out, temp);
-	if (ops)
-		(*ops)++;
+	ft_dlstadd_back(l_ops, ft_dlstnew(strdup_safe(op_name)));
 }
 
-void   rotate(t_dlist **lst, int *ops)
+void   rotate(t_dlist **lst, t_dlist **l_ops, char *op_name)
 {
 	t_dlist *temp;
 
@@ -60,11 +57,10 @@ void   rotate(t_dlist **lst, int *ops)
     (*lst)->prev = NULL;
 	temp->next = NULL;
 	ft_dlstadd_back(lst, temp);
-	if (ops)
-		(*ops)++;
+	ft_dlstadd_back(l_ops, ft_dlstnew(strdup_safe(op_name)));
 }
 
-void    reverse(t_dlist **lst, int *ops)
+void   reverse(t_dlist **lst, t_dlist **l_ops, char *op_name)
 {
 	t_dlist *next_to_last;
 	t_dlist *last;
@@ -78,6 +74,5 @@ void    reverse(t_dlist **lst, int *ops)
 	(*lst)->prev = last;
 	*lst = last;
 	(*lst)->prev = NULL;
-	if (ops)
-		(*ops)++;
+	ft_dlstadd_back(l_ops, ft_dlstnew(strdup_safe(op_name)));
 }

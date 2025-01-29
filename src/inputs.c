@@ -6,7 +6,7 @@
 /*   By: gderoyqn <gderoyqn@student.42london.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 00:18:47 by gderoyqn          #+#    #+#             */
-/*   Updated: 2025/01/22 10:38:33 by gderoyqn         ###   ########.fr       */
+/*   Updated: 2025/01/29 23:33:39 by gderoyqn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	check_for_duplicate(t_dlist *lst, int n)
 		{
 			if (*(int *)lst->content == n)
 			{
-				errno = 2;
+				errno = DUPLICATE_VALUE;
 				return ;
 			}
 		}

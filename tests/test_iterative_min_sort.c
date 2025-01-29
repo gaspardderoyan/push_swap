@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   test_iterative_min_sort.c                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gderoyqn <gderoyqn@student.42london.com>   +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/29 22:58:22 by gderoyqn          #+#    #+#             */
+/*   Updated: 2025/01/29 23:14:37 by gderoyqn         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../inc/project.h"
 
 // ANSI escape codes for colors
@@ -44,16 +56,19 @@ void	is_dlist_sorted(t_dlist *lst, char *name, int ops)
 	printf("%sPASS: %s%s Ops = %d\n", GREEN, name, RESET, ops);
 }
 
-void	sort_and_check(char *name, int in[], size_t len, void (f)(t_dlist**, t_dlist**, int*))
+void	sort_and_check(char *name, int in[], size_t len, void (f)(t_mst*))
 {
-	t_dlist	*a = _dlst_from_arr(in, len);
-	t_dlist	*b = NULL;
-	int		ops = 0;
+	t_mst mst;
+	mst.a = _dlst_from_arr(in, len);
+	mst.b = NULL;
+	mst.l_ops = NULL;
 
-	f(&a, &b, &ops);
-	is_dlist_sorted(a, name, ops);
-	ft_dlstfree(a);
-	ft_dlstfree(b);
+	f(&mst);
+	int ops = ft_dlstsize(mst.l_ops);
+	is_dlist_sorted(mst.a, name, ops);
+	ft_dlstfree(mst.a);
+	ft_dlstfree(mst.b);
+	ft_dlstfree(mst.l_ops);
 }
 
 int	main(void)

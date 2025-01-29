@@ -6,7 +6,7 @@
 /*   By: gderoyqn <gderoyqn@student.42london.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 21:33:11 by gderoyqn          #+#    #+#             */
-/*   Updated: 2025/01/21 23:15:36 by gderoyqn         ###   ########.fr       */
+/*   Updated: 2025/01/29 23:13:14 by gderoyqn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,13 @@ int	*arr_from_dlist(t_dlist *lst)
 	return (arr);	
 }
 
-void	compare_arrs(char *name, int in[], int out[], int len, void (f)(t_dlist**, int*))
+void	compare_arrs(char *name, int in[], int out[], int len, void (f)(t_dlist**, t_dlist **, char*))
 {
 	int	i = 0;
 
 	t_dlist *lst = dlst_from_arr(in, len);
-	f(&lst, NULL);
+	t_dlist *l_ops = NULL;
+	f(&lst, &l_ops, NULL);
 	int	*res = arr_from_dlist(lst);
 	while (i < len)
 	{
@@ -65,6 +66,7 @@ void	compare_arrs(char *name, int in[], int out[], int len, void (f)(t_dlist**, 
 	}
 	printf("%sPASS: %s%s\n", GREEN, name, RESET);
 	ft_dlstfree(lst);
+	ft_dlstfree(l_ops);
 	free(res);
 }
 

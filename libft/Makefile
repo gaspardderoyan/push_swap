@@ -17,7 +17,8 @@ SRC = \
 	ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c \
 	ft_lstmap.c helpers.c types.c types_nbr.c ft_printf.c \
 	ft_isspace.c ft_count_strs.c \
-	ft_dlst.c ft_dlst_2.c ft_strtoll.c ft_free_strs.c ft_split_cs.c
+	ft_dlst.c ft_dlst_2.c ft_strtoll.c ft_free_strs.c ft_split_cs.c \
+	strdup_safe.c
 
 OBJ = $(SRC:%.c=$(OBJ_DIR)/%.o)
 

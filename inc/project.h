@@ -6,12 +6,13 @@
 /*   By: gderoyqn <gderoyqn@student.42london.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 17:41:59 by gderoyqn          #+#    #+#             */
-/*   Updated: 2025/01/29 20:24:50 by gderoyqn         ###   ########.fr       */
+/*   Updated: 2025/01/29 23:34:07 by gderoyqn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PROJECT_H
 # define PROJECT_H
+# define DUPLICATE_VALUE 1000
 
 # include "../libft/inc/libft.h"
 
@@ -33,45 +34,48 @@ typedef struct s_stack_mt
 	int	lst_size;
 }	t_stacks_mt;
 
+/**
+ * Master structure to hold the 2 stacks, the stacks metadata, and a 
+ * list of the operations
+ */
 typedef struct s_mst
 {
 	t_dlist		*a;	
 	t_dlist		*b;
 	t_stacks_mt	mt;
 	t_dlist		*l_ops;
-	int			ops;
 }	t_mst;
 
-// Function Prototypes
+/* Function Prototypes */
 
-// Addition Functions
+/* Addition Functions */
 void	add_nbr_to_lst(t_dlist **lst, int n);
 void	lst_from_str(char **str, t_mst *mst);
 void	lst_from_strs(int argc, char **argv, t_mst *mst);
 void	check_for_duplicate(t_dlist *lst, int n);
 void	lst_from_input(int ac, char **av, t_mst *mst);
 
-// Manipulation Functions
-void	swap_first(t_dlist **lst, int *ops);
-void	f_both(t_dlist **a, t_dlist **b, void (f)(t_dlist**), int *ops);
-void	push_first(t_dlist **in, t_dlist **out, int *ops);
-void	rotate(t_dlist **lst, int *ops);
-void	reverse(t_dlist **lst, int *ops);
+/* Manipulation Functions */
+void	swap_first(t_dlist **lst, t_dlist **l_ops, char *op_name);
+void	f_both(t_mst *mst, void (f)(t_dlist**), char *op_name);
+void	push_first(t_dlist **in, t_dlist **out, t_dlist **l_ops, char *op_name);
+void	rotate(t_dlist **lst, t_dlist **l_ops, char *op_name);
+void	reverse(t_dlist **lst, t_dlist **l_ops, char *op_name);
 
-// Utility Functions
+/* Utility Functions */
 t_dlist	*get_lst_min(t_dlist *lst, int index_mode);
 t_dlist	*get_lst_max(t_dlist *lst);
 void	list_indexing(t_mst *mst);
 
-// Algorithms
-void	iterative_min_sort(t_dlist **a, t_dlist **b, int *ops);
-void	dir_iterative_min_sort(t_dlist **a, t_dlist **b, int *ops);
-void	chunk_sort(t_dlist **a, t_dlist **b, t_stacks_mt *mt, int *ops);
+/* Algorithms */
+void	iterative_min_sort(t_mst *mst);
+void	dir_iterative_min_sort(t_mst *mst);
+void	chunk_sort(t_mst *mst);
 int		dir_of_first(t_dlist *lst, t_stacks_mt *mt);
 void	update_stacks_mt(t_stacks_mt *mt);
 int		get_min_dir(t_dlist *lst);
 
-// to delete
+/* To delete */
 void	pnf_list(t_dlist *lst, int free_flag);
 
 #endif

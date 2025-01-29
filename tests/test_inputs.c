@@ -24,7 +24,7 @@ int		*arr_from_strs(char **strs)
 
 void	test_lst_from_str(char *name, char *str, int *arr)
 {
-	t_mst	mst = { .a = NULL, .b = NULL, .ops = 0 };
+	t_mst	mst = { .a = NULL, .b = NULL };
 	char	**strs = ft_split_cs(str, "\t\n\v\f\r ");
 	lst_from_str(strs, &mst);
 	t_dlist	*head = mst.a;
@@ -56,7 +56,7 @@ void	test_lst_from_str(char *name, char *str, int *arr)
 
 void	test_lst_from_str_error(char *name, char *str, int expected_errno)
 {
-	t_mst	mst = { .a = NULL, .b = NULL, .ops = 0 };
+	t_mst	mst = { .a = NULL, .b = NULL };
 	char	**strs = ft_split_cs(str, "\t\n\v\f\r ");
 
 	errno = 0;
@@ -85,7 +85,7 @@ void	test_lst_from_str_duplicate(void)
 	lst_from_str(strs, &mst);
 	t_dlist *lst_cpy = mst.a;
 	int		actual_len = ft_dlstsize(mst.a);
-	if (actual_len == expected_len && errno == 2)
+	if (actual_len == expected_len && errno == DUPLICATE_VALUE)
 	{
 		printf("%sPASS: %s%s\n", GREEN, __func__, RESET);
 		ft_dlstfree(lst_cpy);
@@ -95,7 +95,7 @@ void	test_lst_from_str_duplicate(void)
 	{
 		printf("%sFAIL: %s%s\n", RED, __func__, RESET);
 		printf("Expected len: %d ; Actual: %d\n", expected_len, actual_len);
-		printf("Expected errno: %d ; Actual: %d\n", 2, errno);
+		printf("Expected errno: %d ; Actual: %d\n", DUPLICATE_VALUE, errno);
 		ft_dlstfree(lst_cpy);
 		ft_free_strs(strs);
 	}
@@ -108,7 +108,7 @@ void	test_lst_from_str_duplicate(void)
 
 void	test_lst_from_strs(char *name, char **strs, int *arr)
 {
-	t_mst	mst = { .a = NULL, .b = NULL, .ops = 0 };
+	t_mst	mst = { .a = NULL, .b = NULL};
 	int ac = ft_count_strs(strs);
 	ft_printf("ac = %d\n", ac);
 	lst_from_strs(ac, strs, &mst);
@@ -221,7 +221,7 @@ int	main(void)
 	test_lst_from_str_error(
 		"duplicate number",
 		"1 2 3 4 4 6",
-		2
+		DUPLICATE_VALUE
 	);
 	test_lst_from_str_error(
 		"above int max",
