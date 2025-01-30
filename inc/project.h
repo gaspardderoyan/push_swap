@@ -66,6 +66,7 @@ void	reverse(t_dlist **lst, t_dlist **l_ops, char *op_name);
 t_dlist	*get_lst_min(t_dlist *lst, int index_mode);
 t_dlist	*get_lst_max(t_dlist *lst);
 void	list_indexing(t_mst *mst);
+void	print_instructions(t_dlist *l_ops);
 
 /* Algorithms */
 void	iterative_min_sort(t_mst *mst);

@@ -19,7 +19,7 @@ int	main(int ac, char **av)
 
 	mst.a = NULL;
 	mst.b = NULL;
-	mst.ops = 0;
+	mst.l_ops = NULL;
 	errno = 0;
 	if (ac == 1)
 		return (ft_putstr_fd("Error\n", 2), 0);
@@ -28,13 +28,15 @@ int	main(int ac, char **av)
 		return (ft_dlstfree(mst.a), ft_putstr_fd("Error\n", 2), 0);
 	list_indexing(&mst);
 	mst.mt.chunks_count = 5;
-	ft_printf("Before sorting:\n");
-    pnf_list(mst.a, 0);
-	ft_printf("\nAfer sorting:\n");
+	// ft_printf("Before sorting:\n");
+	//    pnf_list(mst.a, 0);
+	// ft_printf("\nAfer sorting:\n");
 	chunk_sort(&mst);
-    pnf_list(mst.a, 0);
-	ft_printf("Operations: %d\n", mst.ops);
+    // pnf_list(mst.a, 0);
+	print_instructions(mst.l_ops);
 	ft_dlstfree(mst.a);
+	ft_dlstfree(mst.b);
+	ft_dlstfree(mst.l_ops);
 	// choose_algo(&mst);
 	// sort_list(&mst);
 	// print_instructions(&mst);

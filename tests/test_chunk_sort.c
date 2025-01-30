@@ -43,12 +43,12 @@ int	main(void)
 
 	mst.a = dlst_from_str("1 2 3 8 9 4 5 6 7 0");
 	mst.b = NULL;
-	mst.ops = 0;
+	mst.l_ops = NULL;
 	list_indexing(&mst); 
 	mst.mt.chunks_count = 2;
 	pnf_list(mst.a, 0);
 	ft_printf("\n");
-	chunk_sort(&mst.a, &mst.b, &mst.mt, &mst.ops);	
+	chunk_sort(&mst);	
 	pnf_list(mst.b, 0);
 	ft_dlstfree(mst.b);
 }

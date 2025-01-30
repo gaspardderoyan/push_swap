@@ -44,3 +44,12 @@ t_dlist *get_lst_min(t_dlist *lst, int index_mode)
     }
     return (min);
 }
+
+void	print_instructions(t_dlist *l_ops)
+{
+	while (l_ops)
+	{
+		ft_printf("%s\n", (char *)l_ops->content);
+		l_ops = l_ops->next;
+	}
+}
