@@ -6,7 +6,7 @@
 /*   By: gderoyqn <gderoyqn@student.42london.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 17:17:59 by gderoyqn          #+#    #+#             */
-/*   Updated: 2025/01/29 20:10:08 by gderoyqn         ###   ########.fr       */
+/*   Updated: 2025/01/30 21:45:50 by gderoyqn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,21 @@ t_dlist *get_lst_min(t_dlist *lst, int index_mode)
     return (min);
 }
 
+t_dlist *get_dlst_min_max_index(t_dlist *lst, bool max)
+{
+	t_dlist *res;
+	res = lst;
+	while (lst)
+	{
+		if (lst->index < res->index && !max)
+			res = lst;
+		else if (lst->index > res->index && max)
+			res = lst;
+		lst = lst->next;
+	}
+	return (res);
+}
+
 void	print_instructions(t_dlist *l_ops)
 {
 	while (l_ops)
@@ -62,4 +77,8 @@ void	choose_algo(t_mst *mst)
 		iterative_min_sort(mst);
 	else if (!ft_strncmp(ALGO, "dir_iterative_min", 50))
 		dir_iterative_min_sort(mst);
+	else if (!ft_strncmp(ALGO, "sort_three", 50))
+		sort_three(mst);
+	else if (!ft_strncmp(ALGO, "sort_five", 50))
+		sort_five(mst);
 }

@@ -6,7 +6,7 @@
 #    By: gderoyqn <gderoyqn@student.42london.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/13 18:49:48 by gderoyqn          #+#    #+#              #
-#    Updated: 2025/01/22 10:42:24 by gderoyqn         ###   ########.fr        #
+#    Updated: 2025/01/30 17:41:47 by gderoyqn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,7 @@ SRCS = inputs.c \
 	   iterative_min_sort.c \
 	   algo_utils.c \
 	   chunk_sort.c \
+	   small_sort.c \
 	   to_delete.c
 MAIN_SRC = main.c
 
@@ -49,7 +50,8 @@ TEST_SRCS = test_dir_of_first.c \
 			test_update_mt.c \
 			test_operations.c \
 			test_iterative_min_sort.c \
-			test_inputs.c
+			test_inputs.c \
+			test_small_sort.c
 
 TEST_EXES = $(TEST_SRCS:%.c=$(TEST_DIR)/%)
 

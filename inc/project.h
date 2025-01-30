@@ -6,7 +6,7 @@
 /*   By: gderoyqn <gderoyqn@student.42london.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 17:41:59 by gderoyqn          #+#    #+#             */
-/*   Updated: 2025/01/29 23:34:07 by gderoyqn         ###   ########.fr       */
+/*   Updated: 2025/01/30 20:55:12 by gderoyqn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ t_dlist	*get_lst_max(t_dlist *lst);
 void	list_indexing(t_mst *mst);
 void	print_instructions(t_dlist *l_ops);
 void	choose_algo(t_mst *mst);
+t_dlist	*get_dlst_min_max_index(t_dlist *lst, bool max);
 
 /* Algorithms */
 void	iterative_min_sort(t_mst *mst);
@@ -79,6 +80,10 @@ void	chunk_sort(t_mst *mst);
 int		dir_of_first(t_dlist *lst, t_stacks_mt *mt);
 void	update_stacks_mt(t_stacks_mt *mt);
 int		get_min_dir(t_dlist *lst);
+
+/* Small sorts */
+void	sort_three(t_mst *mst);
+void	sort_five(t_mst *mst);
 
 /* To delete */
 void	pnf_list(t_dlist *lst, int free_flag);
