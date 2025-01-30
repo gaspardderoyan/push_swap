@@ -14,6 +14,12 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror -Inc -Ilibft/inc
 DEBUGFLAGS = -g3 -fsanitize=address -fsanitize=undefined -fsanitize=alignment
 
+# Define the default algorithm
+ALGO ?= "chunk"
+
+# Compiler flags
+CFLAGS += -D ALGO=\"$(ALGO)\"
+
 SRC_DIR = src
 OBJ_DIR = obj
 TEST_DIR = tests

@@ -53,3 +53,13 @@ void	print_instructions(t_dlist *l_ops)
 		l_ops = l_ops->next;
 	}
 }
+
+void	choose_algo(t_mst *mst)
+{
+	if (!ft_strncmp(ALGO, "chunk", 50))
+		chunk_sort(mst);
+	else if (!ft_strncmp(ALGO, "iterative_min", 50))
+		iterative_min_sort(mst);
+	else if (!ft_strncmp(ALGO, "dir_iterative_min", 50))
+		dir_iterative_min_sort(mst);
+}

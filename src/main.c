@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "../inc/project.h"
+#include <string.h>
 
 
 int	main(int ac, char **av)
@@ -28,17 +29,11 @@ int	main(int ac, char **av)
 		return (ft_dlstfree(mst.a), ft_putstr_fd("Error\n", 2), 0);
 	list_indexing(&mst);
 	mst.mt.chunks_count = 5;
-	// ft_printf("Before sorting:\n");
-	//    pnf_list(mst.a, 0);
-	// ft_printf("\nAfer sorting:\n");
-	chunk_sort(&mst);
-    // pnf_list(mst.a, 0);
+	choose_algo(&mst);
 	print_instructions(mst.l_ops);
+    // pnf_list(mst.a, 0);
 	ft_dlstfree(mst.a);
 	ft_dlstfree(mst.b);
 	ft_dlstfree(mst.l_ops);
-	// choose_algo(&mst);
-	// sort_list(&mst);
-	// print_instructions(&mst);
     return (0);
 }
