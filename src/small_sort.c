@@ -80,13 +80,14 @@ void	sort_five(t_mst *mst)
 {
 
 	t_dlist *node_above;
+	int	i = 0;
 	// TODO if is_sorted, return ;
 	while (ft_dlstsize(mst->a) != 3)
 		push_first(&mst->a, &mst->b, &mst->l_ops, "pb"); // Push 2 elements from 'a' to 'b'
 	sort_three(mst); // Sort the remaining 3 in 'a'
 
 	// Instead of `while(b_cursor)`, iterate as long as stack 'b' is not empty
-	while (mst->b != NULL)
+	while (mst->b != NULL && i < 2)
 	{
 		if (mst->b->index < mst->a->index && get_lst_min(mst->a, false) == mst->a)
 			push_first(&mst->b, &mst->a, &mst->l_ops, "pa"); // Push from 'b' to 'a' - 'b' head changes here!
@@ -115,6 +116,7 @@ void	sort_five(t_mst *mst)
 			push_first(&mst->b, &mst->a, &mst->l_ops, "pa"); // Push from 'b' to 'a' - 'b' head changes here!
 
 		}
+		i++;
 	}
 	if (dlst_node_dir(mst->a, get_dlst_min_max_index(mst->a, false)))
 	{

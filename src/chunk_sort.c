@@ -21,6 +21,11 @@ static void	sort_in_chunks(t_mst *mst)
 		update_stacks_mt(&mst->mt);
 		while (mst->a && dir_of_first(mst->a, &mst->mt))
 		{
+			if (ft_dlstsize(mst->a) == 5)
+			{
+				sort_five(mst);
+				return ;
+			}
 			if (dir_of_first(mst->a, &mst->mt) == 1)
 			{
 				while (mst->a && ((mst->a)->index < mst->mt.lower_limit ||

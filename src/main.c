@@ -29,6 +29,8 @@ int	main(int ac, char **av)
 		return (ft_dlstfree(mst.a), ft_putstr_fd("Error\n", 2), 0);
 	list_indexing(&mst);
 	mst.mt.chunks_count = 5;
+	if (mst.mt.lst_size > 100)
+		mst.mt.chunks_count = 11;
 	choose_algo(&mst);
 	print_instructions(mst.l_ops);
     // pnf_list(mst.a, 0);
