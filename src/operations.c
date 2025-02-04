@@ -6,7 +6,7 @@
 /*   By: gderoyqn <gderoyqn@student.42london.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 00:19:07 by gderoyqn          #+#    #+#             */
-/*   Updated: 2025/01/29 23:08:52 by gderoyqn         ###   ########.fr       */
+/*   Updated: 2025/02/04 17:50:56 by gderoyqn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,20 @@
 
 void swap_first(t_dlist **lst, t_dlist **l_ops, char *op_name)
 {
-	void *temp;
+	t_dlist *first;
+	t_dlist *second;
 
 	if (!lst || !*lst || !(*lst)->next)
 		return ;
-	temp = (*lst)->next->content;
-	(*lst)->next->content = (*lst)->content;
-	(*lst)->content = temp;
+	first = (*lst);
+	second = (*lst)->next;
+	(*lst) = second;
+	first->next = second->next;
+	second->prev = NULL;
+	second->next = first;
+	first->prev = second;
+	if (first->next)
+		first->next->prev = first;
 	ft_dlstadd_back(l_ops, ft_dlstnew(strdup_safe(op_name)));
 }
 

@@ -1,5 +1,4 @@
 #include "../inc/project.h"
-#include "libft.h"
 
 // ANSI escape codes for colors
 #define RED     "\x1b[31m"
@@ -25,6 +24,7 @@ static t_dlist *dlst_from_arr(int *arr, size_t size)
 void	is_dlist_sorted(t_dlist *lst, char *name, int ops)
 {
 	int	current;
+	t_dlist *copy = lst;
 
 	current = *(int *)lst->content;
 	while (lst)
@@ -33,8 +33,8 @@ void	is_dlist_sorted(t_dlist *lst, char *name, int ops)
 		lst = lst->next;
 		if (lst && *(int *)lst->content < current)
 		{
-			printf("%sFAIL: %s%s Ops = %d\n", RED, name, RESET, ops);
-			pnf_list(lst, 0);
+			printf("%sFAIL: %s List isn't sorted ; %s Ops = %d\n", RED, name, RESET, ops);
+			pnf_list(copy, 0);
 			return ;
 		}
 	}
@@ -56,7 +56,7 @@ void	sort_and_check(char *name, int in[], size_t len, void (f)(t_mst*))
 	is_dlist_sorted(mst.a, name, ops);
 	if (p_size != n_size)
 		printf("FAIL: Incomplete list! Should have %d, has %d\n", p_size, n_size);
-	print_instructions(mst.l_ops);
+	// print_instructions(mst.l_ops);
 	ft_dlstfree(mst.a);
 	ft_dlstfree(mst.b);
 	ft_dlstfree(mst.l_ops);
@@ -71,7 +71,15 @@ int	main(void)
 	sort_and_check("1 ,3, 2", (int[]){1 ,3, 2}, 3, &sort_three);
 	sort_and_check("2 ,3, 1", (int[]){2 ,3, 1}, 3, &sort_three);
 	sort_and_check("1 ,2, 3", (int[]){1 ,2, 3}, 3, &sort_three);
-    printf(BOLD "\nSORT FIVE\n" RESET);
+	printf(BOLD "\nSORT FOUR\n" RESET);
+	sort_and_check("1, 3, 2, 4 - lower than min", (int[]){1, 3, 2, 4}, 4, &sort_five);
+	sort_and_check("4, 1, 2, 3 - higher than max", (int[]){4, 1, 2, 3}, 4, &sort_five);
+	sort_and_check("2, 1, 3, 4 - middle, above mid", (int[]){2, 1, 3, 4}, 4, &sort_five);
+	sort_and_check("3, 1, 2, 4 - middle, under mid", (int[]){3, 1, 2, 4}, 4, &sort_five);
+	sort_and_check("2, 4, 5, 3", (int[]){2, 4, 5, 3}, 4, &sort_five);
+	sort_and_check("4, 5, 3, 1", (int[]){4, 5, 3, 1}, 4, &sort_five);
+	sort_and_check("1, 4, 3, 2", (int[]){1, 4, 3, 2}, 4, &sort_five);
+	printf(BOLD "\nSORT FIVE\n" RESET);
 	sort_and_check("5, 4, 3, 2, 1", (int[]){5, 4, 3, 2, 1}, 5, &sort_five);
 	sort_and_check("1, 2, 3, 4, 5", (int[]){1, 2, 3, 4, 5}, 5, &sort_five);
 	sort_and_check("2, 1, 3, 4, 5", (int[]){2, 1, 3, 4, 5}, 5, &sort_five);
@@ -87,4 +95,5 @@ int	main(void)
 	sort_and_check("1, 3, 5, 4, 2", (int[]){1, 3, 5, 4, 2}, 5, &sort_five);
 	sort_and_check("4, 2, 5, 3, 1", (int[]){4, 2, 5, 3, 1}, 5, &sort_five);
 	sort_and_check("2, 4, 5, 3, 1", (int[]){2, 4, 5, 3, 1}, 5, &sort_five);
+	sort_and_check("1, 5, 2, 4, 3", (int[]){1, 5, 2, 4, 3}, 5, &sort_five);
 }
