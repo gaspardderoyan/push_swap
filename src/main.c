@@ -38,4 +38,5 @@ int	main(int ac, char **av)
 	ft_dlstfree(mst.b);
 	ft_dlstfree(mst.l_ops);
     return (0);
+	// this is in main
 }
