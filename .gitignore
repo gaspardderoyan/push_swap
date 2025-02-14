@@ -2,7 +2,7 @@
 **/push_swap
 **/*.out
 obj/
-*.md
+# *.md
 *.txt
 *.py
 .vscode/

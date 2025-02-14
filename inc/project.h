@@ -19,6 +19,20 @@
 
 # include "../libft/inc/libft.h"
 
+typedef enum {
+    MIN,
+    MID,
+    MAX
+} Position;
+
+typedef struct s_lst {
+    int value;
+    int index;
+    struct s_lst *next;
+    Position curr_pos;
+    // current len of chunk being split?
+} t_lst;
+
 /**
  * Represents a chunk within a larger list for multi-chunks sorting.
  *
