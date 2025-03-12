@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "../inc/project.h"
+#include "libft.h"
 
 /**
 * Takes dlist as input, finds the min of the content nodes, returns the node
@@ -69,16 +70,35 @@ void	print_instructions(t_dlist *l_ops)
 	}
 }
 
+bool is_sorted(t_mst *mst)
+{
+	int	current;
+	t_dlist *iter;
+
+	iter = mst->a;
+	while (iter)
+	{
+		current = *(int *)iter->content;
+		iter = iter->next;
+		if (iter && *(int *)iter->content < current)
+			return false;
+	}
+	return true;
+}
+
 void	choose_algo(t_mst *mst)
 {
-	if (!ft_strncmp(ALGO, "chunk", 50))
-		chunk_sort(mst);
-	else if (!ft_strncmp(ALGO, "iterative_min", 50))
-		iterative_min_sort(mst);
-	else if (!ft_strncmp(ALGO, "dir_iterative_min", 50))
-		dir_iterative_min_sort(mst);
-	else if (!ft_strncmp(ALGO, "sort_three", 50))
+	if (is_sorted(mst))
+		return ;
+	if (ft_dlstsize(mst->a) <= 3)
 		sort_three(mst);
-	else if (!ft_strncmp(ALGO, "sort_five", 50))
+	else if (ft_dlstsize(mst->a) <=5)
 		sort_five(mst);
+	else
+	{
+		mst->mt.chunks_count = 5;
+		if (mst->mt.lst_size > 100)
+			mst->mt.chunks_count = 11;
+		chunk_sort(mst);
+	}
 }
