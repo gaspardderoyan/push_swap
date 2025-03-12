@@ -6,7 +6,7 @@
 /*   By: gderoyqn <gderoyqn@student.42london.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 00:18:22 by gderoyqn          #+#    #+#             */
-/*   Updated: 2025/01/21 22:40:28 by gderoyqn         ###   ########.fr       */
+/*   Updated: 2025/03/12 17:45:15 by gderoyqn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,29 +19,28 @@
  * 
  * 2: sets every index to -1, then iteratively sets the minimum to i++
  */
-void    list_indexing(t_mst *mst)
+void	list_indexing(t_mst *mst)
 {
-    int i;
-    t_dlist *min_node;
-    t_dlist *temp;
+	int		i;
+	t_dlist	*min_node;
+	t_dlist	*temp;
 
 	mst->mt.chunks_i = 0;
 	mst->mt.lst_size = ft_dlstsize(mst->a);
-    temp = mst->a;
-    while (temp)
-    {
-        temp->index = -1;
-        temp = temp->next;
-    }
-    i = 0;
-    while (i < mst->mt.lst_size)
-    {
-        min_node = get_lst_min(mst->a, true);
-        min_node->index = i;
-        i++;
-    }
+	temp = mst->a;
+	while (temp)
+	{
+		temp->index = -1;
+		temp = temp->next;
+	}
+	i = 0;
+	while (i < mst->mt.lst_size)
+	{
+		min_node = get_lst_min(mst->a, true);
+		min_node->index = i;
+		i++;
+	}
 }
-
 
 /**
  * Gets the position in the dlist of the 1st item within the current stack
@@ -57,15 +56,15 @@ void    list_indexing(t_mst *mst)
  */
 int	i_of_first_last(t_dlist *lst, t_stacks_mt *mt, bool first)
 {
-	t_dlist *cursor;
-	int	i;
+	t_dlist	*cursor;
+	int		i;
 
 	i = 0;
 	if (!lst || !mt)
 		return (-1);
 	if (first)
 		cursor = lst;
-	else 
+	else
 		cursor = ft_dlstlast(lst);
 	while (cursor)
 	{
@@ -91,7 +90,7 @@ int	i_of_first_last(t_dlist *lst, t_stacks_mt *mt, bool first)
  *
  * 0 if should skip to next stack
  */
-int dir_of_first(t_dlist *lst, t_stacks_mt *mt)
+int	dir_of_first(t_dlist *lst, t_stacks_mt *mt)
 {
 	int	start_i;
 	int	end_i;

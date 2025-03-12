@@ -6,7 +6,7 @@
 /*   By: gderoyqn <gderoyqn@student.42london.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 16:20:47 by gderoyqn          #+#    #+#             */
-/*   Updated: 2025/02/04 20:39:07 by gderoyqn         ###   ########.fr       */
+/*   Updated: 2025/03/12 17:19:12 by gderoyqn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,44 +56,39 @@ t_dlist	*node_index_above(t_dlist *lst, int src_i)
 	return (lst);
 }
 
-t_dlist *smallest_index_above(t_dlist *lst, int src_i)
+t_dlist	*smallest_index_above(t_dlist *lst, int src_i)
 {
-	t_dlist *smallest_lower;
+	t_dlist	*smallest_lower;
+
 	smallest_lower = NULL;
 	while (lst)
 	{
-		if (lst->index > src_i &&
-			(!smallest_lower || lst->index < smallest_lower->index))
+		if (lst->index > src_i
+			&& (!smallest_lower || lst->index < smallest_lower->index))
 			smallest_lower = lst;
 		lst = lst->next;
 	}
 	return (smallest_lower);
 }
 
-// for each number in b
-// if smaller than the first, just push to a
-// if larger than the last, push to a then rotate
-//
-// else, find the index of the value that's below the value in b
-// but it's next is above
 void	sort_five(t_mst *mst)
 {
+	t_dlist	*node_above;
+	int		i;
 
-	t_dlist *node_above;
-	int	i = 0;
-	// TODO if is_sorted, return ;
+	i = 0;
 	while (ft_dlstsize(mst->a) != 3)
-		push_first(&mst->a, &mst->b, &mst->l_ops, "pb"); // Push 2 elements from 'a' to 'b'
-	sort_three(mst); // Sort the remaining 3 in 'a'
-
-	// Instead of `while(b_cursor)`, iterate as long as stack 'b' is not empty
+		push_first(&mst->a, &mst->b, &mst->l_ops, "pb");
+	sort_three(mst);
 	while (mst->b != NULL && i < 2)
 	{
-		if (mst->b->index < mst->a->index && get_lst_min(mst->a, false) == mst->a)
-			push_first(&mst->b, &mst->a, &mst->l_ops, "pa"); // Push from 'b' to 'a' - 'b' head changes here!
-		else if (mst->b->index > ft_dlstlast(mst->a)->index && get_lst_min(mst->a, false) == mst->a)
+		if (mst->b->index < mst->a->index
+			&& get_lst_min(mst->a, false) == mst->a)
+			push_first(&mst->b, &mst->a, &mst->l_ops, "pa");
+		else if (mst->b->index > ft_dlstlast(mst->a)->index
+			&& get_lst_min(mst->a, false) == mst->a)
 		{
-			push_first(&mst->b, &mst->a, &mst->l_ops, "pa"); // Push from 'b' to 'a' - 'b' head changes here!
+			push_first(&mst->b, &mst->a, &mst->l_ops, "pa");
 			rotate(&mst->a, &mst->l_ops, "ra");
 		}
 		else
@@ -108,13 +103,12 @@ void	sort_five(t_mst *mst)
 			}
 			else
 			{
-				while (mst->a !=  node_above)
+				while (mst->a != node_above)
 				{
 					reverse(&mst->a, &mst->l_ops, "rra");
 				}
 			}
-			push_first(&mst->b, &mst->a, &mst->l_ops, "pa"); // Push from 'b' to 'a' - 'b' head changes here!
-
+			push_first(&mst->b, &mst->a, &mst->l_ops, "pa");
 		}
 		i++;
 	}
@@ -127,7 +121,7 @@ void	sort_five(t_mst *mst)
 	}
 	else
 	{
-		while (mst->a !=  get_dlst_min_max_index(mst->a, false))
+		while (mst->a != get_dlst_min_max_index(mst->a, false))
 		{
 			reverse(&mst->a, &mst->l_ops, "rra");
 		}

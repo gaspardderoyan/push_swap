@@ -6,7 +6,7 @@
 /*   By: gderoyqn <gderoyqn@student.42london.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 19:19:04 by gderoyqn          #+#    #+#             */
-/*   Updated: 2025/01/29 23:11:20 by gderoyqn         ###   ########.fr       */
+/*   Updated: 2025/03/12 17:07:54 by gderoyqn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,6 @@ int	ft_dlstsize(t_dlist *lst)
 	{
 		cursor = cursor->next;
 		i++;
-		// ft_printf("err");
 	}
 	return (i);
 }

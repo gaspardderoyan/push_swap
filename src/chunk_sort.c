@@ -6,13 +6,11 @@
 /*   By: gderoyqn <gderoyqn@student.42london.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 00:18:32 by gderoyqn          #+#    #+#             */
-/*   Updated: 2025/02/04 20:44:39 by gderoyqn         ###   ########.fr       */
+/*   Updated: 2025/03/12 17:43:17 by gderoyqn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/project.h"
-#include "libft.h"
-
 
 static void	sort_in_chunks(t_mst *mst)
 {
@@ -21,22 +19,17 @@ static void	sort_in_chunks(t_mst *mst)
 		update_stacks_mt(&mst->mt);
 		while (mst->a && dir_of_first(mst->a, &mst->mt))
 		{
-			// if (ft_dlstsize(mst->a) == 5)
-			// {
-			// 	sort_five(mst);
-			// 	return ;
-			// }
 			if (dir_of_first(mst->a, &mst->mt) == 1)
 			{
-				while (mst->a && ((mst->a)->index < mst->mt.lower_limit ||
-					(mst->a)->index > mst->mt.upper_limit))
-						rotate(&mst->a, &mst->l_ops, "ra");
+				while (mst->a && ((mst->a)->index < mst->mt.lower_limit
+						|| (mst->a)->index > mst->mt.upper_limit))
+					rotate(&mst->a, &mst->l_ops, "ra");
 			}
-			else 
+			else
 			{
-				while (mst->a && ((mst->a)->index < mst->mt.lower_limit ||
-					(mst->a)->index > mst->mt.upper_limit))
-						reverse(&mst->a, &mst->l_ops, "rra");
+				while (mst->a && ((mst->a)->index < mst->mt.lower_limit
+						|| (mst->a)->index > mst->mt.upper_limit))
+					reverse(&mst->a, &mst->l_ops, "rra");
 			}
 			if (mst->a)
 				push_first(&mst->a, &mst->b, &mst->l_ops, "pb");
@@ -60,7 +53,6 @@ static void	push_max(t_mst *mst)
 			while (mst->b != get_lst_max(mst->b))
 				reverse(&mst->b, &mst->l_ops, "rrb");
 			push_first(&mst->b, &mst->a, &mst->l_ops, "pa");
-
 		}
 	}
 }

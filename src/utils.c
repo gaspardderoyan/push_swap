@@ -6,12 +6,11 @@
 /*   By: gderoyqn <gderoyqn@student.42london.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 17:17:59 by gderoyqn          #+#    #+#             */
-/*   Updated: 2025/01/30 21:45:50 by gderoyqn         ###   ########.fr       */
+/*   Updated: 2025/03/12 17:48:51 by gderoyqn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/project.h"
-#include "libft.h"
 
 /**
 * Takes dlist as input, finds the min of the content nodes, returns the node
@@ -25,30 +24,31 @@
 * However, if the index is already set (not -1) AND index_mode is true,
 * it skips the value, ie. it will find the next min value to index.
 */
-t_dlist *get_lst_min(t_dlist *lst, int index_mode)
+t_dlist	*get_lst_min(t_dlist *lst, int index_mode)
 {
-    t_dlist *min;
-    int current_val;
+	t_dlist	*min;
+	int		current_val;
 
-    min = NULL;
-    while (lst)
-    {
-        if (lst->index == -1 || index_mode == false)
-        {
-            if (min == NULL || (*(int *)lst->content < current_val))
-            {
-                min = lst;
-                current_val = *(int *)lst->content;
-            }
-        }
-        lst = lst->next;
-    }
-    return (min);
+	min = NULL;
+	while (lst)
+	{
+		if (lst->index == -1 || index_mode == false)
+		{
+			if (min == NULL || (*(int *)lst->content < current_val))
+			{
+				min = lst;
+				current_val = *(int *)lst->content;
+			}
+		}
+		lst = lst->next;
+	}
+	return (min);
 }
 
-t_dlist *get_dlst_min_max_index(t_dlist *lst, bool max)
+t_dlist	*get_dlst_min_max_index(t_dlist *lst, bool max)
 {
-	t_dlist *res;
+	t_dlist	*res;
+
 	res = lst;
 	while (lst)
 	{
@@ -70,10 +70,10 @@ void	print_instructions(t_dlist *l_ops)
 	}
 }
 
-bool is_sorted(t_mst *mst)
+bool	is_sorted(t_mst *mst)
 {
-	int	current;
-	t_dlist *iter;
+	int		current;
+	t_dlist	*iter;
 
 	iter = mst->a;
 	while (iter)
@@ -81,9 +81,9 @@ bool is_sorted(t_mst *mst)
 		current = *(int *)iter->content;
 		iter = iter->next;
 		if (iter && *(int *)iter->content < current)
-			return false;
+			return (false);
 	}
-	return true;
+	return (true);
 }
 
 void	choose_algo(t_mst *mst)
@@ -92,7 +92,7 @@ void	choose_algo(t_mst *mst)
 		return ;
 	if (ft_dlstsize(mst->a) <= 3)
 		sort_three(mst);
-	else if (ft_dlstsize(mst->a) <=5)
+	else if (ft_dlstsize(mst->a) <= 5)
 		sort_five(mst);
 	else
 	{

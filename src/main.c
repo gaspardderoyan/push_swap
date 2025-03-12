@@ -6,17 +6,15 @@
 /*   By: gderoyqn <gderoyqn@student.42london.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 01:30:48 by gderoyqn          #+#    #+#             */
-/*   Updated: 2025/01/29 22:52:39 by gderoyqn         ###   ########.fr       */
+/*   Updated: 2025/03/12 17:13:54 by gderoyqn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/project.h"
-#include <string.h>
-
 
 int	main(int ac, char **av)
 {
-	t_mst mst;
+	t_mst	mst;
 
 	mst.a = NULL;
 	mst.b = NULL;
@@ -33,5 +31,5 @@ int	main(int ac, char **av)
 	ft_dlstfree(mst.a);
 	ft_dlstfree(mst.b);
 	ft_dlstfree(mst.l_ops);
-    return (0);
+	return (0);
 }

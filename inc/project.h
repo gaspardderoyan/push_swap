@@ -85,7 +85,7 @@ int		get_min_dir(t_dlist *lst);
 void	sort_three(t_mst *mst);
 void	sort_five(t_mst *mst);
 t_dlist	*node_index_above(t_dlist *lst, int src_i);
-t_dlist *smallest_index_above(t_dlist *lst, int src_i);
+t_dlist	*smallest_index_above(t_dlist *lst, int src_i);
 
 /* To delete */
 void	pnf_list(t_dlist *lst, int free_flag);
