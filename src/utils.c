@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "../inc/project.h"
+#include "libft.h"
 
 /**
 * Takes dlist as input, finds the min of the content nodes, returns the node
@@ -90,6 +91,11 @@ void	choose_algo(t_mst *mst)
 {
 	if (is_sorted(mst))
 		return ;
+	if (ft_dlstsize(mst->a) == 2)
+	{
+		rotate(&mst->a, &mst->l_ops, "ra");
+		return ;
+	}
 	if (ft_dlstsize(mst->a) <= 3)
 		sort_three(mst);
 	else if (ft_dlstsize(mst->a) <= 5)
