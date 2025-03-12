@@ -6,7 +6,7 @@
 #    By: gderoyqn <gderoyqn@student.42london.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/13 18:49:48 by gderoyqn          #+#    #+#              #
-#    Updated: 2025/01/30 17:41:47 by gderoyqn         ###   ########.fr        #
+#    Updated: 2025/03/12 17:55:36 by gderoyqn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,11 +31,9 @@ LIBFT = $(LIBFT_DIR)/libft.a
 SRCS = inputs.c \
 	   operations.c \
 	   utils.c \
-	   iterative_min_sort.c \
 	   algo_utils.c \
 	   chunk_sort.c \
-	   small_sort.c \
-	   to_delete.c
+	   small_sort.c
 MAIN_SRC = main.c
 
 # $(text:pattern=replacement)

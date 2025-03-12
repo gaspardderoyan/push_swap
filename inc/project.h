@@ -6,7 +6,7 @@
 /*   By: gderoyqn <gderoyqn@student.42london.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 17:41:59 by gderoyqn          #+#    #+#             */
-/*   Updated: 2025/02/04 20:04:34 by gderoyqn         ###   ########.fr       */
+/*   Updated: 2025/03/12 18:23:07 by gderoyqn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,10 +84,5 @@ int		get_min_dir(t_dlist *lst);
 /* Small sorts */
 void	sort_three(t_mst *mst);
 void	sort_five(t_mst *mst);
-t_dlist	*node_index_above(t_dlist *lst, int src_i);
-t_dlist	*smallest_index_above(t_dlist *lst, int src_i);
-
-/* To delete */
-void	pnf_list(t_dlist *lst, int free_flag);
 
 #endif

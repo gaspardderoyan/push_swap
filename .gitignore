@@ -10,3 +10,4 @@ obj/
 checker_linux
 /tests/*
 !/tests/*.c
+*.json
