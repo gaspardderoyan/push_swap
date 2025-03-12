@@ -194,50 +194,298 @@ void	test_lst_from_strs_invalid_char(void)
 	ft_dlstfree(lst_cpy);
 }
 
-int	main(void)
+void test_lst_from_strs_empty(void)
+{
+    char *strs[] = {"PROGRAM_NAME", NULL};
+    t_mst mst = {.a = NULL, .b = NULL};
+    
+    errno = 0;
+    lst_from_strs(1, strs, &mst);
+    
+    if (mst.a != NULL || errno != 0)
+    {
+        printf("%sFAIL: %s%s\n", RED, __func__, RESET);
+        printf("Expected empty list and errno 0, got list %p and errno %d\n", 
+               (void*)mst.a, errno);
+        ft_dlstfree(mst.a);
+        return;
+    }
+    
+    printf("%sPASS: %s%s\n", GREEN, __func__, RESET);
+}
+
+void test_lst_from_strs_duplicate(void)
+{
+    char *strs[] = {"PROGRAM_NAME", "1", "2", "3", "3", "4", "5", NULL};
+    t_mst mst = {.a = NULL, .b = NULL};
+    
+    errno = 0;
+    lst_from_strs(7, strs, &mst);
+    t_dlist *lst_cpy = mst.a;
+    
+    if (errno != DUPLICATE_VALUE)
+    {
+        printf("%sFAIL: %s%s\n", RED, __func__, RESET);
+        printf("Expected errno %d, got %d\n", DUPLICATE_VALUE, errno);
+        ft_dlstfree(lst_cpy);
+        return;
+    }
+    
+    printf("%sPASS: %s%s\n", GREEN, __func__, RESET);
+    ft_dlstfree(lst_cpy);
+}
+
+void test_lst_from_strs_int_limits(void)
+{
+    char *strs[] = {"PROGRAM_NAME", "2147483647", "-2147483648", "0", NULL};
+    int expected[] = {INT_MAX, INT_MIN, 0};
+    t_mst mst = {.a = NULL, .b = NULL};
+    
+    errno = 0;
+    lst_from_strs(4, strs, &mst);
+    t_dlist *lst_cpy = mst.a;
+    
+    int i = 0;
+    while (i < 3 && mst.a)
+    {
+        if (expected[i] != *(int *)mst.a->content)
+        {
+            printf("%sFAIL: %s%s\n", RED, __func__, RESET);
+            printf("Index = %d, Expected = %d, Actual = %d\n", 
+                   i, expected[i], *(int *)mst.a->content);
+            ft_dlstfree(lst_cpy);
+            return;
+        }
+        i++;
+        mst.a = mst.a->next;
+    }
+    
+    if (mst.a != NULL || errno != 0)
+    {
+        printf("%sFAIL: %s%s\n", RED, __func__, RESET);
+        printf("List too long or errno set: %d\n", errno);
+        ft_dlstfree(lst_cpy);
+        return;
+    }
+    
+    printf("%sPASS: %s%s\n", GREEN, __func__, RESET);
+    ft_dlstfree(lst_cpy);
+}
+
+void test_lst_from_strs_out_of_range(void)
+{
+    char *strs[] = {"PROGRAM_NAME", "1", "2", "2147483648", "4", NULL};
+    t_mst mst = {.a = NULL, .b = NULL};
+    
+    errno = 0;
+    lst_from_strs(5, strs, &mst);
+    t_dlist *lst_cpy = mst.a;
+    
+    if (errno != ERANGE)
+    {
+        printf("%sFAIL: %s%s\n", RED, __func__, RESET);
+        printf("Expected errno %d, got %d\n", ERANGE, errno);
+        ft_dlstfree(lst_cpy);
+        return;
+    }
+    
+    printf("%sPASS: %s%s\n", GREEN, __func__, RESET);
+    ft_dlstfree(lst_cpy);
+}
+
+void test_lst_from_strs_negative_out_of_range(void)
+{
+    char *strs[] = {"PROGRAM_NAME", "1", "-2147483649", "3", NULL};
+    t_mst mst = {.a = NULL, .b = NULL};
+    
+    errno = 0;
+    lst_from_strs(4, strs, &mst);
+    t_dlist *lst_cpy = mst.a;
+    
+    if (errno != ERANGE)
+    {
+        printf("%sFAIL: %s%s\n", RED, __func__, RESET);
+        printf("Expected errno %d, got %d\n", ERANGE, errno);
+        ft_dlstfree(lst_cpy);
+        return;
+    }
+    
+    printf("%sPASS: %s%s\n", GREEN, __func__, RESET);
+    ft_dlstfree(lst_cpy);
+}
+
+void test_lst_from_strs_mixed_spaces(void)
+{
+    char *strs[] = {"PROGRAM_NAME", "10", " 20", "30 ", " 40 ", NULL};
+    int expected[] = {10, 20, 30, 40};
+    t_mst mst = {.a = NULL, .b = NULL};
+    
+    errno = 0;
+    lst_from_strs(5, strs, &mst);
+    t_dlist *lst_cpy = mst.a;
+    
+    int i = 0;
+    while (i < 4 && mst.a)
+    {
+        if (expected[i] != *(int *)mst.a->content)
+        {
+            printf("%sFAIL: %s%s\n", RED, __func__, RESET);
+            printf("Index = %d, Expected = %d, Actual = %d\n", 
+                   i, expected[i], *(int *)mst.a->content);
+            ft_dlstfree(lst_cpy);
+            return;
+        }
+        i++;
+        mst.a = mst.a->next;
+    }
+    
+    if (mst.a != NULL || errno != 0)
+    {
+        printf("%sFAIL: %s%s\n", RED, __func__, RESET);
+        printf("List too long or errno set: %d\n", errno);
+        ft_dlstfree(lst_cpy);
+        return;
+    }
+    
+    printf("%sPASS: %s%s\n", GREEN, __func__, RESET);
+    ft_dlstfree(lst_cpy);
+}
+
+void test_lst_from_strs_single_element(void)
+{
+    char *strs[] = {"PROGRAM_NAME", "42", NULL};
+    t_mst mst = {.a = NULL, .b = NULL};
+    
+    errno = 0;
+    lst_from_strs(2, strs, &mst);
+    t_dlist *lst_cpy = mst.a;
+    
+    if (mst.a == NULL || *(int *)mst.a->content != 42 || mst.a->next != NULL || errno != 0)
+    {
+        printf("%sFAIL: %s%s\n", RED, __func__, RESET);
+        printf("Expected single element list with value 42, got %p with value %d\n", 
+               (void*)mst.a, mst.a ? *(int *)mst.a->content : -1);
+        printf("Errno: %d\n", errno);
+        ft_dlstfree(lst_cpy);
+        return;
+    }
+    
+    printf("%sPASS: %s%s\n", GREEN, __func__, RESET);
+    ft_dlstfree(lst_cpy);
+}
+
+void test_lst_from_strs_leading_zeros(void)
+{
+    char *strs[] = {"PROGRAM_NAME", "001", "0002", "00003", NULL};
+    int expected[] = {1, 2, 3};
+    t_mst mst = {.a = NULL, .b = NULL};
+    
+    errno = 0;
+    lst_from_strs(4, strs, &mst);
+    t_dlist *lst_cpy = mst.a;
+    
+    int i = 0;
+    while (i < 3 && mst.a)
+    {
+        if (expected[i] != *(int *)mst.a->content)
+        {
+            printf("%sFAIL: %s%s\n", RED, __func__, RESET);
+            printf("Index = %d, Expected = %d, Actual = %d\n", 
+                   i, expected[i], *(int *)mst.a->content);
+            ft_dlstfree(lst_cpy);
+            return;
+        }
+        i++;
+        mst.a = mst.a->next;
+    }
+    
+    if (mst.a != NULL || errno != 0)
+    {
+        printf("%sFAIL: %s%s\n", RED, __func__, RESET);
+        printf("List too long or errno set: %d\n", errno);
+        ft_dlstfree(lst_cpy);
+        return;
+    }
+    
+    printf("%sPASS: %s%s\n", GREEN, __func__, RESET);
+    ft_dlstfree(lst_cpy);
+}
+
+void test_lst_from_strs_multiple_errors(void)
+{
+    char *strs[] = {"PROGRAM_NAME", "1", "2", "a", "3", "3", NULL};
+    t_mst mst = {.a = NULL, .b = NULL};
+    
+    errno = 0;
+    lst_from_strs(6, strs, &mst);
+    t_dlist *lst_cpy = mst.a;
+    
+    // Should fail on the first error (invalid character)
+    if (errno != EINVAL)
+    {
+        printf("%sFAIL: %s%s\n", RED, __func__, RESET);
+        printf("Expected errno %d, got %d\n", EINVAL, errno);
+        ft_dlstfree(lst_cpy);
+        return;
+    }
+    
+    printf("%sPASS: %s%s\n", GREEN, __func__, RESET);
+    ft_dlstfree(lst_cpy);
+}
+
+int main(void)
 {
     printf(BOLD "\nINPUTS\n" RESET);
     printf(BOLD "lst_from_str\n" RESET);
-	test_lst_from_str(
-		"normal",
-		"1 2 3 4 5",
-		(int []){1, 2, 3, 4, 5}
-	);
-	test_lst_from_str(
-		"int_max/min",
-		"1 2 3 2147483647 -2147483648 4",
-		(int []){1, 2, 3, INT_MAX, INT_MIN, 4}
-	);
-	test_lst_from_str(
-		"bunch of spaces/tabs/etc",
-		"  1 2 3 4\t \r 5 ",
-		(int []){1, 2, 3, 4, 5}
-	);
-	test_lst_from_str_error(
-		"invalid char",
-		"1 2 3 4 b 5",
-		EINVAL
-	);
-	test_lst_from_str_error(
-		"duplicate number",
-		"1 2 3 4 4 6",
-		DUPLICATE_VALUE
-	);
-	test_lst_from_str_error(
-		"above int max",
-		"1 2 3 21474836487 4",
-		ERANGE
-	);
-	test_lst_from_str_error(
-		"under int min",
-		"1 2 3 -2147483649 4",
-		ERANGE
-	);
-	printf(BOLD "lst_from_strs\n" RESET);
-	char *strs[] = {"TEST", "1", "2", "3", "4", "5", NULL};
-	test_lst_from_strs(
-		"normal",
-		strs,
-		(int []){1, 2, 3, 4, 6}
-	);
+    test_lst_from_str(
+        "normal",
+        "1 2 3 4 5",
+        (int []){1, 2, 3, 4, 5}
+    );
+    test_lst_from_str(
+        "int_max/min",
+        "1 2 3 2147483647 -2147483648 4",
+        (int []){1, 2, 3, INT_MAX, INT_MIN, 4}
+    );
+    test_lst_from_str(
+        "bunch of spaces/tabs/etc",
+        "  1 2 3 4\t \r 5 ",
+        (int []){1, 2, 3, 4, 5}
+    );
+    test_lst_from_str_error(
+        "invalid char",
+        "1 2 3 4 b 5",
+        EINVAL
+    );
+    test_lst_from_str_error(
+        "duplicate number",
+        "1 2 3 4 4 6",
+        DUPLICATE_VALUE
+    );
+    test_lst_from_str_error(
+        "above int max",
+        "1 2 3 21474836487 4",
+        ERANGE
+    );
+    test_lst_from_str_error(
+        "under int min",
+        "1 2 3 -2147483649 4",
+        ERANGE
+    );
+    
+    printf(BOLD "\nlst_from_strs\n" RESET);
+    test_lst_from_strs_normal();
+    test_lst_from_strs_invalid_char();
+    test_lst_from_strs_empty();
+    test_lst_from_strs_duplicate();
+    test_lst_from_strs_int_limits();
+    test_lst_from_strs_out_of_range();
+    test_lst_from_strs_negative_out_of_range();
+    test_lst_from_strs_mixed_spaces();
+    test_lst_from_strs_single_element();
+    test_lst_from_strs_leading_zeros();
+    test_lst_from_strs_multiple_errors();
+    
+    return 0;
 }
+
