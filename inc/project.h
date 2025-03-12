@@ -6,7 +6,7 @@
 /*   By: gderoyqn <gderoyqn@student.42london.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 17:41:59 by gderoyqn          #+#    #+#             */
-/*   Updated: 2025/03/12 18:23:07 by gderoyqn         ###   ########.fr       */
+/*   Updated: 2025/03/12 18:35:06 by gderoyqn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,6 @@ typedef struct s_mst
 /* Function Prototypes */
 
 /* Addition Functions */
-void	add_nbr_to_lst(t_dlist **lst, int n);
-void	lst_from_str(char **str, t_mst *mst);
-void	lst_from_strs(int argc, char **argv, t_mst *mst);
-void	check_for_duplicate(t_dlist *lst, int n);
 void	lst_from_input(int ac, char **av, t_mst *mst);
 
 /* Manipulation Functions */

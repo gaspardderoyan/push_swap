@@ -6,7 +6,7 @@
 /*   By: gderoyqn <gderoyqn@student.42london.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 17:17:59 by gderoyqn          #+#    #+#             */
-/*   Updated: 2025/03/12 17:48:51 by gderoyqn         ###   ########.fr       */
+/*   Updated: 2025/03/12 18:33:10 by gderoyqn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	print_instructions(t_dlist *l_ops)
 	}
 }
 
-bool	is_sorted(t_mst *mst)
+static bool	is_sorted(t_mst *mst)
 {
 	int		current;
 	t_dlist	*iter;

@@ -6,7 +6,7 @@
 /*   By: gderoyqn <gderoyqn@student.42london.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 00:18:22 by gderoyqn          #+#    #+#             */
-/*   Updated: 2025/03/12 17:45:15 by gderoyqn         ###   ########.fr       */
+/*   Updated: 2025/03/12 18:36:02 by gderoyqn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	list_indexing(t_mst *mst)
  * @return position of the item in the dlist
  *		-1 if item not found or invalid input
  */
-int	i_of_first_last(t_dlist *lst, t_stacks_mt *mt, bool first)
+static int	i_of_first_last(t_dlist *lst, t_stacks_mt *mt, bool first)
 {
 	t_dlist	*cursor;
 	int		i;

@@ -6,7 +6,7 @@
 /*   By: gderoyqn <gderoyqn@student.42london.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 00:18:47 by gderoyqn          #+#    #+#             */
-/*   Updated: 2025/03/12 17:15:44 by gderoyqn         ###   ########.fr       */
+/*   Updated: 2025/03/12 18:35:09 by gderoyqn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 /**
 * Takes a dlist and a int, mallocs an int ptr, then add it to back of dlist
 */
-void	add_nbr_to_lst(t_dlist **lst, int n)
+static void	add_nbr_to_lst(t_dlist **lst, int n)
 {
 	int	*new;
 
@@ -31,7 +31,7 @@ void	add_nbr_to_lst(t_dlist **lst, int n)
 *
 * If it is, sets errno = 2
 */
-void	check_for_duplicate(t_dlist *lst, int n)
+static void	check_for_duplicate(t_dlist *lst, int n)
 {
 	while (lst)
 	{
@@ -55,7 +55,7 @@ void	check_for_duplicate(t_dlist *lst, int n)
  *
  * Else, adds the number to the list
 */
-void	lst_from_str(char **str, t_mst *mst)
+static void	lst_from_str(char **str, t_mst *mst)
 {
 	long long	cur_num;
 	char		**cpy;
@@ -83,7 +83,7 @@ void	lst_from_str(char **str, t_mst *mst)
  *
  * Else, adds the number to the list
 */
-void	lst_from_strs(int argc, char **argv, t_mst *mst)
+static void	lst_from_strs(int argc, char **argv, t_mst *mst)
 {
 	int			i;
 	long long	cur_num;
