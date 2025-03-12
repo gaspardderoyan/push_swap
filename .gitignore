@@ -8,3 +8,5 @@ obj/
 .vscode/
 **/*.a
 checker_linux
+/tests/*
+!/tests/*.c
